@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoulAI - SoulUp</title>
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/js/script.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
     <header class="site-header home-header">
         <nav class="navbar container">
+            <a class="logo" href="index.html">
+                <img src="./assets/media/logo-soulup.png" alt="Logo SoulUp">
+            </a>
             <ul class="nav-links">
                 <li>
                     <a class="active" href="index.html">Home</a>
@@ -24,10 +37,12 @@
     <main>
         <section class="hero">
             <div class="container hero-content">
+                <p>Apresentamos</p>
                 <h1 class="hero-title">SoulAI</h1>
-                <video class="hero-video" src="./assets/media/avatar_hero.mov"></video>
+                <video class="hero-video" autoplay muted loop preload="auto" disablepictureinpicture
+                    disableremoteplayback src="./assets/media/avatar_hero.mov"></video>
 
-                <button class="button-hero">Conheça o projeto</button>
+                <a class="button" href="pages/sobre.html">Conheca o projeto</a>
             </div>
         </section>
 
@@ -36,13 +51,16 @@
                 <div>
                     <h2>Nosso Projeto</h2>
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa quis officiis assumenda quibusdam accusamus ad asperiores sequi, quam harum? Repudiandae, numquam pariatur! Ducimus iure voluptatum facere a, nostrum recusandae sit.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa quis officiis assumenda
+                        quibusdam accusamus ad asperiores sequi, quam harum? Repudiandae, numquam pariatur! Ducimus iure
+                        voluptatum facere a, nostrum recusandae sit.
                     </p>
                 </div>
 
                 <div class="card">
                     <h2>Ideia Principal</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis blanditiis sequi ipsum facere incidunt iure.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis blanditiis sequi ipsum
+                        facere incidunt iure.</p>
                 </div>
             </div>
         </section>
@@ -76,6 +94,7 @@
             <p>&copy; Todos os diretitos reservados. Projeto acadêmico FIAP - Challenge 2026</p>
         </div>
     </footer>
-    
+
 </body>
+
 </html>
