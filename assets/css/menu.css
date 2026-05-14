@@ -52,23 +52,45 @@
 }
 
 .nav-links a {
+  position: relative;
   display: block;
+  overflow: hidden;
   padding: 1rem 1.8rem;
   border-radius: 16px;
   color: var(--color-branco);
   font-weight: 800;
   transition: 0.3s ease-out;
+  z-index: 0;
+  isolation: isolate;
 }
 
 .nav-links a:hover{
-    scale: 1.02;
-    transition: 0.3s ease-out;
-    color: var(--color-preto);
-    background-color: rgba(255, 255, 255, 0.79);
+  color: var(--color-preto);
+}
+
+.nav-links a::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-amarelo);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: 0.3s ease-out;
+  z-index: -1;
+}
+
+.nav-links a:hover::after{
+  transform: scaleY(1);
 }
 
 .nav-links a.active{
-    transition: 0.3s ease-in;
     color: var(--color-preto);
-    background-color: var(--color-amarelo);
+}
+
+.nav-links a.active::after{
+  transform: scaleY(1);
 }
