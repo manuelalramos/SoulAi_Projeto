@@ -4,13 +4,13 @@ const cardSlider = document.querySelector(".cards-slider");
 //Verificando se existe o slider na página antes
 if (cardSlider) {
     //Capturando todos os cards
-    const sliderCards = cardSlider.querySelector(".slider-card");
+    const sliderCards = cardSlider.querySelectorAll(".slider-card");
     //Capturando o botão esquerda
     const leftButton = cardSlider.querySelector("#button-left");
     //Capturando o botão direito
     const rightButton = cardSlider.querySelector("#button-right");
     //Capturando as bolinhas de status dos cards
-    const sliderDots = cardSlider.querySelector(".slider-dot");
+    const sliderDots = cardSlider.querySelectorAll(".slider-dot");
 
     //Card do momento
     let currentCard = 0;
@@ -32,6 +32,19 @@ if (cardSlider) {
         //Active da bolinha apenas no card atual
         sliderDots[cardIndex].classList.add("active");
     }
+
+    //Seta direita vai para o proximo
+    rightButton.addEventListener("click", function () {
+        //Soma 1
+        currentCard = currentCard + 1;
+
+        // Loop 
+        if (currentCard >= sliderCards.length){
+            currentCard = 0;
+        }
+        
+        showCard(currentCard);
+    });
 
     
 }

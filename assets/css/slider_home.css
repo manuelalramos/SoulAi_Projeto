@@ -1,3 +1,7 @@
+.section-cards{
+    background-color: var(--color-offwhite);
+}
+
 .cards-slider{
     display: flex;
     align-items: center;
@@ -20,6 +24,10 @@
     transform: translateX(2rem);
     pointer-events: none;
     transition: opacity 0.3s, transform 0.3s;
+    padding: 2.4rem;
+    border: 0.1rem solid var(--border-color);
+    background-color: var(--color-branco);
+    border-radius: 15px;
 }
 
 .slider-card.active{
@@ -57,12 +65,12 @@
     height: 1rem;
     border: none;
     border-radius: 50%;
-    background-color: var(--color-azul);
+    background-color: var(--border-color);
     cursor: pointer;
 }
 
 .slider-dot.active{
     width: 2.4rem;
     border-radius: 2rem;
-    background-color: var(--color-roxo);
+    background-color: var(--color-azul);
 }
