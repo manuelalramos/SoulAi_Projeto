@@ -10,7 +10,7 @@ if (cardSlider) {
     //Capturando o botão direito
     const rightButton = cardSlider.querySelector("#button-right");
     //Capturando as bolinhas de status dos cards
-    const sliderDots = cardSlider.querySelectorAll(".slider-dot");
+    const sliderDots = document.querySelectorAll(".slider-dot");
 
     //Card do momento
     let currentCard = 0;
@@ -19,7 +19,7 @@ if (cardSlider) {
     function showCard(cardIndex) {
         //Tirando a classe active 
         sliderCards.forEach(function(card) {
-            card.classList.remove("active")
+            card.classList.remove("active");
         });
         //Active apenas no que deve aparecer
         sliderCards[cardIndex].classList.add("active");
@@ -33,7 +33,7 @@ if (cardSlider) {
         sliderDots[cardIndex].classList.add("active");
     }
 
-    //Seta direita vai para o proximo
+    //Seta direita
     rightButton.addEventListener("click", function () {
         //Soma 1
         currentCard = currentCard + 1;
@@ -44,6 +44,31 @@ if (cardSlider) {
         }
         
         showCard(currentCard);
+    });
+
+    //Seta esquerda
+    leftButton.addEventListener("click", function () {
+        currentCard = currentCard - 1; 
+
+        //Loop
+        if (currentCard < 0) {
+            currentCard = sliderCards.length - 1;
+        }
+
+        showCard(currentCard);
+        
+    });
+
+    //Click nas bolinhas
+    sliderDots.forEach(function (dot) {
+        //Click na bolinha leva direto para o card certo
+        dot.addEventListener("click", function () {
+            //Pega o numero do data-slider
+            currentCard = Number(dot.dataset.sliderDot);
+
+            showCard(currentCard)
+        });
+        
     });
 
     

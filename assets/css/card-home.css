@@ -1,5 +1,21 @@
 .section-cards{
     background-color: var(--color-offwhite);
+    padding: 5rem;
+}
+
+.section-card-label{
+    margin-left: 5%;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: var(--color-amarelo);
+    font-weight: 900;
+}
+
+.section-card-title{
+    margin-top: -1.2%;
+    margin-left: 4.5%;
+    font-size: 5rem;
+    color: black;
 }
 
 .cards-slider{
@@ -14,6 +30,7 @@
     flex: 1;
     min-height: 18rem;
     overflow: hidden;
+   
 }
 
 .slider-card{
@@ -67,10 +84,16 @@
     border-radius: 50%;
     background-color: var(--border-color);
     cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 }
 
 .slider-dot.active{
     width: 2.4rem;
     border-radius: 2rem;
     background-color: var(--color-azul);
+}
+
+.slider-dot:hover{
+    transform: scale(1.2);
+    background-color: var(--color-roxo);
 }
