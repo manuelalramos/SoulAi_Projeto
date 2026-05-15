@@ -1,0 +1,30 @@
+.page-sobre-title{
+    background: var(--gradient);
+    padding: 6.4rem 0;
+    color: var(--color-white);
+}
+
+.hero-title-sobre{
+    margin-top: -1.6%;
+    font-size: 5rem;
+    color: var(--color-branco);
+}
+
+.sobre-text{
+    color: var(--color-branco   );
+}
+
+.section-label-sobre{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: var(--color-amarelo);
+    font-weight: 900;
+}
+
+.div-card-sobre{
+    padding: 2.4rem;
+    border: 0.1rem solid var(--color-border);
+    border-radius: 0.8rem;
+    background-color: var(--color-offwhite);
+    box-shadow: var(--shadow-card);
+}

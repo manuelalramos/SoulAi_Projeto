@@ -24,16 +24,18 @@
     font-weight: 900;
     line-height: 1;
     white-space: nowrap;
+    margin-top: 1rem;
 }
 
 .hero-text{
+    margin-top: 2rem;
     position: absolute;
     top: 5.6rem;
     left: 50%;
     z-index: 1;
     transform: translateX(-50%);
     width: 100%;
-    margin-bottom: 1.6rem;
+    margin-bottom: 2rem;
     color: var(--color-amarelo);
     font-weight: bold;
     text-transform: uppercase;

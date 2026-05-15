@@ -53,7 +53,6 @@
 }
 
 .section-label-integrantes{
-    margin-top: 5%;
     font-size: 1.6rem;
     text-transform: uppercase;
     color: var(--color-amarelo);
@@ -86,6 +85,6 @@
 
 .page-integrantes-title{
     background: var(--gradient);
-     padding: 6.4rem 0;
-     color: var(--color-white);
+    padding: 6.4rem 0;
+    color: var(--color-white);
 }
