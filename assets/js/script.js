@@ -1,6 +1,22 @@
+//Cabeçalho do HOME
+const homeHeader = document.querySelector(".home-header");
+
+function changeHeaderBackground() {
+    if (homeHeader) {
+        if (window.scrollY > 30) {
+            homeHeader.classList.add("scrolled");
+        } else {
+            homeHeader.classList.remove("scrolled");
+        }
+    }
+}
+
+changeHeaderBackground();
+window.addEventListener("scroll", changeHeaderBackground);
+
 
 //Capturando a div slider
-const cardSlider = document.querySelector(".cards-slider");
+const cardSlider = document.querySelector(".cards-slider"); 
 //Verificando se existe o slider na página antes
 if (cardSlider) {
     //Capturando todos os cards

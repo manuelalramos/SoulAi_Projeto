@@ -6,7 +6,7 @@
     transition: background 0.3s, box-shadow 0.3s;
 }
 
-/* .home-header {
+.home-header {
   position: fixed;
   left: 0;
   width: 100%;
@@ -14,9 +14,9 @@
 }
 
 .home-header.scrolled {
-  background: var(--gradient-brand);
+  background: var(--gradient);
   box-shadow: var(--shadow-header);
-} */
+} 
 
 .navbar {
   position: relative;
