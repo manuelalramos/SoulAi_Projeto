@@ -1,0 +1,79 @@
+.team-card{
+    padding: 2.4rem;
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--color-branco);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    transition: 0.3s ease-in;
+}
+
+.team-card:hover{
+    scale: 1.03;
+    transition: 0.3s ease-out;
+}
+
+.member-photo{
+    width: 15rem;
+    height: 15rem;
+    margin: 0 auto 1.8rem;
+    border-radius: 0.8rem;
+    object-fit: cover;
+}
+
+.team-card h2{
+    margin-bottom: 1rem;
+    color: var(--color-preto);
+    font-size: 2.2rem;
+}
+
+.team-links{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.6rem;
+}
+
+.cards-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+    margin-bottom: 5rem;
+}
+
+.hero-title-integrantes{
+    margin-top: -1.6%;
+    font-size: 5rem;
+    color: black;
+}
+.section-label-integrantes{
+    margin-top: 5%;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: var(--color-amarelo);
+    font-weight: 900;
+}
+
+.fa-github{
+    color: var(--color-preto);
+    transition: 0.3s ease-in;
+}
+
+.fa-github:hover{
+    color: var(--color-roxo);
+    scale: 1.05;
+    transition: 0.3s ease-out;
+    transform: rotate(-2deg);
+}
+
+.fa-square-linkedin{
+    color: var(--color-preto);
+    transition: 0.3s ease-in;
+}
+
+.fa-square-linkedin:hover{
+    color: var(--color-azul);
+    scale: 1.05;
+    transition: 0.3s ease-out;
+    transform: rotate(2deg);
+}
