@@ -11,7 +11,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/c79d6fb851.js" crossorigin="anonymous"></script>
 
@@ -62,30 +64,46 @@
                 </div>
 
                 <div class="card">
-                   <video class="card-video" autoplay muted loop preload="auto" disablepictureinpicture
-                    disableremoteplayback src="./assets/media/mockup_celular_chat.mp4"></video>
+                    <video class="card-video" autoplay muted loop preload="auto" disablepictureinpicture
+                        disableremoteplayback src="./assets/media/mockup_celular_chat.mp4"></video>
                 </div>
             </div>
         </section>
 
         <section class="section section-cards">
             <div class="container">
+                <p class="section-label">Resumo</p>
                 <h2>O que o site apresenta</h2>
-                <div class="cards-grid">
-                    <article class="card">
-                        <h3>Projeto</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
-                    </article>
+                <div class="cards-slider">
+                    <button class="slider-button" type="button"><i class="fa-solid fa-angle-left"
+                            style="color: rgb(255, 255, 255);"></i></button>
+                    <div class="window-slider">
+                        <article class="card slider-card active">
+                            <h3>Projeto</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
+                        </article>
 
-                    <article class="card">
-                        <h3>Equipe</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
-                    </article>
+                        <article class="card slider-card">
+                            <h3>Equipe</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
+                        </article>
 
-                    <article class="card">
-                        <h3>Contato</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
-                    </article>
+                        <article class="card slider-cardx">
+                            <h3>Contato</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
+                        </article>
+
+                        <button class="slider-button" type="button"><i class="fa-solid fa-angle-right"
+                                style="color: rgb(255, 255, 255);"></i></button>
+                    </div>
+
+                    <div class="slider-dots">
+                        <button class="slider-dot active" type="button" data-slider-dot="0"></button>
+                        <button class="slider-dot" type="button" data-slider-dot="1"></button>
+                        <button class="slider-dot active" type="button" data-slider-dot="2"></button>
+
+                    </div>
+
 
                 </div>
             </div>
