@@ -1,4 +1,5 @@
 .team-card{
+    margin-top: 1rem;
     padding: 2.4rem;
     border: 0.1rem solid var(--border-color);
     border-radius: 0.8rem;
@@ -44,8 +45,13 @@
 .hero-title-integrantes{
     margin-top: -1.6%;
     font-size: 5rem;
-    color: black;
+    color: var(--color-branco);
 }
+
+.integrantes-text{
+    color: var(--color-branco   );
+}
+
 .section-label-integrantes{
     margin-top: 5%;
     font-size: 1.6rem;
@@ -76,4 +82,10 @@
     scale: 1.05;
     transition: 0.3s ease-out;
     transform: rotate(2deg);
+}
+
+.page-integrantes-title{
+    background: var(--gradient);
+     padding: 6.4rem 0;
+     color: var(--color-white);
 }
