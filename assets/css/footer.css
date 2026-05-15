@@ -1,0 +1,16 @@
+.footer{
+    padding: 2.4rem 0;
+    color: var(--color-branco);
+    background-color: var(--color-preto);
+}
+
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-content img{
+    width: 11rem;
+}
