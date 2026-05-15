@@ -45,7 +45,7 @@
     top: 8rem;
     left: 50%;
     z-index: 3;
-    width: 150rem;
+    width: 160rem;
     max-width: none;
     transform: translateX(-50%);
     pointer-events: none;
