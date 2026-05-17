@@ -11,7 +11,7 @@
 }
 
 .sobre-text{
-    color: var(--color-branco   );
+    color: var(--color-branco);
 }
 
 .section-label-sobre{
@@ -23,8 +23,52 @@
 
 .div-card-sobre{
     padding: 2.4rem;
-    border: 0.1rem solid var(--color-border);
-    border-radius: 0.8rem;
-    background-color: var(--color-offwhite);
+    border: 0.1rem solid bisque;
+    border-radius: 20px;
+    background-color: rgba(255, 228, 196, 0.401);
     box-shadow: var(--shadow-card);
+    transition: 0.3s ease-in;
+}
+
+.div-card-sobre:hover{
+    scale: 1.03;
+    transition: 0.3s;
+}
+
+.grid{
+    padding: 6.4rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.section-squares{
+    background-color: var(--color-offwhite);
+    padding: 6.4rem 0;
+}
+
+.cards-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card-sobre{
+    padding: 2.4rem;
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--color-branco);
+    box-shadow: var(--shadow-card);
+    transition: 0.3s ease-in;
+}
+
+.card-sobre:hover{
+    scale: 1.03;
+    transition: 0.3s;
+}
+
+.grid h2{
+    margin-bottom: 1.6rem;
+    color: var(--color-texto);
+    font-size: 3.2rem;
 }
