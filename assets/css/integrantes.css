@@ -9,10 +9,21 @@
     transition: 0.3s ease-in;
 }
 
-.team-card:hover{
-    scale: 1.03;
-    transition: 0.3s ease-out;
+
+.cards-grid:hover .team-card{
+    opacity: 0.9;
+    transform: scale(0.94);
 }
+
+.cards-grid .team-card:hover{
+    position: relative;
+  z-index: 1;
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+
+
 
 .member-photo{
     width: 15rem;
