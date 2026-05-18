@@ -1,26 +1,3 @@
-.page-faq-title{
-    background: var(--gradient);
-    padding: 6.4rem 0;
-    color: var(--color-branco);
-}
-
-.hero-title-faq{
-    margin-top: -1.6%;
-    font-size: 5rem;
-    color: var(--color-branco);
-}
-
-.faq-text{
-    color: var(--color-branco);
-}
-
-.section-label-faq{
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    color: var(--color-amarelo);
-    font-weight: 900;
-}
-
 .faq-pergunta{  
     border: 0;
     background-color: transparent;

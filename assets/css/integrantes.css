@@ -53,23 +53,6 @@
     margin-bottom: 5rem;
 }
 
-.hero-title-integrantes{
-    margin-top: -1.6%;
-    font-size: 5rem;
-    color: var(--color-branco);
-}
-
-.integrantes-text{
-    color: var(--color-branco   );
-}
-
-.section-label-integrantes{
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    color: var(--color-amarelo);
-    font-weight: 900;
-}
-
 .fa-github{
     color: var(--color-preto);
     transition: 0.3s ease-in;
@@ -94,8 +77,3 @@
     transform: rotate(2deg);
 }
 
-.page-integrantes-title{
-    background: var(--gradient);
-    padding: 6.4rem 0;
-    color: var(--color-white);
-}
