@@ -89,3 +89,16 @@ if (cardSlider) {
 
     
 }
+
+//Abrindo e fechando cada pergunta
+const faqQuestions = document.querySelectorAll(".faq-pergunta");
+
+faqQuestions.forEach((question) => {
+  question.addEventListener("click", function () {
+
+    const faqItem = question.parentElement;
+
+    faqItem.classList.toggle("active");
+
+  });
+});
