@@ -210,4 +210,15 @@ if (contactForm) {
             contactForm.reset();
         }
     });
+
+    //Menu mobile
+    const botaoMenu = document.querySelector(".menu-button");
+    const navLinks = document.querySelector (".nav-links");
+
+    if (botaoMenu && navLinks) {
+        botaoMenu.addEventListener("click", function () {
+            navLinks.classList.toggle("show")
+        });
+        
+    }
 }
