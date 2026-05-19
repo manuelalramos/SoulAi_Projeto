@@ -102,3 +102,102 @@ faqQuestions.forEach((question) => {
 
   });
 });
+
+
+// Validando campos contato
+// Capturando a div 
+const contactForm = document.querySelector(".contact-form");
+
+// Função de mensagem de erro
+function showError(field, message) {
+  // Pegando o pai. A div pai
+  const formGroup = field.parentElement;
+
+  // Captutando dentro da div pai a mensagem de erro
+  const errorMessage = formGroup.querySelector(".error-mensagem");
+
+  // Adicionando a classe error
+  formGroup.classList.add("error");
+
+  // Coloca o texto da mensagem de erro
+  errorMessage.textContent = message;
+}
+
+// Limpando o campo de erro
+function clearError(field) {
+    //Div pai
+  const formGroup = field.parentElement;
+
+  // Capturando a mensagem de erro
+  const errorMessage = formGroup.querySelector(".error-mensagem");
+
+  // Removendo a classe erro
+  formGroup.classList.remove("error");
+
+  // Apagando a mensagem
+  errorMessage.textContent = "";
+}
+
+
+//Validando o email para aparecer mensagem de erro
+function emailIsValid(email) {
+  return email.includes("@") && email.includes(".");
+}
+
+if (contactForm) {
+  // Envio do form
+  contactForm.addEventListener("submit", function (event) {
+    // Sem envio automatico antes do Java
+    event.preventDefault();
+
+    // Captura cada campos do form
+    const name = contactForm.elements.name;
+    const email = contactForm.elements.email;
+    const subject = contactForm.elements.assunto;
+    const message = contactForm.elements.mensagem;
+
+    // Capturando p da ,ensagem de suceeso
+    const feedback = contactForm.querySelector(".feedback-forms");
+
+    // Varievel da validação
+    let formIsValid = true;
+
+    // Se houver erro limpa
+    clearError(name);
+    clearError(email);
+    clearError(subject);
+    clearError(message);
+    feedback.textContent = "";
+
+    // Validando nome
+    if (name.value.trim() === "") {
+      showError(name, "Preencha seu nome.");
+      formIsValid = false;
+    }
+
+    // Validando e-mail
+    if (email.value.trim() === "" || !emailIsValid(email.value)) {
+      showError(email, "Digite um e-mail válido.");
+      formIsValid = false;
+    }
+
+    // Validando assunto
+    if (subject.value === "") {
+      showError(subject, "Selecione um assunto.");
+      formIsValid = false;
+    }
+
+    // Validando mensagem
+    if (message.value.trim() === "") {
+      showError(message, "Digite uma mensagem.");
+      formIsValid = false;
+    }
+
+    // SSucesso
+    if (formIsValid) {
+      feedback.textContent = "Mensagem enviada com sucesso!";
+      contactForm.reset();
+    }
+  });
+}
+

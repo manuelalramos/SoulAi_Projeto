@@ -65,7 +65,6 @@
     font-weight: 800;
     cursor: pointer;
     transition: 0.3s;
-
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -102,3 +101,4 @@
     font-size: 3.5rem;
     letter-spacing: -1px;
 }
+
