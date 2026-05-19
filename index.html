@@ -23,14 +23,15 @@
 
 <body>
     <header class="site-header home-header">
-        <nav class="navbar container">
-            <a class="logo" href="index.html">
+        <nav class="navbar container" aria-label="Menu principal">
+            <a class="logo" href="index.html" aria-label="Voltar para o inicio">
                 <img src="./assets/media/logo-soulup.png" alt="Logo SoulUp">
             </a>
 
             <!-- mobile -->
             <button class="botao-menu" type="button" aria-label="Abrir menu"><i class="fa-solid fa-bars-staggered"></i></button>
 
+            <!-- links do menu principal -->
             <ul class="nav-links">
                 <li class="nav-a-container">
                     <a class="active" href="index.html">Inicio</a>
@@ -45,17 +46,19 @@
     </header>
 
     <main>
+        <!-- primeira tela do site -->
         <section class="hero">
             <div class="container hero-content">
                 <p class="hero-text">Apresentamos</p>
                 <h1 class="hero-title">SoulAI</h1>
-                <video class="hero-video" autoplay muted loop preload="auto" disablepictureinpicture
+                <video class="hero-video" autoplay muted loop preload="auto" disablepictureinpicture aria-label="Video de apresentacao da SoulAI"
                     disableremoteplayback src="./assets/media/avatar_hero.mov"></video>
 
                 <a class="button-hero" href="#home">Conheça o projeto</a>
             </div>
         </section>
 
+        <!-- parte que explica um pouco do projeto -->
         <section class="section-um" id="home">
             <div class="container two-columns">
                 <div class="section-content">
@@ -70,19 +73,19 @@
                 </div>
 
                 <div class="card">
-                    <video class="card-video" autoplay muted loop preload="auto" disablepictureinpicture
+                    <video class="card-video" autoplay muted loop preload="auto" disablepictureinpicture aria-label="Video mostrando o mockup do chat no celular"
                         disableremoteplayback src="./assets/media/mockup_celular_chat.mp4"></video>
                 </div>
             </div>
         </section>
         ,
+        <!-- cards do resumo do site -->
         <section class="section section-cards">
             <div class="container">
                 <p class="section-card-label">Resumo</p>
                 <h2 class="section-card-title">O que o site apresenta</h2>
                 <div class="cards-slider">
-                    <button class="slider-button" type="button" id="button-left"><i class="fa-solid fa-angle-left"
-                            style="color: rgb(255, 255, 255);"></i></button>
+                    <button class="slider-button" type="button" id="button-left" aria-label="Voltar card"><i class="fa-solid fa-angle-left"></i></button>
                     <div class="window-slider">
                         <article class="card slider-card active">
                             <h3>Projeto</h3>
@@ -101,13 +104,12 @@
 
                     </div>
 
-                    <button class="slider-button" type="button" id="button-right"><i class="fa-solid fa-angle-right"
-                            style="color: rgb(255, 255, 255);"></i></button>
+                    <button class="slider-button" type="button" id="button-right" aria-label="Proximo card"><i class="fa-solid fa-angle-right"></i></button>
                 </div>
                 <div class="slider-dots">
-                    <button class="slider-dot active" type="button" data-slider-dot="0"></button>
-                    <button class="slider-dot" type="button" data-slider-dot="1"></button>
-                    <button class="slider-dot" type="button" data-slider-dot="2"></button>
+                    <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Ir para o card Projeto"></button>
+                    <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Ir para o card Equipe"></button>
+                    <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Ir para o card Contato"></button>
 
                 </div>
             </div>
@@ -116,7 +118,7 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <a href="./index.html"><img src="./assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
+            <a href="./index.html" aria-label="Voltar para o inicio"><img src="./assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
             <p>&copy; Todos os diretitos reservados. Projeto acadêmico FIAP - Challenge 2026</p>
         </div>
     </footer>

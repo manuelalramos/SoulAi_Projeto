@@ -21,14 +21,15 @@
 
 <body>
     <header class="site-header">
-        <nav class="navbar container">
-            <a class="logo" href="../index.html">
+        <nav class="navbar container" aria-label="Menu principal">
+            <a class="logo" href="../index.html" aria-label="Voltar para o inicio">
                 <img src="../assets/media/logo-soulup.png" alt="Logo SoulUp">
             </a>
 
             <!-- mobile -->
             <button class="botao-menu" type="button" aria-label="Abrir menu"><i class="fa-solid fa-bars-staggered"></i></button>
 
+            <!-- links do menu principal -->
             <ul class="nav-links">
                 <li class="nav-a-container">
                     <a href="../index.html">Inicio</a>
@@ -43,6 +44,7 @@
     </header>
 
     <main>
+        <!-- topo da pagina -->
         <section class="page-title">
             <div class="container">
                 <p class="page-label">Contato</p>
@@ -51,16 +53,18 @@
             </div>
         </section>
 
-        <dialog id="meuModal">
+        <!-- popup de sucesso do formulario -->
+        <dialog id="meuModal" aria-label="Mensagem do formulario">
             <button aria-label="Fechar janela" id="btnFechar"></button>
             <div id="msg">
               TESTE   
             </div>
           </dialog>
 
+        <!-- formulario de contato -->
         <section>
             <div class="container contact-layout">
-                <form class="contact-form">
+                <form class="contact-form" aria-label="Formulario de contato">
                     <div class="form-group">
                         <label for="name">Nome</label>
                         <input id="name" type="text" name="name" placeholder="Digite seu nome completo" minlength="13" maxlength="150" required>
@@ -109,7 +113,7 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <a href="../index.html"><img src="../assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
+            <a href="../index.html" aria-label="Voltar para o inicio"><img src="../assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
             <p>&copy; Todos os diretitos reservados. Projeto acadêmico FIAP - Challenge 2026</p>
         </div>
     </footer>

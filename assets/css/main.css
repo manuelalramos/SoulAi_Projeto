@@ -1,12 +1,19 @@
+/* base do site */
 @import url(./base.css);
 @import url(./menu.css);
+
+/* partes da home */
 @import url(./hero.css);
 @import url(./section-home.css);
 @import url(./card-home.css);
 @import url(./footer.css);
+
+/* paginas internas */
 @import url(./integrantes.css);
 @import url(./sobre.css);
 @import url(./faq.css);
 @import url(./contato.css);
 @import url(./modal.css);
+
+/* responsivo fica por ultimo pra mandar por cima quando precisar */
 @import url(./responsividade.css);

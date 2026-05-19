@@ -21,14 +21,15 @@
 
 <body>
     <header class="site-header">
-        <nav class="navbar container">
-            <a class="logo" href="../index.html">
+        <nav class="navbar container" aria-label="Menu principal">
+            <a class="logo" href="../index.html" aria-label="Voltar para o inicio">
                 <img src="../assets/media/logo-soulup.png" alt="Logo SoulUp">
             </a>
 
             <!-- mobile -->
             <button class="botao-menu" type="button" aria-label="Abrir menu"><i class="fa-solid fa-bars-staggered"></i></button>
 
+            <!-- links do menu principal -->
             <ul class="nav-links">
                 <li class="nav-a-container">
                     <a href="../index.html">Inicio</a>
@@ -43,6 +44,7 @@
     </header>
 
     <main>
+        <!-- topo da pagina -->
         <section class="page-title">
             <div class="container">
                 <p class="page-label">FAQ</p>
@@ -51,6 +53,7 @@
             </div>
         </section>
 
+        <!-- perguntas que abrem e fecham -->
         <section class="section">
             <div class="container faq-list">
                 <article class="faq-item active">
@@ -82,7 +85,7 @@
 
     <footer class="footer">
         <div class="container footer-content">
-            <a href="../index.html"><img src="../assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
+            <a href="../index.html" aria-label="Voltar para o inicio"><img src="../assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
             <p>&copy; Todos os diretitos reservados. Projeto acadêmico FIAP - Challenge 2026</p>
         </div>
     </footer>

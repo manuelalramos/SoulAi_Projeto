@@ -97,3 +97,11 @@
     transform: scale(1.2);
     background-color: var(--color-roxo);
 }
+
+.fa-angle-right{
+    color: var(--color-offwhite);
+}
+
+.fa-angle-left{
+    color: var(--color-offwhite);
+}
