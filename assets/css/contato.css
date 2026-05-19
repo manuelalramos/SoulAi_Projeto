@@ -1,0 +1,104 @@
+.contact-layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.contact-form{
+    display: grid;
+    gap: 1.6rem;
+    padding: 2.4rem;
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--color-branco);
+    box-shadow: var(--shadow-card);
+}
+
+.form-group {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.form-group label{
+    color: var(--color-preto);
+    font-weight: bold;
+}
+
+.form-group input, .form-group select, .form-group textarea{
+    width: 100%;
+    padding: 1.2rem;
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.6rem;
+    font-size: 1.6rem;
+}
+
+.form-group.error input, .form-group.error select, .form-group.error textarea{
+    border-color: var(--color-erro);
+}
+
+.error-mensagem{
+    min-height: 1.8rem;
+    color:var(--color-erro);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.feedback-form{
+    color: var(--color-sucesso);
+    font-weight: bold;
+}
+
+.button, textarea, input, select{
+    font-family: var(--font-principal);
+}
+
+.button {
+    display: inline-block;
+    padding: 1.2rem 2rem;
+    border: 0;
+    border-radius: 0.6rem;
+    color: var(--color-azul);
+    background-color: var(--color-branco);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 0%;
+    height: 100%;
+    background: var(--color-amarelo);
+    z-index: -1;
+    transition: all 0.6s ease;
+}
+
+.button:hover::before{
+    width: 100%;
+}
+
+.card-informacoes{
+    display: grid;
+    padding: 2.4rem;
+    border: 0.1rem solid var(--border-color);
+    border-radius: 0.8rem;
+    background-color: var(--color-branco);
+    box-shadow: var(--shadow-card);
+}
+
+.card-informacoes h2{
+    margin-bottom: 1.6rem;
+    font-size: 3.5rem;
+    letter-spacing: -1px;
+}
