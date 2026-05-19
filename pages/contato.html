@@ -46,6 +46,47 @@
                 <p class="page-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestiae!</p>
             </div>
         </section>
+
+        <section>
+            <div class="container contact-layout">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input id="name" type="text" name="name" placeholder="Digite seu nome">
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" name="email" placeholder="email@email.com">
+                        <small class="error-message"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="assunto">Assunto</label>
+                        <select name="assunto" id="assunto">
+                            <option value="">Selecione uma opção</option>
+                            <option value="projeto">Projeto</option>
+                            <option value="equipe">Equipe</option>
+                            <option value="duvida">Dúvidas</option>
+                        </select>
+                        <small class="error-message"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem"></textarea>
+                        <small class="error-message"></small>
+                    </div>
+                    
+                    <button class="button" type="submit">Enviar a mensagem</button>
+
+                    <p class="feadback-forms"></p>
+                </form>
+
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
