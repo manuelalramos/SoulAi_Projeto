@@ -1,0 +1,201 @@
+/* Abaixo do px Desktop */
+@media (max-width: 991px) {
+  .menu-button, .botao-menu {
+    display: block;
+    position: absolute;
+    right: 0;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 7.2rem;
+    left: 5%;
+    right: 5%;
+    flex-direction: column;
+    padding: 1.2rem;
+    border-radius: 0.8rem;
+    background: var(--color-azul);
+    box-shadow: var(--shadow-card);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-a-container {
+    flex-direction: column;
+  }
+
+  .section-um .two-columns, .grid, .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .section-content {
+    width: 100%;
+    height: auto;
+    margin: 4rem 0;
+  }
+
+  .section-um-button {
+    display: inline-block;
+    width: auto;
+    margin: 1.6rem 0 2.4rem 4.6%;
+    padding: 1rem 2rem;
+    text-align: center;
+  }
+
+  .card-video {
+    display: block;
+    max-width: 80%;
+    margin: 3rem auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .page-title, .section, .section-squares {
+    padding: 4.8rem 0;
+  }
+
+  .cards-grid, .cards-grid-sobre {
+    grid-template-columns: 1fr;
+  }
+
+  .button, .button-hero {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section-um-button {
+    display: block;
+    width: fit-content;
+    margin: 1.6rem auto 2.4rem;
+    padding: 1rem 2.4rem;
+  }
+
+  .cards-slider {
+    gap: 0.8rem;
+  }
+
+  .window-slider {
+    min-height: 22rem;
+  }
+
+  .slider-card {
+    min-height: 22rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Mobile até 480 */
+@media (max-width: 480px) {
+  .container {
+    width: 92%;
+  }
+
+  .navbar {
+    min-height: 6.4rem;
+  }
+
+  .logo img {
+    width: 10.5rem;
+  }
+
+  .nav-links {
+    top: 6.4rem;
+  }
+
+  .hero {
+    min-height: 68rem;
+  }
+
+  .hero-content {
+    min-height: 68rem;
+  }
+
+  .hero-title {
+    top: 9rem;
+    font-size: 8.4rem;
+  }
+
+  .hero-text {
+    top: 6rem;
+  }
+
+  .hero-video {
+    top: 12rem;
+    width: 88rem;
+  }
+
+  .button-hero {
+    bottom: 3.2rem;
+    width: auto;
+    min-width: 24rem;
+  }
+
+  .page-heading {
+    font-size: 3.4rem;
+  }
+
+  .section-title, .section-card-title, .grid h2 {
+    font-size: 2.8rem;
+  }
+
+  .slider-button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* Tablet a partir de 768px*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .section, .section-squares {
+    padding: 5.6rem 0;
+  }
+
+  .cards-grid, .cards-grid-sobre {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    min-height: 78rem;
+  }
+
+  .hero-content {
+    min-height: 78rem;
+  }
+
+  .hero-title {
+    top: 7rem;
+    font-size: 15rem;
+  }
+
+  .hero-video {
+    top: 9rem;
+    width: 118rem;
+  }
+}
+
+/*  Desktop a partir de 992px */
+@media (min-width: 992px) {
+  .menu-button, .botao-menu {
+    display: none;
+  }
+
+  .cards-grid, .cards-grid-sobre {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop grande a partir de 1300px */
+@media (min-width: 1300px) {
+  .container {
+    max-width: 118rem;
+  }
+}

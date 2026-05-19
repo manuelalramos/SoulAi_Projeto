@@ -14,6 +14,22 @@ function changeHeaderBackground() {
 changeHeaderBackground();
 window.addEventListener("scroll", changeHeaderBackground);
 
+// Menu mobile
+const menuButton = document.querySelector(".menu-button, .botao-menu");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuButton && navLinks) {
+    menuButton.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("show");
+        });
+    });
+}
+
 // Capturando a div slider
 const cardSlider = document.querySelector(".cards-slider");
 
@@ -210,15 +226,4 @@ if (contactForm) {
             contactForm.reset();
         }
     });
-
-    //Menu mobile
-    const botaoMenu = document.querySelector(".menu-button");
-    const navLinks = document.querySelector (".nav-links");
-
-    if (botaoMenu && navLinks) {
-        botaoMenu.addEventListener("click", function () {
-            navLinks.classList.toggle("show")
-        });
-        
-    }
 }
