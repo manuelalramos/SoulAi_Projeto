@@ -188,6 +188,30 @@ O projeto também usa vídeos e imagens locais para representar melhor a soluç�
 
 ---
 
+## 🖥️ Como clonar e rodar
+
+Para clonar o projeto na sua máquina, use o comando:
+
+```bash
+git clone https://github.com/manuelalramos/SoulAi_Projeto.git
+```
+
+Depois, entre na pasta do projeto:
+
+```bash
+cd SoulAi_Projeto
+```
+
+Como o projeto foi feito com HTML, CSS e JavaScript puro, é só abrir o arquivo `index.html` no navegador.
+
+⚠️ Para visualizar tudo certinho, precisa estar com internet, porque o projeto usa recursos externos como:
+
+- Ícones do Font Awesome
+- Fonte do Google Fonts
+- Imagens dos badges do README
+
+---
+
 ## 💬 Contato
 
 Para dúvidas, sugestões ou informações sobre o projeto:
