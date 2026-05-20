@@ -31,6 +31,10 @@
     grid-template-columns: 1fr;
   }
 
+  .funcionalidades-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .section-content {
     width: 100%;
     height: auto;
@@ -58,7 +62,7 @@
     padding: 4.8rem 0;
   }
 
-  .cards-grid, .cards-grid-sobre {
+  .cards-grid, .cards-grid-sobre, .funcionalidades-grid {
     grid-template-columns: 1fr;
   }
 
@@ -146,6 +150,10 @@
     font-size: 2.8rem;
   }
 
+  .fluxo-title {
+    font-size: 3rem;
+  }
+
   .slider-button {
     width: 4rem;
     height: 4rem;
@@ -159,7 +167,7 @@
     padding: 5.6rem 0;
   }
 
-  .cards-grid, .cards-grid-sobre {
+  .cards-grid, .cards-grid-sobre, .funcionalidades-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -190,6 +198,10 @@
 
   .cards-grid, .cards-grid-sobre {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .funcionalidades-grid {
+    grid-template-columns: repeat(7, 1fr);
   }
 }
 

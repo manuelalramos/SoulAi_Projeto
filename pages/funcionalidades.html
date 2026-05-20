@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulAI - SoulUp</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script src="../assets/js/script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="../assets/media/icone.png">
+
+    <script src="https://kit.fontawesome.com/c79d6fb851.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Menu principal">
+            <a class="logo" href="../index.html" aria-label="Voltar para o inicio">
+                <img src="../assets/media/logo-soulup.png" alt="Logo SoulUp">
+            </a>
+
+            <!-- mobile -->
+            <button class="botao-menu" type="button" aria-label="Abrir menu"><i class="fa-solid fa-bars-staggered"></i></button>
+
+            <!-- links do menu principal -->
+            <ul class="nav-links">
+                <li class="nav-a-container">
+                    <a href="../index.html">Inicio</a>
+                    <a href="./integrantes.html">Integrantes</a>
+                    <a href="./sobre.html">Sobre</a>
+                    <a class="active" href="./funcionalidades.html">Funcionalidades</a>
+                    <a href="./faq.html">FAQ</a>
+                    <a href="./contato.html">Contato</a>
+
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- topo da pagina -->
+        <section class="page-title">
+            <div class="container">
+                <p class="page-label">Funcionalidades</p>
+                <h1 class="page-heading">Como a solucao funciona</h1>
+                <p class="page-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, molestiae!</p>
+            </div>
+        </section>
+
+        <!-- fluxo de uso -->
+        <section class="fluxo-section">
+            <div class="container">
+                <div class="fluxo-header">
+                    <p class="fluxo-label">Fluxo de uso</p>
+                    <h2 class="fluxo-title">Do primeiro acesso ate as acoes</h2>
+                    <p class="fluxo-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, facere.</p>
+                </div>
+
+                <div class="funcionalidades-grid">
+                    <article class="funcionalidade-card">
+                        <h3>01</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+
+                    <article class="funcionalidade-card">
+                        <h3>02</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+
+                    <article class="funcionalidade-card">
+                        <h3>03</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+
+                    <article class="funcionalidade-card">
+                        <h3>04</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+
+                    <article class="funcionalidade-card">
+                        <h3>05</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+
+                    <article class="funcionalidade-card">
+                        <h3>06</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+
+                    <article class="funcionalidade-card">
+                        <h3>07</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- carrossel de funcionalidades -->
+        <section class="funcionalidades-slider">
+            <div class="container">
+                <p class="section-card-label">Resumo</p>
+                <h2 class="section-card-title">O que aparece no uso</h2>
+                <div class="cards-slider">
+                    <button class="slider-button" type="button" id="button-left" aria-label="Voltar card"><i class="fa-solid fa-angle-left"></i></button>
+                    <div class="window-slider">
+                        <article class="card slider-card active">
+                            <h3>Missao</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
+                        </article>
+
+                        <article class="card slider-card">
+                            <h3>Acao</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
+                        </article>
+
+                        <article class="card slider-card">
+                            <h3>Progresso</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, tempora!</p>
+                        </article>
+
+                    </div>
+
+                    <button class="slider-button" type="button" id="button-right" aria-label="Proximo card"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+                <div class="slider-dots">
+                    <button class="slider-dot active" type="button" data-slider-dot="0" aria-label="Ir para o card Missao"></button>
+                    <button class="slider-dot" type="button" data-slider-dot="1" aria-label="Ir para o card Acao"></button>
+                    <button class="slider-dot" type="button" data-slider-dot="2" aria-label="Ir para o card Progresso"></button>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <a href="../index.html" aria-label="Voltar para o inicio"><img src="../assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
+            <p>&copy; Todos os diretitos reservados. Projeto academico FIAP - Challenge 2026</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
