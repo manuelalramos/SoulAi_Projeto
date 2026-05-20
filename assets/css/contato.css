@@ -46,7 +46,7 @@
     font-weight: bold;
 }
 
-.feedback-form{
+.feedback-forms{
     color: var(--color-sucesso);
     font-weight: bold;
 }
@@ -97,8 +97,13 @@
 }
 
 .card-informacoes h2{
-    margin-bottom: 1.6rem;
     font-size: 3.5rem;
     letter-spacing: -1px;
 }
+
+.card-informacoes-text{
+     margin: 1rem 0;
+}
+   
+
 
