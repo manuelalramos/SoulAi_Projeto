@@ -222,8 +222,12 @@
     display: none;
   }
 
-  .cards-grid, .cards-grid-sobre {
+  .cards-grid-sobre {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .funcionalidades-grid {
