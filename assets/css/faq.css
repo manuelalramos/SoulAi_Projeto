@@ -17,6 +17,7 @@
 }
 
 .faq-resposta{
+    margin-top: 1rem;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
