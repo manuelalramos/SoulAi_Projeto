@@ -9,7 +9,7 @@
   <img src="./assets/media/logo-soulup.png" alt="Logo SoulUp" width="190"/>
 </p>
 
-<h2 align="center">💜 Front-end • Sustentabilidade • Experiência do Usuário</h2>
+<h2 align="center">Front-end • Sustentabilidade • Experiência do Usuário</h2>
 
 <p align="center">
 Projeto acadêmico desenvolvido para o <b>Challenge FIAP 2026</b>, criando uma proposta de avatar inteligente para a plataforma <b>SoulUp</b>.
@@ -185,6 +185,30 @@ O projeto também usa vídeos e imagens locais para representar melhor a soluç�
 </p>
 
 👉 https://github.com/manuelalramos/SoulAi_Projeto
+
+---
+
+## 🖥️ Como clonar e rodar
+
+Para clonar o projeto na sua máquina, use o comando:
+
+```bash
+git clone https://github.com/manuelalramos/SoulAi_Projeto.git
+```
+
+Depois, entre na pasta do projeto:
+
+```bash
+cd SoulAi_Projeto
+```
+
+Como o projeto foi feito com HTML, CSS e JavaScript puro, é só abrir o arquivo `index.html` no navegador.
+
+⚠️ Para visualizar tudo certinho, precisa estar com internet, porque o projeto usa recursos externos como:
+
+- Ícones do Font Awesome
+- Fonte do Google Fonts
+- Imagens dos badges do README
 
 ---
 
