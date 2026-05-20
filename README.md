@@ -9,7 +9,7 @@
   <img src="./assets/media/logo-soulup.png" alt="Logo SoulUp" width="190"/>
 </p>
 
-<h2 align="center">💜 Front-end • Sustentabilidade • Experiência do Usuário</h2>
+<h2 align="center">Front-end • Sustentabilidade • Experiência do Usuário</h2>
 
 <p align="center">
 Projeto acadêmico desenvolvido para o <b>Challenge FIAP 2026</b>, criando uma proposta de avatar inteligente para a plataforma <b>SoulUp</b>.
