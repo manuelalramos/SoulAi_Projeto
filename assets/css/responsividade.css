@@ -54,6 +54,12 @@
     max-width: 80%;
     margin: 3rem auto;
   }
+
+  .section-fogo {
+    width: 90%;
+    margin: 4rem auto;
+    padding: 3.2rem;
+  }
 }
 
 /* Mobile */
@@ -93,6 +99,16 @@
   .footer-content {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .section-fogo {
+    width: 92%;
+    margin: 3rem auto;
+    padding: 2.4rem;
+  }
+
+  .section-fogo:hover {
+    transform: none;
   }
 }
 
@@ -159,6 +175,10 @@
     height: 4rem;
     font-size: 1.8rem;
   }
+
+  .section-fogo h2 {
+    font-size: 2.6rem;
+  }
 }
 
 /* Tablet a partir de 768px*/
@@ -187,6 +207,12 @@
   .hero-video {
     top: 9rem;
     width: 118rem;
+  }
+
+  .section-fogo {
+    width: 90%;
+    margin: 4rem auto;
+    padding: 3.2rem;
   }
 }
 

@@ -59,3 +59,22 @@
     color: var(--color-texto);
     font-size: 3.2rem;
 }
+
+.section-fogo{
+    width: 86%;
+    max-width: 96rem;
+    margin: 5rem auto;
+    padding: 5rem;
+    background-color: rgba(255, 228, 196, 0.401);
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.section-fogo:hover{
+    transition: 0.3s;
+    transform: scale(1.03);
+}
+
+.section-fogo h2{
+    font-size: 3rem;
+}
