@@ -127,7 +127,7 @@ HTML5 • CSS3 • JavaScript • Font Awesome • Google Fonts • GitHub
 ## 🖼️ Representação do projeto
 
 <p align="center">
-  <video src="./assets/media/avatar_hero.mov" width="260" autoplay muted loop controls>
+  <video src="./assets/media/avatar_hero.mp4" width="260" autoplay muted loop controls>
     Seu navegador não suporta vídeo.
   </video>
   <br>
