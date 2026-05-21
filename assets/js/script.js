@@ -111,6 +111,8 @@ faqQuestions.forEach((question) => {
         const faqItem = question.parentElement;
 
         faqItem.classList.toggle("active");
+        // Aria-expanded fala para o leitor de tela se a resposta esta aberta ou fechada
+        question.setAttribute("aria-expanded", faqItem.classList.contains("active"));
     });
 });
 
