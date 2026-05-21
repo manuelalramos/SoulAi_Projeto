@@ -104,6 +104,16 @@
 .card-informacoes-text{
      margin: 1rem 0;
 }
-   
+
+.email-contato{
+    display: inline-block;
+    transform-origin: left center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.email-contato:hover{
+    opacity: 90%;
+    transform: scale(1.03);
+}
 
 
