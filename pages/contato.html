@@ -11,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="../assets/media/icone.png">
 
@@ -65,16 +65,16 @@
         <!-- formulario de contato -->
         <section>
             <div class="container contact-layout">
-                <form class="contact-form" aria-label="Formulario de contato">
+                <form class="contact-form" aria-label="Formulario de contato" novalidate>
                     <div class="form-group">
                         <label for="name">Nome</label>
-                        <input id="name" type="text" name="name" placeholder="Digite seu nome completo" minlength="13" maxlength="150" novalidate>
+                        <input id="name" type="text" name="name" placeholder="Digite seu nome completo" minlength="13" maxlength="150">
                         <small class="error-mensagem"></small>
                     </div>
 
                     <div class="form-group">
                         <label for="email">E-mail</label>
-                        <input id="email" type="email" name="email" placeholder="email@email.com"  minlength="13" maxlength="150" novalidate>
+                        <input id="email" type="email" name="email" placeholder="email@email.com"  minlength="13" maxlength="150">
                         <small class="error-mensagem"></small>
                     </div>
 
@@ -104,7 +104,7 @@
                 <aside class="card-informacoes">
                     <h2>Informações de Contato</h2>
                     <p class="card-informacoes-text">Tem dúvidas sobre o projeto SoulAI ou quer saber mais sobre a solução? Envie uma mensagem para a equipe.</p>
-                    <a class="email-contato" href="mailto:contato@soulai.com?subject=Contato%20pelo%20site" aria-label="Enviar e-mail para contato da SoulAI"><i class="fa-solid fa-envelope"></i>contato@soulai.com</a></p>
+                    <a class="email-contato" href="mailto:contato@soulai.com?subject=Contato%20pelo%20site" aria-label="Enviar e-mail para contato da SoulAI"><i class="fa-solid fa-envelope"></i>contato@soulai.com</a>    
                     <p><i class="fa-solid fa-location-dot"></i>São Paulo/SP</p>
                 </aside>
 
@@ -116,7 +116,7 @@
         <div class="container footer-content">
             <div class="footer-brand">
                 <a href="../index.html" aria-label="Voltar para o inicio"><img src="../assets/media/logo-soulup.png" alt="Logo SoulUp"></a>
-                <p class="footer-text">SoulAI é o avatar inteligente criado para deixar a experiência na SoulUp mais interativa, leve e conectada com ações sustentáveis.</p>
+                <p class="footer-text">SoulAI é o avatar inteligente criado para deixar a experiência na SoulUp mais interativa, leve e conectada com ações sustentáveis.</ p>
             </div>
 
             <nav class="footer-links" aria-label="Links do rodape">
@@ -134,9 +134,8 @@
                 <a href="mailto:contato@soulai.com?subject=Contato%20pelo%20site" aria-label="Enviar e-mail para contato da SoulAI"><i class="fa-solid fa-envelope"></i>contato@soulai.com</a>
                 <p><i class="fa-solid fa-location-dot"></i>São Paulo/SP</p>
             </div>
-
-            <p class="footer-acessibilidade"><i class="fa-solid fa-ear-listen"></i>Site pensado para acessibilidade, usando aria-label. Qualquer erro, <a href="./contato.html">entre em contato</a>.</p>
         </div>
+        <p class="footer-acessibilidade"><i class="fa-solid fa-ear-listen"></i>Site pensado para acessibilidade, usando aria-label. Qualquer erro, <a href="./contato.html">entre em contato</a>.</p>
         <div class="footer-bottom">&copy; SoulAI - Projeto acadêmico FIAP Challenge 2026. Todos os direitos reservados.</div>
     </footer>
 

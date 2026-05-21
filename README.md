@@ -15,6 +15,11 @@
 Projeto acadêmico desenvolvido para o <b>Challenge FIAP 2026</b>, criando uma proposta de avatar inteligente para a plataforma <b>SoulUp</b>.
 </p>
 
+<p align="center">
+  <b>Site pensado para acessibilidade</b><br>
+  O projeto usa aria-label e aria-expanded para ajudar na navegação por leitores de tela.
+</p>
+
 ---
 
 ## 💡 Sobre o projeto
