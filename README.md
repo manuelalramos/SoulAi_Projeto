@@ -163,7 +163,7 @@ O projeto também usa vídeos e imagens locais para representar melhor a soluç�
 ┃ ┗ 📂 media <br>
 ┃   ┣ 📄 logo-soulup.png <br>
 ┃   ┣ 📄 icone.png <br>
-┃   ┣ 📄 avatar_hero.mov <br>
+┃   ┣ 📄 avatar_hero.mp4 <br>
 ┃   ┣ 📄 mockup_celular_chat.mp4 <br>
 ┃   ┗ 📄 fotos das integrantes <br>
 </p>
