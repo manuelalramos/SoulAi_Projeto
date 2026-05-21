@@ -63,9 +63,10 @@
 }
 
 .footer-acessibilidade{
-    grid-column: 1 / -1;
+    margin-top: 3rem;
     color: rgba(255, 255, 255, 0.82);
     text-align: center;
+    white-space: nowrap;
 }
 
 .footer-acessibilidade i{
@@ -85,7 +86,6 @@
 .footer-bottom{
     display: block;
     width: 100%;
-    margin-top: 3.2rem;
     padding: 1.4rem;
     color: var(--color-offwhite);
     opacity: 50%;
