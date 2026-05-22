@@ -25,16 +25,17 @@
 .section-content{
     margin: 36% 0;
     background-color: rgba(255, 228, 196, 0.401);
-    height: 50%;
+    min-height: 50%;
+    height: auto;
     width: 160%;
+    padding: 4rem 5rem;
     border: solid bisque 1px;
     border-radius: 20px;
     box-shadow: 10px 10px 10px 1px rgba(60, 67, 162, 0.09);
 }
 
 .section-label{
-    margin-top: 5%;
-    margin-left: 5%;
+    margin-bottom: 0.2rem;
     font-size: 1.6rem;
     text-transform: uppercase;
     color: var(--color-amarelo);
@@ -42,27 +43,26 @@
 }
 
 .section-title{
-    margin-top: -1.6%;
-    margin-left: 4.5%;
+    margin-bottom: 1rem;
     font-size: 5rem;
     color: black;
 }
 
 .section-text{
     width: 80%;
-    margin-left: 4.9%;
+    margin-bottom: 2.4rem;
     text-align: justify;
-    margin-bottom: 3%;
 }
 
 .section-um-button{
     display: inline-block;
     position: relative;
-    margin-left: 4.6%;
-    padding: 0.7% 20%;
+    min-width: 35rem;
+    padding: 0.8rem 2.4rem;
     border-radius: 100px;
     color: rgb(0, 0, 0);
     font-size: 14px;
+    text-align: center;
     text-decoration: none;
     border: 2px solid var(--color-amarelo);
     overflow: hidden;
