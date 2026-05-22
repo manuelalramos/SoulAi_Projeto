@@ -78,3 +78,61 @@
 .section-fogo h2{
     font-size: 3rem;
 }
+
+.roadmap-card{
+    padding: 4rem;
+    border: 0.1rem solid var(--border-color);
+    border-radius: 1.2rem;
+    background-color: var(--color-branco);
+    box-shadow: var(--shadow-card);
+}
+
+.roadmap-label{
+    color: var(--color-amarelo);
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.roadmap-card h2{
+    margin-bottom: 1rem;
+    color: var(--color-preto);
+    font-size: 3rem;
+}
+
+.roadmap-card > p{
+    max-width: 78rem;
+}
+
+.roadmap-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-top: 2.4rem;
+}
+
+.roadmap-step{
+    padding: 2rem;
+    border-radius: 1.2rem;
+    background-color: var(--color-offwhite);
+    border-left: 0.5rem solid var(--color-azul);
+}
+
+.roadmap-step h3{
+    color: var(--color-roxo);
+    font-size: 2.4rem;
+}
+
+.roadmap-step p{
+    margin-top: 0.8rem;
+}
+
+@media (max-width: 767px){
+    .roadmap-card{
+        padding: 2.4rem;
+    }
+
+    .roadmap-list{
+        grid-template-columns: 1fr;
+    }
+}
