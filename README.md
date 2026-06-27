@@ -21,7 +21,7 @@ Projeto acadêmico desenvolvido para o <b>Challenge FIAP 2026</b>, criando uma p
 </p>
 
 <p align="center">
-  <a href="[https://github.com/manuelalramos/SoulAi_Projeto](https://manuelalramos.github.io/SoulAi_Projeto/)" target="_blank">
+  <a href="https://manuelalramos.github.io/SoulAi_Projeto/" target="_blank">
     <img src="https://img.shields.io/badge/Acessar%20Site-3438c8?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
 </p>
