@@ -1,30 +1,20 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-
-import { navigationItems } from "../../data/navigation";
-
-// Imagem da logo
+import { Link, useLocation } from "react-router-dom";
 import logoSoulup from "../../assets/media/logo-soulup.png";
-
+import { NavMenu } from "../NavMenu/NavMenu";
 export function Header() {
-  // Controla se o menu mobile está aberto ou fechado
+  // Guarda se o menu mobile está aberto.
   const [menuAberto, setMenuAberto] = useState(false);
-
-  // Controla se a página foi rolada
+  // Guarda se a página já foi rolada mais de 30 pixels.
   const [paginaRolada, setPaginaRolada] = useState(false);
-
-  // Pega a página atual
+  // Permite descobrir em qual rota o usuário está.
   const location = useLocation();
-
-  // Verifica se a página atual é a Home
   const estaNaHome = location.pathname === "/";
-
-  // Fecha o menu mobile sempre que trocar de página
+  // Sempre que a rota muda, o menu mobile fecha.
   useEffect(() => {
     setMenuAberto(false);
   }, [location.pathname]);
-
-  // Verifica o scroll da página
+  // Observa o scroll para mudar o fundo do Header na Home.
   useEffect(() => {
     function verificarScroll() {
       if (window.scrollY > 30) {
@@ -33,94 +23,55 @@ export function Header() {
         setPaginaRolada(false);
       }
     }
-
-    // Faz a primeira verificação
     verificarScroll();
-
-    // Observa quando o usuário rolar a página
     window.addEventListener("scroll", verificarScroll);
-
-    // Remove o evento quando o componente sair da tela
     return () => {
       window.removeEventListener("scroll", verificarScroll);
     };
   }, []);
-
-  // Classe padrão do Header
-  let classeHeader = "site-header";
-
-  // Adiciona uma classe diferente quando estiver na Home
+  let headerClass =
+    "top-0 z-30 w-full text-white transition duration-300";
   if (estaNaHome) {
-    classeHeader += " home-header";
+    headerClass +=
+      " fixed left-0 bg-gradient-to-b from-soul-ink/30 to-transparent shadow-none";
+  } else {
+    headerClass += " sticky bg-soul-gradient shadow-header";
   }
-
-  // Adiciona a classe scrolled quando rolar a Home
   if (estaNaHome && paginaRolada) {
-    classeHeader += " scrolled";
+    headerClass =
+      "fixed left-0 top-0 z-30 w-full border-b border-white/20 bg-[#262aa0]/75 text-white shadow-header backdrop-blur-2xl transition duration - 300";
   }
-
   return (
-    <header className={classeHeader}>
+    <header className={headerClass}>
       <nav
-        className="navbar container"
+        className="relative mx-auto flex min-h-16 w-[92%] max-w-[1180px] items-center justify-center gap-5 lg:min-h-[82px]"
         aria-label="Menu principal"
       >
-
-        {/* Logo que leva para a Home */}
         <Link
-          className="logo"
+          className="absolute left-0"
           to="/"
           aria-label="Voltar para o início"
         >
           <img
+            className="w-[105px] drop-shadow-md sm:w-[120px]"
             src={logoSoulup}
             alt="Logo SoulUp"
           />
         </Link>
-
-        {/* Botão do menu mobile */}
         <button
-          className="botao-menu"
+          className="absolute right-0 grid h-11 w-11 place-items-center rounded-lg border border-white/25 bg-white/15
+text-white transition hover:-translate-y-px hover:bg-white/25 lg:hidden"
           type="button"
           aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
           aria-expanded={menuAberto}
           onClick={() => setMenuAberto(!menuAberto)}
         >
-          <i
-            className="fa-solid fa-bars-staggered"
-            aria-hidden="true"
-          />
+          <i className="fa-solid fa-bars-staggered text-xl" aria-hidden="true" />
         </button>
-
-        {/* Menu de navegação */}
-        <ul className={`nav-links ${menuAberto ? "show" : ""}`}>
-          <li className="nav-a-container">
-
-            {/* Percorre os itens do navigation.ts */}
-            {navigationItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-
-                // Faz a Home ficar ativa apenas na rota "/"
-                end={item.path === "/"}
-
-                // Adiciona a classe active na página atual
-                className={({ isActive }) => {
-                  if (isActive) {
-                    return "active";
-                  }
-
-                  return "";
-                }}
-              >
-                {item.label}
-              </NavLink>
-            ))}
-
-          </li>
-        </ul>
-
+        <NavMenu
+          menuAberto={menuAberto}
+          fecharMenu={() => setMenuAberto(false)}
+        />
       </nav>
     </header>
   );
