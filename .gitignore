@@ -1,7 +1,11 @@
 node_modules/
 dist/
-tmp/
+.vite/
 .env
-.env.local
-npm-debug.log*
-tsconfig.tsbuildinfo
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
