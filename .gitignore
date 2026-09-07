@@ -1,0 +1,7 @@
+node_modules/
+dist/
+tmp/
+.env
+.env.local
+npm-debug.log*
+tsconfig.tsbuildinfo
