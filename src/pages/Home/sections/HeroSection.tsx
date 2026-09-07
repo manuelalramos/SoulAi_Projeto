@@ -23,7 +23,7 @@ export default function HeroSection() {
                     SoulAI
                 </h1>
                 <video
-                    className="pointer-events-none absolute left-1/2 top-40 z-20 w-[880px] max-w-none -translate-x-1/2 mix-blendlighten md:top-36 md:w-[1180px] lg:top-32 lg:w-[1600px]"
+                    className="pointer-events-none absolute left-1/2 top-40 z-20 w-[880px] max-w-none -translate-x-1/2 mix-blendlighten md:top-36 md:w-[1180px] lg:top-32 lg:w-[1600px] mix-blend-screen"
                     autoPlay
                     muted
                     loop
