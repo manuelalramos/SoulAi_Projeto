@@ -3,7 +3,7 @@ type PageIntroProps = {
     title: string;
     description: string;
 };
-export function PageIntro({ label, title, description }: PageIntroProps) {
+export default function PageIntro({ label, title, description }: PageIntroProps) {
     return (
         <section className="relative isolate overflow-hidden bg-soul-gradient pb-20 pt-32 text-white md:pb-24 md:pt-36 lg:pb-28 lg:pt-40">
             {/* Grade decorativa igual à identidade visual da Home. */}

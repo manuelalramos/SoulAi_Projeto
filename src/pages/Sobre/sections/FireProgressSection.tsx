@@ -1,7 +1,7 @@
 import fogoAnimado from "../../../assets/media/fogo.png";
 
 
-export function FireProgressSection() {
+export default function FireProgressSection() {
     return (
         <section className="relative overflow-hidden bg-soul-soft/60 py-16 md:py-20">
             <div className="mx-auto w-[92%] max-w-[1180px]">

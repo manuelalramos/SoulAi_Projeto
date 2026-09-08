@@ -1,5 +1,6 @@
 import { roadmapItems } from "../../../data/about";
-export function RoadmapSection() {
+
+export default function RoadmapSection() {
     return (
         <section className="bg-white py-16 md:py-20">
             <div className="mx-auto w-[92%] max-w-[1180px] rounded-xl border border-soul-cyan/40 bg-[lineargradient(135deg,#ffffff,#f5f6ff)] p-7 shadow-card md:p-10">
