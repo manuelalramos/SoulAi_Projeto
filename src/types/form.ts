@@ -1,5 +1,6 @@
 export type ContactFormData = {
- nome: string;
- email: string;
- mensagem: string;
+    nome: string;
+    email: string;
+    assunto: "projeto" | "equipe" | "duvida";
+    mensagem: string;
 };
