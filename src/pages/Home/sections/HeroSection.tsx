@@ -1,7 +1,7 @@
 import avatarHero from "../../../assets/media/avatar_hero.mp4";
 
 export default function HeroSection() {
-    
+
     function irParaSobre() {
         document.getElementById("home")?.scrollIntoView({
             behavior: "smooth",
@@ -34,7 +34,7 @@ export default function HeroSection() {
                     src={avatarHero}
                 />
                 <button
-                    className="absolute bottom-12 left-1/2 z-30 w-[min(400px,82vw)] -translate-x-1/2 rounded-full border borderwhite/50 bg-white/90 px-6 py-3 font-black text-soul-blue shadow-xl backdrop-blur transition hover:-translate-y-1 hover:bg-soul-yellow hover:text-soul-ink"
+                    className="absolute bottom-12 left-1/2 z-30 inline-flex w-[min(400px,82vw)] -translate-x-1/2 items-center justify-center overflow-hidden rounded-full border border-white/50 bg-white/90 px-6 py-3 font-black text-soul-blue shadow-xl backdrop-blur transition duration-300 before:absolute before:inset-0 before:grid before:origin-bottom before:scale-y-0 before:place-items-center before:bg-gradient-to-r before:from-soul-yellow before:to-[#fff5bd] before:text-3xl before:text-soul-ink before:content-['↓'] before:transition-transform before:duration-300 hover:text-transparent hover:before:scale-y-100"
                     type="button"
                     onClick={irParaSobre}
                 >
