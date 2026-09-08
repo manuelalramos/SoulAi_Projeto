@@ -1,6 +1,23 @@
+import { useForm } from "react-hook-form";
+
 import PageIntro  from "../../components/PageIntro/PageIntro";
+import type { ContactFormData } from "../../types/form";
 
 export default function Contato() {
+  // Configura o React Hook Form usando o tipo ContactFormData
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>();
+
+  // Por enquanto o envio apenas limpa o formulário.
+  // O modal será criado no próximo passo.
+  function enviarFormulario() {
+    reset();
+  }
+
   return (
     <>
       <PageIntro
@@ -15,7 +32,8 @@ export default function Contato() {
           {/* Formulário */}
           <form
             className="grid gap-5 rounded-xl border border-soul-blue/10 bg-white p-6 shadow-card md:p-8"
-            onSubmit={(event) => event.preventDefault()}
+            onSubmit={handleSubmit(enviarFormulario)}
+            noValidate
           >
             {/* Nome */}
             <div className="grid gap-2">
@@ -29,10 +47,20 @@ export default function Contato() {
               <input
                 className="rounded-xl border border-soul-blue/10 bg-white px-4 py-3 outline-none transition duration-300 focus:border-soul-cyan focus:ring-2 focus:ring-soul-cyan/20"
                 id="nome"
-                name="nome"
                 type="text"
                 placeholder="Digite seu nome"
+                {...register("nome", {
+                  required: "Informe seu nome.",
+                  minLength: {
+                    value: 3,
+                    message: "O nome deve ter pelo menos 3 caracteres.",
+                  },
+                })}
               />
+
+              <small className="min-h-5 font-bold text-red-600">
+                {errors.nome?.message}
+              </small>
             </div>
 
             {/* E-mail */}
@@ -47,10 +75,20 @@ export default function Contato() {
               <input
                 className="rounded-xl border border-soul-blue/10 bg-white px-4 py-3 outline-none transition duration-300 focus:border-soul-cyan focus:ring-2 focus:ring-soul-cyan/20"
                 id="email"
-                name="email"
                 type="email"
                 placeholder="Digite seu e-mail"
+                {...register("email", {
+                  required: "Informe seu e-mail.",
+                  pattern: {
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Digite um e-mail válido.",
+                  },
+                })}
               />
+
+              <small className="min-h-5 font-bold text-red-600">
+                {errors.email?.message}
+              </small>
             </div>
 
             {/* Assunto */}
@@ -65,8 +103,10 @@ export default function Contato() {
               <select
                 className="rounded-xl border border-soul-blue/10 bg-white px-4 py-3 outline-none transition duration-300 focus:border-soul-cyan focus:ring-2 focus:ring-soul-cyan/20"
                 id="assunto"
-                name="assunto"
                 defaultValue=""
+                {...register("assunto", {
+                  required: "Selecione um assunto.",
+                })}
               >
                 <option value="" disabled>
                   Selecione uma opção
@@ -84,6 +124,10 @@ export default function Contato() {
                   Dúvidas
                 </option>
               </select>
+
+              <small className="min-h-5 font-bold text-red-600">
+                {errors.assunto?.message}
+              </small>
             </div>
 
             {/* Mensagem */}
@@ -98,12 +142,21 @@ export default function Contato() {
               <textarea
                 className="min-h-36 resize-y rounded-xl border border-soul-blue/10 bg-white px-4 py-3 outline-none transition duration-300 focus:border-soul-cyan focus:ring-2 focus:ring-soul-cyan/20"
                 id="mensagem"
-                name="mensagem"
                 placeholder="Digite sua mensagem"
+                {...register("mensagem", {
+                  required: "Digite uma mensagem.",
+                  minLength: {
+                    value: 10,
+                    message: "A mensagem deve ter pelo menos 10 caracteres.",
+                  },
+                })}
               />
+
+              <small className="min-h-5 font-bold text-red-600">
+                {errors.mensagem?.message}
+              </small>
             </div>
 
-            {/* Botão */}
             <button
               className="w-max rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 font-black text-soul-ink transition-all duration-300 hover:-translate-y-1 hover:text-soul-blue hover:shadow-future"
               type="submit"
