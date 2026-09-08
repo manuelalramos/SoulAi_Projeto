@@ -9,6 +9,8 @@ import HomeRoute from "./routes/Home";
 import IntegrantesRoute from "./routes/Integrantes";
 import SobreRoute from "./routes/Sobre";
 import SolucaoRoute from "./routes/Solucao";
+import SolucaoDetalheRoute from "./routes/SolucaoDetalhe";
+
 import "./index.css";
 const router = createBrowserRouter([
   {
@@ -24,6 +26,7 @@ const router = createBrowserRouter([
       { path: "contato", element: <ContatoRoute /> },
       // /solucao é o caminho principal do menu.
       { path: "solucao", element: <SolucaoRoute /> },
+      { path: "solucao/:slug", element: <SolucaoDetalheRoute /> },
       // 404 normal continua dentro do layout global.
       { path: "*", element: <NotFound /> },
     ],
