@@ -1,6 +1,7 @@
 import { PageIntro } from "../../components/PageIntro/PageIntro";
 import AboutObjectiveSection from "./sections/AboutObjectiveSection";
 import AboutHighlightsSection from "./sections/AboutHighlightsSection";
+import { FireProgressSection } from "./sections/FireProgressSection";
 
 export default function Sobre() {
     return (
@@ -11,7 +12,8 @@ export default function Sobre() {
                 description="Conheça a proposta do SoulAI, um avatar inteligente criado para tornar a experiência na SoulUp mais interativa, personalizada e conectada com ações sustentáveis."
             />
             <AboutObjectiveSection />
-            <AboutHighlightsSection/>
+            <AboutHighlightsSection />
+            <FireProgressSection />
         </>
     );
 }
