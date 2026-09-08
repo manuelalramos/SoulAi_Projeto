@@ -3,7 +3,7 @@ import { SOUL_CHAT_OPEN_EVENT } from "../../../data/chat";
 export function HomeAboutSection() {
     function abrirDemonstracaoChat() {
         window.dispatchEvent(new Event(SOUL_CHAT_OPEN_EVENT));
-    
+
     }
 
     return (
@@ -23,12 +23,14 @@ export function HomeAboutSection() {
                     </p>
                     <div className="mt-6 flex flex-wrap items-center gap-3">
                         <Link
-                            className="inline-flex min-h-12 min-w-[200px] items-center justify-center rounded-full border border-soulcyan/50 bg-white px-6 py-3 font-black text-soul-ink transition hover:-translate-y-1 hover:bg-soul-yellow"
-                            to="/sobre">
+
+                            className="relative z-0 inline-flex min-h-12 min-w-[200px] items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border border-soul-blue/10hover:text-soul-ink hover:shadow-future hover:before:w-full"
+                            to="/sobre"
+                        >
                             Saiba mais
                         </Link>
                         <button
-                            className="inline-flex min-h-12 min-w-[200px] items-center justify-center rounded-full border border-soulblue/20 bg-soul-soft/80 px-6 py-3 font-black text-soul-ink transition hover:-translate-y-1 hover:bg-soul-yellow"
+                            className="relative z-0 inline-flex min-h-12 min-w-[200px] items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border border-soul-blue/10hover:text-soul-ink hover:shadow-future hover:before:w-full"
                             type="button"
                             onClick={abrirDemonstracaoChat}>
                             Ver demonstração do chat
