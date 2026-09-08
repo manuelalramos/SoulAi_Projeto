@@ -1,4 +1,4 @@
 export type ChatMessage = {
-    author: "Soul" | "Usuário"
+    author: "SoulAI" | "Usuário"
     text: string;
 };
