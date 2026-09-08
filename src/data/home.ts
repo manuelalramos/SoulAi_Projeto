@@ -19,7 +19,7 @@ export const homeCards: CardContent[] = [
 
     {
         title: "Avatar inteligente",
-        description: "O SoulAI acompanha o usuário dentro da platafomra, interagindo com base em açoes, histórico e frequência de uso"
+        description: "O SoulAI acompanha o usuário dentro da plataforma, interagindo com base em ações, histórico e frequência de uso"
     },
 
     {

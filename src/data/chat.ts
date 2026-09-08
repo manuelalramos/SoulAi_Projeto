@@ -13,6 +13,6 @@ export const chatMessages: ChatMessage[] = [
     { author: "Usuário", text: "Sim, desliguei as luzes antes de sair" },
     { author: "Soul", text: "Boa! Pequenas atitudes geram impacto 🌱" },
     { author: "Soul", text: "+3 moedas adicionadas\n💰 Você agora tem 21 moedas" },
-    { author: "Soul", text: "Continue sua sequência para desbloquear novos itens do avatar ⚡" },
+    { author: "Soul", text: "Continue sua sequência para desbloquear novos itens do avatar⚡" },
 
 ];
