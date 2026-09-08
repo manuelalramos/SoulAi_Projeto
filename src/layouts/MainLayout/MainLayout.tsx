@@ -1,18 +1,20 @@
-import { Outlet } from "react-router-dom";
+import type { ReactNode } from "react";
 import { FloatingChat } from "../../components/FloatingChat/FloatingChat";
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 
 
-export function MainLayout() {
+type MainLayoutProps = {
+    children: ReactNode;
+};
+
+
+export function MainLayout({ children }: MainLayoutProps) {
     return (
         <>
             <Header />
-            {/* O conteúdo de cada rota entra dentro deste único main. */}
-            <main>
-                <Outlet />
-            </main>
-            {/* O chat fica disponível em todas as páginas, como no ZIP de referência. */}
+            {/* Existe somente um main global na aplicação. */}
+            <main>{children}</main>
             <FloatingChat />
             <Footer />
         </>
