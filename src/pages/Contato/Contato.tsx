@@ -1,10 +1,20 @@
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 
-import PageIntro  from "../../components/PageIntro/PageIntro";
+import PageIntro from "../../components/PageIntro/PageIntro";
 import type { ContactFormData } from "../../types/form";
 
 export default function Contato() {
-  // Configura o React Hook Form usando o tipo ContactFormData
+  // Guarda a mensagem de sucesso personalizada
+  const [mensagemSucesso, setMensagemSucesso] = useState("");
+
+  // Controla se o modal está aberto ou fechado
+  const [modalAberto, setModalAberto] = useState(false);
+
+  // Referência para acessar diretamente o elemento <dialog>
+  const dialogRef = useRef<HTMLDialogElement | null>(null);
+
+  // Configuração do React Hook Form
   const {
     register,
     handleSubmit,
@@ -12,9 +22,39 @@ export default function Contato() {
     formState: { errors },
   } = useForm<ContactFormData>();
 
-  // Por enquanto o envio apenas limpa o formulário.
-  // O modal será criado no próximo passo.
-  function enviarFormulario() {
+  // Sincroniza o estado do React com o elemento <dialog>
+  useEffect(() => {
+    const modal = dialogRef.current;
+
+    if (!modal) {
+      return;
+    }
+
+    // Abre o modal quando modalAberto for true
+    if (modalAberto && !modal.open) {
+      modal.showModal();
+    }
+
+    // Fecha o modal quando modalAberto for false
+    if (!modalAberto && modal.open) {
+      modal.close();
+    }
+  }, [modalAberto]);
+
+  // Executada quando o formulário passa pelas validações
+  function enviarFormulario(data: ContactFormData) {
+    // Pega apenas o primeiro nome da pessoa
+    const primeiroNome = data.nome.split(" ")[0];
+
+    // Cria a mensagem de sucesso
+    setMensagemSucesso(
+      `Mensagem enviada com sucesso, ${primeiroNome}!`
+    );
+
+    // Abre o modal
+    setModalAberto(true);
+
+    // Limpa os campos do formulário
     reset();
   }
 
@@ -25,6 +65,36 @@ export default function Contato() {
         title="Fale com a equipe"
         description="Tem alguma dúvida sobre o SoulAI, o projeto ou a proposta da solução? Envie uma mensagem para a equipe."
       />
+
+      {/* Modal de sucesso */}
+      <dialog
+        ref={dialogRef}
+        className="w-[90%] max-w-md rounded-xl border border-soul-cyan/40 bg-white p-0 shadow-future backdrop:bg-soul-ink/60"
+        onClose={() => setModalAberto(false)}
+      >
+        <div className="p-8 text-center">
+          {/* Ícone de sucesso */}
+          <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gradient-to-r from-soul-yellow to-soul-cyan text-3xl font-black text-soul-ink">
+            ✓
+          </div>
+
+          <h2 className="mt-5 text-3xl font-black text-soul-ink">
+            Mensagem enviada!
+          </h2>
+
+          <p className="mt-3">
+            {mensagemSucesso}
+          </p>
+
+          <button
+            className="mt-6 rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 font-black text-soul-ink transition-all duration-300 hover:-translate-y-1 hover:text-soul-blue hover:shadow-future"
+            type="button"
+            onClick={() => setModalAberto(false)}
+          >
+            Fechar
+          </button>
+        </div>
+      </dialog>
 
       <section className="bg-white py-16 md:py-20">
         <div className="mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-8 lg:grid-cols-[1.2fr_0.8fr]">
@@ -157,6 +227,7 @@ export default function Contato() {
               </small>
             </div>
 
+            {/* Botão de envio */}
             <button
               className="w-max rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 font-black text-soul-ink transition-all duration-300 hover:-translate-y-1 hover:text-soul-blue hover:shadow-future"
               type="submit"
