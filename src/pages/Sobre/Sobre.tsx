@@ -2,6 +2,8 @@ import { PageIntro } from "../../components/PageIntro/PageIntro";
 import AboutObjectiveSection from "./sections/AboutObjectiveSection";
 import AboutHighlightsSection from "./sections/AboutHighlightsSection";
 import { FireProgressSection } from "./sections/FireProgressSection";
+import { RoadmapSection } from "./sections/RoadmapSection";
+
 
 export default function Sobre() {
     return (
@@ -14,6 +16,7 @@ export default function Sobre() {
             <AboutObjectiveSection />
             <AboutHighlightsSection />
             <FireProgressSection />
+            <RoadmapSection />
         </>
     );
 }
