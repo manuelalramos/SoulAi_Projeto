@@ -11,7 +11,7 @@ export function FAQItem({ item, defaultOpen = false }: FAQItemProps) {
     return (
         <article className="overflow-hidden rounded-xl border border-soul-blue/10 bg-white shadow-card transition-all duration-300 hover:border-soul-cyan/50 hover:shadow-future">
             <button
-                className="flex w-full items-center justify-between gap-4 bg-transparent p-6 text-left text-lg fontblack text-soul-ink"
+                className="flex w-full items-center justify-between gap-4 bg-transparent p-6 text-left text-lg font-black text-soul-ink" 
                 type="button"
                 aria-expanded={aberto}
                 onClick={() => setAberto(!aberto)}
