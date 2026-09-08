@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { flowSteps } from "../../../data/solution";
 
 const cardColors = [
@@ -11,6 +12,9 @@ const cardColors = [
 ];
 
 export function FlowSection() {
+  // Guarda qual card está com o mouse em cima
+  const [cardEmFoco, setCardEmFoco] = useState<number | null>(null);
+
   return (
     <section className="bg-white py-16 md:py-20">
       <div className="mx-auto w-[92%] max-w-[1180px]">
@@ -34,22 +38,56 @@ export function FlowSection() {
 
         {/* Cards do fluxo */}
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {flowSteps.map((step, index) => (
-            <article
-              key={step.title}
-              className={`rounded-xl bg-gradient-to-br ${
-                cardColors[index]
-              } p-6 text-white shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-future`}
-            >
-              <h3 className="text-3xl font-black">
-                {step.title}
-              </h3>
+          {flowSteps.map((step, index) => {
+            const estaEmFoco = cardEmFoco === index;
 
-              <p className="mt-3 text-white/90">
-                {step.description}
-              </p>
-            </article>
-          ))}
+            const outroCardEstaEmFoco =
+              cardEmFoco !== null && cardEmFoco !== index;
+
+            return (
+              <article
+                key={step.title}
+
+                // Quando o mouse entra, esse card vira o card em foco
+                onMouseEnter={() => setCardEmFoco(index)}
+
+                // Quando o mouse sai, todos voltam ao normal
+                onMouseLeave={() => setCardEmFoco(null)}
+
+                className={`
+                  rounded-xl
+                  bg-gradient-to-br
+                  ${cardColors[index]}
+                  p-6
+                  text-white
+                  shadow-card
+                  transition-all
+                  duration-500
+                  cursor-default
+
+                  ${
+                    estaEmFoco
+                      ? "relative z-10 scale-105 shadow-future"
+                      : ""
+                  }
+
+                  ${
+                    outroCardEstaEmFoco
+                      ? "scale-95 opacity-65"
+                      : ""
+                  }
+                `}
+              >
+                <h3 className="text-3xl font-black">
+                  {step.title}
+                </h3>
+
+                <p className="mt-3 text-white/90">
+                  {step.description}
+                </p>
+              </article>
+            );
+          })}
         </div>
 
       </div>
