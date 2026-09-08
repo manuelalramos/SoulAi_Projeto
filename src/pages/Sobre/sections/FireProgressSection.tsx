@@ -20,13 +20,13 @@ export function FireProgressSection() {
                             Foguinho progressivo
                         </h2>
                         <p className="mt-4">
-                            Um dos diferenciais do SoulAI é o sistema de foguinho progressivo.
+                            Um dos diferenciais do SoulAI é o sistema de <strong>foguinho progressivo</strong>.
                             Diferente de outros aplicativos, em que uma ação simples já mantém a
                             sequência ativa, no SoulAI cada interação contribui com uma
-                            porcentagem diferente para o preenchimento do fogo. Ações simples,
-                            como curtir ou comentar, avançam menos, enquanto ações mais
-                            relevantes, como participar de comunidades ou registrar uma ação
-                            sustentável, geram um progresso maior.
+                            <strong> porcentagem diferente</strong> para o preenchimento do fogo. <strong>Ações simples</strong>,
+                            como curtir ou comentar, <strong>avançam menos</strong>, enquanto <strong>ações mais
+                            relevantes</strong>, como participar de comunidades ou registrar uma ação
+                            sustentável, geram um <strong>progresso maior.</strong>
                         </p>
                     </div>
                 </article>
