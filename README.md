@@ -540,7 +540,6 @@ SoulAi_Projeto/
 │   │       ├── fogo.png
 │   │       ├── icone.png
 │   │       ├── logo-soulup.png
-│   │       ├── mockup_celular_chat.mp4
 │   │       ├── foto_lena.jpeg
 │   │       ├── foto_lyvia.jpeg
 │   │       ├── foto_manuela.jpg
