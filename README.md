@@ -1298,6 +1298,12 @@ Permite visualizar localmente a versão gerada pelo build.
 
 O desenvolvimento foi organizado com branches de feature e Pull Requests.
 
+O uso do **Git Flow** foi escolhido para deixar o processo de desenvolvimento mais organizado e fácil de acompanhar. Como o projeto passou por várias etapas, cada parte importante foi separada em uma branch própria, permitindo trabalhar em funcionalidades específicas sem misturar alterações diferentes no mesmo momento.
+
+Esse fluxo ajudou a documentar a evolução do projeto desde a configuração inicial em React até a criação das páginas, componentes, rotas, formulário, responsividade, acessibilidade e limpeza dos arquivos antigos.
+
+As branches utilizadas foram mantidas no histórico do GitHub para registrar o caminho de desenvolvimento da equipe. Dessa forma, o professor consegue avaliar não apenas o resultado final, mas também como o projeto foi construído, revisado e integrado por etapas.
+
 Branch atual observada no repositório:
 
 ```text
