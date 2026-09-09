@@ -1,0 +1,117 @@
+name: PR Policy
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  policy:
+    name: Validate PR Policy
+
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      - name: Validate target branch
+        shell: bash
+        run: |
+          HEAD="${{ github.head_ref }}"
+          BASE="${{ github.base_ref }}"
+
+          echo "Branch de origem: $HEAD"
+          echo "Branch de destino: $BASE"
+
+          if [[ "$HEAD" == feature/* && "$BASE" != "develop" ]]; then
+            echo "ERRO: branches feature/* devem abrir Pull Request para develop."
+            exit 1
+          fi
+
+          if [[ "$BASE" == "main" && "$HEAD" != "develop" ]]; then
+            echo "ERRO: somente develop pode abrir Pull Request para main."
+            exit 1
+          fi
+
+          echo "Destino do Pull Request correto."
+
+      - name: Validate linked issue
+        id: issue
+        shell: bash
+        run: |
+          BODY=$(cat <<'EOF'
+          ${{ github.event.pull_request.body }}
+          EOF
+          )
+
+          ISSUE=$(echo "$BODY" |
+            grep -Eio '(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)[[:space:]]+#[0-9]+' |
+            grep -Eo '[0-9]+' |
+            head -1 || true)
+
+          if [[ -z "$ISSUE" ]]; then
+            echo "ERRO: o Pull Request precisa possuir Closes #NUMERO."
+            exit 1
+          fi
+
+          echo "Issue encontrada: #$ISSUE"
+          echo "number=$ISSUE" >> "$GITHUB_OUTPUT"
+
+      - name: Validate issue assignee
+        shell: bash
+        run: |
+          ISSUE="${{ steps.issue.outputs.number }}"
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+
+          echo "Autora do PR: @$AUTHOR"
+          echo "Issue: #$ISSUE"
+
+          ASSIGNEES=$(gh api \
+            "repos/${{ github.repository }}/issues/$ISSUE" \
+            --jq '.assignees[].login')
+
+          echo "Responsáveis pela Issue:"
+          echo "$ASSIGNEES"
+
+          if ! echo "$ASSIGNEES" | grep -Fxq "$AUTHOR"; then
+            echo "ERRO: a autora do Pull Request precisa estar atribuída à Issue."
+            exit 1
+          fi
+
+          echo "Autora corretamente atribuída à Issue."
+
+      - name: Validate minimum commits
+        shell: bash
+        run: |
+          HEAD="${{ github.head_ref }}"
+
+          if [[ "$HEAD" == "feature/final-content-livia" ||
+                "$HEAD" == "feature/final-content-lena" ||
+                "$HEAD" == "feature/final-content-yasmin" ]]; then
+
+            COUNT=$(gh api \
+              "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits" \
+              --paginate \
+              --jq '.[].sha' |
+              wc -l)
+
+            echo "Quantidade de commits: $COUNT"
+
+            if [[ "$COUNT" -lt 5 ]]; then
+              echo "ERRO: esta feature precisa possuir pelo menos 5 commits."
+              exit 1
+            fi
+
+            echo "Quantidade mínima de commits atendida."
+          else
+            echo "Regra de 5 commits não se aplica a esta branch."
+          fi
