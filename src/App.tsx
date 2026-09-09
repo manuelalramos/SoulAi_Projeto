@@ -1,9 +1,16 @@
+import { Outlet } from "react-router-dom";
+import { useScrollToTop } from "./hooks/useScrollToTop";
+import { MainLayout } from "./layouts/MainLayout/MainLayout";
+
+
+// Componente raiz usado por todas as rotas da aplicação.
 export default function App() {
+  // Continua levando o usuário ao topo quando a rota muda.
+  useScrollToTop();
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">
-        SoulAI
-      </h1>
-    </main>
-  )
+    <MainLayout>
+      {/* A página filha escolhida pelo router. */}
+      <Outlet />
+    </MainLayout>
+  );
 }
