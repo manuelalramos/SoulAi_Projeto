@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import { SOUL_CHAT_OPEN_EVENT, chatMessages } from "../../data/chat";
 
+// Chat flutuante que simula a conversa do usuário com o avatar SoulAI.
 export function FloatingChat() {
     // Controla se o chat está aberto ou fechado
     const [chatAberto, setChatAberto] = useState(false);

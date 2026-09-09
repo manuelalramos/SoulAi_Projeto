@@ -1,5 +1,6 @@
 import { roadmapItems } from "../../../data/about";
 
+// Seção que mostra possibilidades futuras para evolução do SoulAI.
 export default function RoadmapSection() {
     return (
         <section className="bg-white py-16 md:py-20">
@@ -14,6 +15,7 @@ export default function RoadmapSection() {
                     pagamento da conta de luz.
                 </p>
                 <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-3">
+                    {/* Numera cada item do roadmap automaticamente. */}
                     {roadmapItems.map((item, index) => (
                         <article
                             className="rounded-xl border border-soul-blue/10 bg-white p-5 shadow transition-all duration-300 hover:-translate-y-1 hover:shadow-card"

@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import type { SolutionFeature } from "../../../types/solution";
 
+// Props recebidas pela página de detalhe de uma funcionalidade.
 type SolutionDetailContentProps = {
     feature: SolutionFeature;
 };
 
+// Renderiza descrição, resultado esperado e etapas de uma funcionalidade.
 export function SolutionDetailContent({
     feature,
 }: SolutionDetailContentProps) {
+    // Permite voltar para a lista principal de recursos.
     const navigate = useNavigate();
 
     return (
@@ -43,6 +46,7 @@ export function SolutionDetailContent({
                         </h2>
 
                         <div className="mt-6 grid gap-4">
+                            {/* Gera a lista de ações principais da funcionalidade. */}
                             {feature.actions.map((action, index) => (
                                 <article
                                     key={action}

@@ -1,15 +1,19 @@
 import { useState } from "react";
 import type { CardContent } from "../../types/card";
 
+// Props que definem o conteúdo apresentado pelo carrossel.
 type CarrosselProps = {
   label: string;
   title: string;
   items: CardContent[];
 };
 
+// Componente reutilizável que mostra um card por vez com navegação.
 export function Carrosel({ label, title, items }: CarrosselProps) {
+  // Guarda o índice do card que está visível no momento.
   const [indiceAtual, setIndiceAtual] = useState(0);
 
+  // Volta um card e reinicia no último quando está no primeiro.
   function mostrarAnterior() {
     if (indiceAtual === 0) {
       setIndiceAtual(items.length - 1);
@@ -18,6 +22,7 @@ export function Carrosel({ label, title, items }: CarrosselProps) {
     }
   }
 
+  // Avança um card e volta para o primeiro quando chega no último.
   function mostrarProximo() {
     if (indiceAtual === items.length - 1) {
       setIndiceAtual(0);
@@ -26,6 +31,7 @@ export function Carrosel({ label, title, items }: CarrosselProps) {
     }
   }
 
+  // Seleciona o card que deve ser renderizado na interface.
   const itemAtual = items[indiceAtual];
 
   return (
@@ -89,6 +95,7 @@ export function Carrosel({ label, title, items }: CarrosselProps) {
 
         {/* Indicadores */}
         <div className="mt-5 flex flex-wrap justify-center gap-2">
+          {/* Cria um indicador clicável para cada item do carrossel. */}
           {items.map((item, index) => (
             <button
               key={item.title}

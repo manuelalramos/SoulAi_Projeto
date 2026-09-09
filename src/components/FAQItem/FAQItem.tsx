@@ -1,12 +1,15 @@
 import { useState } from "react";
 import type { FaqQuestion } from "../../types/faq";
 
+// Props necessárias para renderizar uma pergunta do FAQ.
 type FAQItemProps = {
     item: FaqQuestion;
     defaultOpen?: boolean;
 };
 
+// Componente que abre e fecha uma resposta individual do FAQ.
 export function FAQItem({ item, defaultOpen = false }: FAQItemProps) {
+    // Controla se a resposta está visível.
     const [aberto, setAberto] = useState(defaultOpen);
     return (
         <article className="overflow-hidden rounded-xl border border-soul-blue/10 bg-white shadow-card transition-all duration-300 hover:border-soul-cyan/50 hover:shadow-future">
@@ -27,6 +30,7 @@ export function FAQItem({ item, defaultOpen = false }: FAQItemProps) {
                     <i className="fa-solid fa-caret-down" />
                 </span>
             </button>
+            {/* A resposta só aparece quando o item está aberto. */}
             {aberto && (
                 <div className="border-t border-soul-line px-6 pb-6 pt-4">
                     <p>{item.answer}</p>

@@ -1,5 +1,6 @@
 import type { NavigationItem } from '../types/navigation'
 
+// Links usados pelo menu principal do Header.
 export const navigationItems: NavigationItem[] = [
   {
     label: 'Home',

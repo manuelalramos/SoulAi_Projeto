@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import PageIntro from "../../components/PageIntro/PageIntro";
 import type { ContactFormData } from "../../types/form";
 
+// Página de contato com formulário validado e modal de confirmação.
 export default function Contato() {
     // Guarda a mensagem de sucesso personalizada
     const [mensagemSucesso, setMensagemSucesso] = useState("");
@@ -16,8 +17,10 @@ export default function Contato() {
     // Referência para acessar diretamente o elemento <dialog>
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
+    // Controla a contagem regressiva antes do redirecionamento.
     const [segundos, setSegundos] = useState(5);
 
+    // Permite redirecionar o usuário para a Home após o envio.
     const navigate = useNavigate();
 
     // Configuração do React Hook Form
@@ -32,6 +35,7 @@ export default function Contato() {
     useEffect(() => {
         const modal = dialogRef.current;
 
+        // Se não existir modal renderizado, evita tentar controlar um elemento nulo.
         if (!modal) {
             return;
         }
@@ -60,10 +64,12 @@ export default function Contato() {
             return;
         }
 
+        // Intervalo responsável por diminuir um segundo por vez.
         const intervalo = window.setInterval(() => {
             setSegundos((valorAtual) => valorAtual - 1);
         }, 1000);
 
+        // Limpa o intervalo para evitar contagens duplicadas.
         return () => {
             window.clearInterval(intervalo);
         };
@@ -71,6 +77,7 @@ export default function Contato() {
 
     // Executada quando o formulário passa pelas validações
     function enviarFormulario(data: ContactFormData) {
+        // Usa apenas o primeiro nome para personalizar a mensagem de sucesso.
         const primeiroNome = data.nome.split(" ")[0];
 
         setMensagemSucesso(

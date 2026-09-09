@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilos globais de base compartilhados por toda a aplicação. */
 @layer base {
+  /* Mantém a navegação por âncoras com rolagem suave. */
   html {
     scroll-behavior: smooth;
   }
 
+  /* Define a base visual, tipografia e largura mínima do site. */
   body {
     min-width: 320px;
     min-height: 100vh;
@@ -17,17 +20,20 @@
     line-height: 1.6;
   }
 
+  /* Evita que imagens e vídeos ultrapassem a largura do container. */
   img,
   video {
     display: block;
     max-width: 100%;
   }
 
+  /* Remove o estilo padrão dos links para usar o visual definido nos componentes. */
   a {
     color: inherit;
     text-decoration: none;
   }
 
+  /* Garante que campos e botões herdem a fonte principal. */
   button,
   input,
   select,

@@ -1,3 +1,4 @@
+// Caminho conceitual usado para explicar a evolução de SoulUp para SoulAI.
 export const conceptPath = [
     {
         index: "01",
@@ -19,7 +20,7 @@ export const conceptPath = [
     },
 ];
 
-
+// Destaques que resumem tecnologia, inovação e público do projeto.
 export const projectHighlights = [
     {
         title: "Tecnologias",
@@ -35,7 +36,7 @@ export const projectHighlights = [
  },
 ];
 
-
+// Itens do roadmap exibidos como próximas evoluções possíveis.
 export const roadmapItems = [
     "Melhorar o fluxo do avatar dentro da plataforma SoulUp.",
     "Testar missões, pontos e foguinho com usuários reais.",

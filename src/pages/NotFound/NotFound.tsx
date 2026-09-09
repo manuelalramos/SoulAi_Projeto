@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import PageIntro from "../../components/PageIntro/PageIntro";
 
+// Página exibida quando o usuário acessa uma rota não cadastrada.
 export default function NotFound() {
   return (
     <>

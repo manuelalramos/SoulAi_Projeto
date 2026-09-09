@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import logoSoulup from "../../assets/media/logo-soulup.png";
 import { navigationItems } from "../../data/navigation";
+
+// Rodapé global com resumo do projeto, navegação e contato.
 export function Footer() {
   return (
     <footer className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#161733,#202260_48%,#3438c8)] pt-14
 text-white">
+      {/* Fundo decorativo seguindo a identidade visual do site. */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:lineargradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]
 [background-size:48px_48px]" />
       <div className="relative mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-8 md:grid-cols-3 md:[grid-templatecolumns:1.4fr_1fr_1fr]">
@@ -19,6 +22,7 @@ text-white">
         </div>
         <nav className="flex flex-col items-start gap-2" aria-label="Links do rodapé">
           <h2 className="mb-1 font-bold text-soul-yellow">Páginas</h2>
+          {/* Reaproveita os mesmos links do menu principal no rodapé. */}
           {navigationItems.map((item) => (
             <Link
               className="text-white/80 transition hover:translate-x-1 hover:text-soul-cyan"
@@ -30,6 +34,7 @@ text-white">
           ))}
         </nav>
         <div className="flex flex-col items-start gap-2">
+          {/* Contato demonstrativo usado pela interface do projeto. */}
           <h2 className="mb-1 font-bold text-soul-yellow">Contato</h2>
           <a
             className="inline-flex items-center text-white/80 transition hover:translate-x-1 hover:text-soul-cyan"

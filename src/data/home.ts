@@ -1,5 +1,6 @@
 import type { CardContent } from "../types/card";
 
+// Cards exibidos no carrossel da Home para resumir a experiência SoulAI.
 export const homeCards: CardContent[] = [
     
     {

@@ -1,7 +1,9 @@
 import avatarHero from "../../../assets/media/avatar_hero.mp4";
 
+// Seção inicial com vídeo de impacto e chamada para conhecer o projeto.
 export default function HeroSection() {
 
+    // Rola a tela até a seção de apresentação da Home.
     function irParaSobre() {
         document.getElementById("home")?.scrollIntoView({
             behavior: "smooth",
@@ -11,6 +13,7 @@ export default function HeroSection() {
 
     return (
         <section className="relative isolate min-h-[680px] overflow-hidden bg-soul-gradient text-white md:min-h-[780px] lg:min-h-[900px]">
+            {/* Grade decorativa usada no fundo da hero. */}
             <div
                 className="pointer-events-none absolute inset-0 -z-10 opacity-20 [background-image:lineargradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)][background-size:70px_70px]"
                 aria-hidden="true"
@@ -22,6 +25,7 @@ export default function HeroSection() {
                 <h1 className="absolute left-1/2 top-32 z-10 w-screen -translate-x-1/2 whitespace-nowrap text-[84px] font-black leading-none text-white/60 md:top-28 md:text-[150px] lg:top-20 lg:text-[250px]">
                     SoulAI
                 </h1>
+                {/* Vídeo principal que apresenta visualmente o avatar. */}
                 <video
                     className="pointer-events-none absolute left-1/2 top-40 z-20 w-[880px] max-w-none -translate-x-1/2 mix-blendlighten md:top-36 md:w-[1180px] lg:top-32 lg:w-[1600px] mix-blend-screen"
                     autoPlay
@@ -41,6 +45,7 @@ export default function HeroSection() {
                     Conheça o SoulAI
                 </button>
             </div>
+            {/* Degradê que suaviza a transição da hero para a próxima seção. */}
             <div
                 className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-52 bg-gradient-to-b from-transparent via-
 [#f7f8ff] to-white"
