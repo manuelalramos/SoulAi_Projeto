@@ -1,0 +1,191 @@
+name: PR Policy
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  policy:
+    name: Validate PR Policy
+
+    runs-on: ubuntu-latest
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+
+    steps:
+      # ---------------------------------------------------------
+      # EXCEÇÃO PARA O PR QUE ESTÁ INSTALANDO A PRÓPRIA GOVERNANÇA
+      # ---------------------------------------------------------
+      - name: Check governance exception
+        id: governance
+        shell: bash
+        run: |
+          HEAD="${{ github.head_ref }}"
+
+          echo "Branch de origem: $HEAD"
+
+          if [[ "$HEAD" == "feature/repository-governance" ]]; then
+            echo "Este é o PR inicial de configuração da governança."
+            echo "A validação de Issue será ignorada somente para esta branch."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Governança normal aplicada."
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ---------------------------------------------------------
+      # VALIDA O DESTINO DO PULL REQUEST
+      # feature/* -> develop
+      # develop -> main
+      # ---------------------------------------------------------
+      - name: Validate target branch
+        shell: bash
+        run: |
+          HEAD="${{ github.head_ref }}"
+          BASE="${{ github.base_ref }}"
+
+          echo "Branch de origem: $HEAD"
+          echo "Branch de destino: $BASE"
+
+          if [[ "$HEAD" == feature/* && "$BASE" != "develop" ]]; then
+            echo "ERRO: branches feature/* devem abrir Pull Request para develop."
+            exit 1
+          fi
+
+          if [[ "$BASE" == "main" && "$HEAD" != "develop" ]]; then
+            echo "ERRO: somente develop pode abrir Pull Request para main."
+            exit 1
+          fi
+
+          echo "Destino do Pull Request correto."
+
+      # ---------------------------------------------------------
+      # PROCURA "Closes #NUMERO" NA DESCRIÇÃO DO PR
+      # Não roda no PR inicial da governança
+      # ---------------------------------------------------------
+      - name: Validate linked issue
+        if: steps.governance.outputs.skip != 'true'
+        id: issue
+        shell: bash
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "Procurando Issue relacionada na descrição do Pull Request..."
+
+          ISSUE=$(echo "$PR_BODY" |
+            grep -Eio '(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved)[[:space:]]+#[0-9]+' |
+            grep -Eo '[0-9]+' |
+            head -1 || true)
+
+          if [[ -z "$ISSUE" ]]; then
+            echo "ERRO: o Pull Request precisa possuir uma Issue vinculada."
+            echo "Adicione na descrição do PR:"
+            echo "Closes #NUMERO"
+            exit 1
+          fi
+
+          echo "Issue encontrada: #$ISSUE"
+          echo "number=$ISSUE" >> "$GITHUB_OUTPUT"
+
+      # ---------------------------------------------------------
+      # CONFERE SE A ISSUE REALMENTE EXISTE
+      # ---------------------------------------------------------
+      - name: Validate issue exists
+        if: steps.governance.outputs.skip != 'true'
+        shell: bash
+        run: |
+          ISSUE="${{ steps.issue.outputs.number }}"
+
+          echo "Verificando existência da Issue #$ISSUE..."
+
+          gh api \
+            "repos/${{ github.repository }}/issues/$ISSUE" \
+            > /dev/null
+
+          echo "Issue #$ISSUE encontrada."
+
+      # ---------------------------------------------------------
+      # CONFERE SE QUEM ABRIU O PR ESTÁ ATRIBUÍDO À ISSUE
+      # ---------------------------------------------------------
+      - name: Validate issue assignee
+        if: steps.governance.outputs.skip != 'true'
+        shell: bash
+        run: |
+          ISSUE="${{ steps.issue.outputs.number }}"
+          AUTHOR="${{ github.event.pull_request.user.login }}"
+
+          echo "Autora do Pull Request: @$AUTHOR"
+          echo "Issue relacionada: #$ISSUE"
+
+          ASSIGNEES=$(gh api \
+            "repos/${{ github.repository }}/issues/$ISSUE" \
+            --jq '.assignees[].login')
+
+          echo "Responsáveis atribuídos à Issue:"
+          echo "$ASSIGNEES"
+
+          if [[ -z "$ASSIGNEES" ]]; then
+            echo "ERRO: a Issue #$ISSUE não possui responsável atribuído."
+            exit 1
+          fi
+
+          if ! echo "$ASSIGNEES" | grep -Fxq "$AUTHOR"; then
+            echo "ERRO: @$AUTHOR não está atribuída à Issue #$ISSUE."
+            echo "A autora do Pull Request deve ser uma das responsáveis pela Issue."
+            exit 1
+          fi
+
+          echo "Autora corretamente atribuída à Issue."
+
+      # ---------------------------------------------------------
+      # EXIGE PELO MENOS 5 COMMITS NAS FEATURES FINAIS
+      # ---------------------------------------------------------
+      - name: Validate minimum commits
+        shell: bash
+        run: |
+          HEAD="${{ github.head_ref }}"
+
+          echo "Verificando quantidade de commits da branch: $HEAD"
+
+          if [[ "$HEAD" == "feature/final-content-livia" ||
+                "$HEAD" == "feature/final-content-lena" ||
+                "$HEAD" == "feature/final-content-yasmin" ]]; then
+
+            COUNT=$(gh api \
+              "repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits" \
+              --paginate \
+              --jq '.[].sha' |
+              wc -l)
+
+            COUNT=$(echo "$COUNT" | tr -d ' ')
+
+            echo "Quantidade de commits encontrada: $COUNT"
+
+            if [[ "$COUNT" -lt 5 ]]; then
+              echo "ERRO: esta feature precisa possuir pelo menos 5 commits."
+              echo "Commits encontrados: $COUNT"
+              exit 1
+            fi
+
+            echo "Quantidade mínima de 5 commits atendida."
+          else
+            echo "A regra de 5 commits não se aplica a esta branch."
+          fi
+
+      # ---------------------------------------------------------
+      # RESULTADO FINAL
+      # ---------------------------------------------------------
+      - name: PR policy approved
+        shell: bash
+        run: |
+          echo "Todas as políticas aplicáveis ao Pull Request foram atendidas."
