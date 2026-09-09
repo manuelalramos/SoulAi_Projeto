@@ -21,18 +21,18 @@ export function HomeAboutSection() {
                         para acompanhar o usuário, incentivar sua participação e estimular
                         ações sustentáveis de forma leve e contínua.
                     </p>
-                    <div className="mt-6 flex flex-wrap items-center gap-3">
+                    <div className="mt-6 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:items-center">
                         <Link
-
-                            className="relative z-0 inline-flex min-h-12 min-w-[200px] items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border border-soul-blue/10hover:text-soul-ink hover:shadow-future hover:before:w-full"
+                            className="relative z-0 inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-5 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border-transparent hover:text-soul-ink hover:shadow-future hover:before:w-full sm:w-auto sm:min-w-[200px] sm:px-6"
                             to="/sobre"
                         >
                             Saiba mais
                         </Link>
                         <button
-                            className="relative z-0 inline-flex min-h-12 min-w-[200px] items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-6 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border border-soul-blue/10hover:text-soul-ink hover:shadow-future hover:before:w-full"
+                            className="relative z-0 inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-5 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border-transparent hover:text-soul-ink hover:shadow-future hover:before:w-full sm:w-auto sm:min-w-[200px] sm:px-6"
                             type="button"
-                            onClick={abrirDemonstracaoChat}>
+                            onClick={abrirDemonstracaoChat}
+                        >
                             Ver demonstração do chat
                         </button>
                     </div>
