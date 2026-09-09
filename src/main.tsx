@@ -12,6 +12,8 @@ import SolucaoRoute from "./routes/Solucao";
 import SolucaoDetalheRoute from "./routes/SolucaoDetalhe";
 
 import "./index.css";
+
+// Router principal com todas as páginas da aplicação.
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,6 +34,8 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
+// Ponto de montagem que conecta o React ao elemento #root do HTML.
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RouterProvider router={router} />

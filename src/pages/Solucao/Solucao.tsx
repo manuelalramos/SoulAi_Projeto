@@ -8,6 +8,7 @@ import { FeatureShowcaseSection } from "./sections/FeatureShowcaseSection";
 
 import { FlowSection } from "./sections/FlowSection";
 
+// Página principal que apresenta o funcionamento e os recursos da solução.
 export default function Solucao() {
     return (
         <>
@@ -17,12 +18,15 @@ export default function Solucao() {
                 description="Entenda como o SoulAI utiliza avatar inteligente, missões, foguinho progressivo e recompensas para tornar a experiência na SoulUp mais interativa e motivadora."
             />
 
+            {/* Mostra o fluxo de uso do SoulAI em etapas. */}
             <FlowSection />
 
+            {/* Apresenta os pilares da solução em cards resumidos. */}
             <FeatureShowcaseSection />
 
             <section className="bg-white pb-16">
                 <div className="mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-4 md:grid-cols-2">
+                    {/* Cada funcionalidade vira um card com link para a rota dinâmica. */}
                     {solutionFeatures.map((feature) => (
                         <article
                             className="group rounded-xl border border-soul-blue/10 bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-transparent hover:bg-gradient-to-br hover:from-soul-purple hover:via-soul-blue hover:to-[#1182c2] hover:shadow-future"

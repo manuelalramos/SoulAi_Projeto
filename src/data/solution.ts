@@ -1,6 +1,7 @@
 import type { CardContent } from "../types/card";
 import type { SolutionFeature } from "../types/solution";
 
+// Cards resumidos que apresentam as funcionalidades principais da solução.
 export const functionalityCards: CardContent[] = [
   {
     title: "Missões",
@@ -34,6 +35,7 @@ export const functionalityCards: CardContent[] = [
   },
 ];
 
+// Dados completos usados nos cards e nas páginas dinâmicas de detalhe.
 export const solutionFeatures: SolutionFeature[] = [
   {
     slug: "missoes",
@@ -97,6 +99,7 @@ export const solutionFeatures: SolutionFeature[] = [
   },
 ];
 
+// Etapas que explicam o fluxo de uso do SoulAI dentro da SoulUp.
 export const flowSteps: CardContent[] = [
   {
     title: "01",

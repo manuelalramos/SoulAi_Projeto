@@ -1,7 +1,9 @@
 import type { ChatMessage } from "../types/chat";
 
+// Evento usado para abrir o chat flutuante a partir de outras partes do site.
 export const SOUL_CHAT_OPEN_EVENT = "soulai:open-chat";
 
+// Sequência fixa de mensagens usada para simular a conversa com o SoulAI.
 export const chatMessages: ChatMessage[] = [
 
     { author: "SoulAI", text: "Ei, que bom que voltou hoje! 🔥\nSua sequência continua ativa!" },

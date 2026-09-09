@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { SOUL_CHAT_OPEN_EVENT } from "../../../data/chat";
+
+// Seção de introdução que resume a proposta e oferece ações principais.
 export function HomeAboutSection() {
+    // Dispara um evento global para abrir a demonstração do chat.
     function abrirDemonstracaoChat() {
         window.dispatchEvent(new Event(SOUL_CHAT_OPEN_EVENT));
 
@@ -22,12 +25,14 @@ export function HomeAboutSection() {
                         ações sustentáveis de forma leve e contínua.
                     </p>
                     <div className="mt-6 grid grid-cols-1 gap-3 sm:flex sm:flex-wrap sm:items-center">
+                        {/* Leva o usuário para a página completa sobre o projeto. */}
                         <Link
                             className="relative z-0 inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-5 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border-transparent hover:text-soul-ink hover:shadow-future hover:before:w-full sm:w-auto sm:min-w-[200px] sm:px-6"
                             to="/sobre"
                         >
                             Saiba mais
                         </Link>
+                        {/* Abre o chat flutuante sem sair da Home. */}
                         <button
                             className="relative z-0 inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-5 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border-transparent hover:text-soul-ink hover:shadow-future hover:before:w-full sm:w-auto sm:min-w-[200px] sm:px-6"
                             type="button"

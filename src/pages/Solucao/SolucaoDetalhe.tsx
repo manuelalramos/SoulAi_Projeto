@@ -4,10 +4,12 @@ import PageIntro from "../../components/PageIntro/PageIntro";
 import { solutionFeatures } from "../../data/solution";
 import { SolutionDetailContent } from "./sections/SolutionDetailContent";
 
+// Página dinâmica que mostra o detalhe de uma funcionalidade pelo slug da URL.
 export default function SolucaoDetalhe() {
   // O slug vem da parte dinâmica da URL: /solucao/:slug
   const { slug } = useParams<{ slug: string }>();
 
+  // Navegação programática usada no botão de retorno.
   const navigate = useNavigate();
 
   // Procura o recurso que possui o mesmo slug da URL

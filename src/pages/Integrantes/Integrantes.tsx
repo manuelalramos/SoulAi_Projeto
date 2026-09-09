@@ -2,6 +2,7 @@ import PageIntro  from "../../components/PageIntro/PageIntro";
 import { TeamCard } from "../../components/TeamCard/TeamCard";
 import { teamMembers } from "../../data/team";
 
+// Página que lista as integrantes do projeto com dados e links.
 export default function Integrantes() {
   return (
     <>

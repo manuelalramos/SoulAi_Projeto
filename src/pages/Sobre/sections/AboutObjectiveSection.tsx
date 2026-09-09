@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { conceptPath } from "../../../data/about";
 
+// Seção que apresenta o objetivo e o caminho conceitual do projeto.
 export default function AboutObjectiveSection() {
     return (
         <section className="relative overflow-hidden bg-[lineargradient(180deg,#ffffff_0%,#f7f9ff_38%,#eef8ff_72%,#ffffff_100%)] py-16 md:py-20">
@@ -19,6 +20,7 @@ export default function AboutObjectiveSection() {
                     </p>
                 </div>
                 <div className="my-9 grid grid-cols-1 items-center gap-3 lg:grid-cols-[1fr_56px_1fr_56px_1fr]">
+                    {/* Monta os passos que explicam a evolução da experiência. */}
                     {conceptPath.map((item, index) => (
                         <Fragment key={item.title}>
                             <article
@@ -35,6 +37,7 @@ export default function AboutObjectiveSection() {
                                 </h3>
                                 <p className="mt-2 text-sm md:text-base">{item.text}</p>
                             </article>
+                            {/* Liga visualmente um passo ao próximo. */}
                             {index < conceptPath.length - 1 && (
                                 <div
                                     className="h-8 w-0.5 justify-self-center bg-gradient-to-b from-soul-purple/20 to-soul-cyan/ 70 lg:h-0.5 lg:w-full lg:bg-gradient-to-r"
@@ -44,6 +47,7 @@ export default function AboutObjectiveSection() {
                         </Fragment>
                     ))}
                 </div>
+                {/* Bloco final resume a solução proposta em uma frase principal. */}
                 <article className="grid grid-cols-1 items-center gap-6 rounded-xl border border-soul-cyan/40 bgwhite/90 p-7 shadow-card backdrop-blur md:p-8 lg:grid-cols-[0.82fr_1.18fr]">
                     <div>
                         <p className="font-black uppercase text-soul-blue">Solução proposta</p>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { flowSteps } from "../../../data/solution";
 
+// Gradientes aplicados em ordem aos cards do fluxo.
 const cardColors = [
   "from-soul-purple to-[#7d6bff]",
   "from-soul-blue to-[#5a67ff]",
@@ -11,6 +12,7 @@ const cardColors = [
   "from-[#4338ca] to-soul-purple",
 ];
 
+// Seção que apresenta a jornada do usuário em etapas sequenciais.
 export function FlowSection() {
   // Guarda qual card está com o mouse em cima
   const [cardEmFoco, setCardEmFoco] = useState<number | null>(null);
@@ -39,8 +41,10 @@ export function FlowSection() {
         {/* Cards do fluxo */}
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {flowSteps.map((step, index) => {
+            // Verifica se o card atual deve ficar em destaque.
             const estaEmFoco = cardEmFoco === index;
 
+            // Reduz visualmente os outros cards enquanto um está em foco.
             const outroCardEstaEmFoco =
               cardEmFoco !== null && cardEmFoco !== index;
 

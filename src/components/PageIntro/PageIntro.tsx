@@ -1,8 +1,11 @@
+// Props usadas para montar o topo padronizado das páginas internas.
 type PageIntroProps = {
     label: string;
     title: string;
     description: string;
 };
+
+// Cabeçalho visual reutilizado em páginas como Sobre, FAQ, Contato e Solução.
 export default function PageIntro({ label, title, description }: PageIntroProps) {
     return (
         <section className="relative isolate overflow-hidden bg-soul-gradient pb-20 pt-32 text-white md:pb-24 md:pt-36 lg:pb-28 lg:pt-40">

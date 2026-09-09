@@ -5,7 +5,7 @@ import fotoYasmin from "../assets/media/foto_yasmin.jpeg";
 
 import type { TeamMember } from "../types/team";
 
-
+// Dados das integrantes renderizados nos cards da página Integrantes.
 export const teamMembers: TeamMember[] = [
     {
         name: "Lena Haidar Halawi",

@@ -1,7 +1,7 @@
 
 import type { FaqQuestion } from "../types/faq";
 
-
+// Perguntas e respostas exibidas na página de FAQ.
 export const faqQuestions: FaqQuestion[] = [
     {
         question: "O que é o SoulAI?",
