@@ -4,7 +4,7 @@ import { conceptPath } from "../../../data/about";
 // Seção que apresenta o objetivo e o caminho conceitual do projeto.
 export default function AboutObjectiveSection() {
     return (
-        <section className="relative overflow-hidden bg-[lineargradient(180deg,#ffffff_0%,#f7f9ff_38%,#eef8ff_72%,#ffffff_100%)] py-10 md:py-20">
+        <section className="relative overflow-hidden bg-[lineargradient(180deg,#ffffff_0%,#f7f9ff_38%,#eef8ff_72%,#ffffff_100%)] py-10 md:py-14 lg:py-20">
             <div className="mx-auto w-[92%] max-w-[1180px]">
                 <div className="max-w-4xl">
                     <p className="font-black uppercase text-soul-blue">Visão do projeto</p>
