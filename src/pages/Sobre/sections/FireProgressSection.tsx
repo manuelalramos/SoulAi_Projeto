@@ -4,7 +4,7 @@ import fogoAnimado from "../../../assets/media/fogo.png";
 // Seção que explica o funcionamento do foguinho progressivo.
 export default function FireProgressSection() {
     return (
-        <section className="relative overflow-hidden bg-soul-soft/60 py-16 md:py-20">
+        <section className="relative overflow-hidden bg-soul-soft/60 py-10 md:py-14 lg:py-20">
             <div className="mx-auto w-[92%] max-w-[1180px]">
                 <article className="grid grid-cols-1 items-center gap-6 rounded-xl border border-soul-cyan/40 bgwhite/90 p-7 shadow-card md:p-10 lg:grid-cols-[120px_1fr]">
                     {/* Ícone visual do fogo usado apenas como reforço gráfico. */}

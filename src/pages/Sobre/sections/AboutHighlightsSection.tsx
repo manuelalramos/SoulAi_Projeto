@@ -3,7 +3,8 @@ import { projectHighlights } from "../../../data/about";
 // Seção que transforma os destaques do projeto em três cards.
 export default function AboutHighlightsSection() {
     return (
-        <section className="bg-white py-16 md:py-20">
+        <section className="bg-white py-10 md:py-14 lg:py-20">
+
             <div className="mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-5 md:grid-cols-3">
                 {/* Gera um card para cada destaque cadastrado no data/about. */}
                 {projectHighlights.map((card) => (

@@ -10,7 +10,8 @@ text-white">
       {/* Fundo decorativo seguindo a identidade visual do site. */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:lineargradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]
 [background-size:48px_48px]" />
-      <div className="relative mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-8 md:grid-cols-3 md:[grid-templatecolumns:1.4fr_1fr_1fr]">
+      <div className="relative mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-8 md:grid-cols-[1.35fr_0.8fr_1fr] md:gap-5 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-8">
+
         <div className="max-w-[340px]">
           <Link to="/" aria-label="Voltar para o início">
             <img className="w-[110px]" src={logoSoulup} alt="Logo SoulUp" />

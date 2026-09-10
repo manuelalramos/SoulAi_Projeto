@@ -18,7 +18,7 @@ export function FlowSection() {
   const [cardEmFoco, setCardEmFoco] = useState<number | null>(null);
 
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white pb-4 pt-12 md:pb-6 md:pt-14 lg:py-20">
       <div className="mx-auto w-[92%] max-w-[1180px]">
 
         {/* Título da seção */}
