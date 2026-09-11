@@ -13,7 +13,7 @@ export default function Solucao() {
     return (
         <>
             <PageIntro
-                label="Funcionalidades"
+                label="Solução"
                 title="Como a solução funciona"
                 description="Entenda como o SoulAI utiliza avatar inteligente, missões, foguinho progressivo e recompensas para tornar a experiência na SoulUp mais interativa e motivadora."
             />
