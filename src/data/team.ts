@@ -10,7 +10,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Lena Haidar Halawi",
         rm: "572258",
-        className: "1TDSPG",
+        className: "1TDSPF",
         photo: fotoLena,
         github: "https://github.com/Lenahalawi07",
         linkedin: "https://www.linkedin.com/in/lena-haidar-halawi-09134a3b8",
@@ -18,7 +18,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Lyvia Correa Amorim",
         rm: "569851",
-        className: "1TDSPG",
+        className: "1TDSPF",
         photo: fotoLyvia,
         github: "https://github.com/lyviaamorim",
         linkedin: "https://www.linkedin.com/in/lyvia-correa-de-amorim-0203493b8/",
@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Manuela de Lima Ramos",
         rm: "572956",
-        className: "1TDSPG",
+        className: "1TDSPF",
         photo: fotoManuela,
         github: "https://github.com/manuelalramos",
         linkedin: "https://www.linkedin.com/in/manuelalramos",
@@ -34,7 +34,7 @@ export const teamMembers: TeamMember[] = [
     {
         name: "Yasmin Souza Silva Martins",
         rm: "572102",
-        className: "1TDSPG",
+        className: "1TDSPF",
         photo: fotoYasmin,
         github: "https://github.com/yasminmartins18",
         linkedin: "https://www.linkedin.com/in/yasmin-souza-silva-martins-32085b376",
