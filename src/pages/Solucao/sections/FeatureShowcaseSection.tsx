@@ -1,4 +1,4 @@
-import { Carrosel } from "../../../components/Carrossel/Carrossel";
+import Carrosel from "../../../components/Carrossel/Carrossel";
 import { functionalityCards } from "../../../data/solution";
 
 

@@ -1,4 +1,4 @@
-import { Carrosel } from "../../../components/Carrossel/Carrossel";
+import Carrosel from "../../../components/Carrossel/Carrossel";
 import { homeCards } from "../../../data/home";
 
 // Seção que mostra os diferenciais da experiência usando o carrossel.
