@@ -3,7 +3,7 @@ import logoSoulup from "../../assets/media/logo-soulup.png";
 import { navigationItems } from "../../data/navigation";
 
 // Rodapé global com resumo do projeto, navegação e contato.
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#161733,#202260_48%,#3438c8)] pt-14
 text-white">

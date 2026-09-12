@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logoSoulup from "../../assets/media/logo-soulup.png";
-import { NavMenu } from "../NavMenu/NavMenu";
+import NavMenu from "../NavMenu/NavMenu";
 
 // Header fixo responsável pela logo, menu principal e menu mobile.
-export function Header() {
+export default function Header() {
  // Controla o menu mobile.
  const [menuAberto, setMenuAberto] = useState(false);
  // Controla a mudança visual do Header depois do scroll.

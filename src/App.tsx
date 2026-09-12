@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useScrollToTop } from "./hooks/useScrollToTop";
-import { MainLayout } from "./layouts/MainLayout/MainLayout";
+import MainLayout from "./layouts/MainLayout/MainLayout";
 
 
 // Componente raiz usado por todas as rotas da aplicação.
