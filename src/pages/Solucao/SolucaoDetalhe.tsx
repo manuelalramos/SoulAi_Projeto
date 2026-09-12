@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import PageIntro from "../../components/PageIntro/PageIntro";
 import { solutionFeatures } from "../../data/solution";
-import { SolutionDetailContent } from "./sections/SolutionDetailContent";
+import SolutionDetailContent from "./sections/SolutionDetailContent";
 
 // Página dinâmica que mostra o detalhe de uma funcionalidade pelo slug da URL.
 export default function SolucaoDetalhe() {

@@ -13,7 +13,7 @@ const cardColors = [
 ];
 
 // Seção que apresenta a jornada do usuário em etapas sequenciais.
-export function FlowSection() {
+export default function FlowSection() {
   // Guarda qual card está com o mouse em cima
   const [cardEmFoco, setCardEmFoco] = useState<number | null>(null);
 
@@ -77,7 +77,7 @@ export function FlowSection() {
 
                   ${
                     outroCardEstaEmFoco
-                      ? "scale-95 opacity-65"
+                     ? "scale-95 opacity-70"
                       : ""
                   }
                 `}

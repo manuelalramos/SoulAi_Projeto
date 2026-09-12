@@ -3,13 +3,12 @@ import logoSoulup from "../../assets/media/logo-soulup.png";
 import { navigationItems } from "../../data/navigation";
 
 // Rodapé global com resumo do projeto, navegação e contato.
-export function Footer() {
+export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden bg-[linear-gradient(135deg,#161733,#202260_48%,#3438c8)] pt-14
 text-white">
       {/* Fundo decorativo seguindo a identidade visual do site. */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:lineargradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)]
-[background-size:48px_48px]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.18] [background-image:linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:48px_48px]" />
       <div className="relative mx-auto grid w-[92%] max-w-[1180px] grid-cols-1 gap-8 md:grid-cols-[1.35fr_0.8fr_1fr] md:gap-5 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-8">
 
         <div className="max-w-[340px]">
@@ -59,7 +58,7 @@ text-white">
         </Link>
         .
       </p>
-      <div className="relative w-full p-4 text-center text-sm text-soul-soft/55">
+      <div className="relative w-full p-4 text-center text-sm text-soul-soft/60">
         &copy; SoulAI - Projeto acadêmico FIAP Challenge 2026. Todos os direitos
         reservados.
       </div>

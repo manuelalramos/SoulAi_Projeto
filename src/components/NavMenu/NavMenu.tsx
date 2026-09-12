@@ -8,7 +8,7 @@ type NavMenuProps = {
 };
 
 // Menu principal que renderiza os links cadastrados em data/navigation.
-export function NavMenu({ menuAberto, fecharMenu }: NavMenuProps) {
+export default function NavMenu({ menuAberto, fecharMenu }: NavMenuProps) {
   // Define se o menu mobile aparece ou fica escondido.
   const menuClass = menuAberto
     ? "absolute left-[5%] right-[5%] top-16 z-40 flex flex-col gap-2 rounded-xl bg-[#3438c8]/95 p-3 shadow-card backdrop-blur-xl lg:static lg:flex lg:flex-row lg:bg-transparent lg:p-0 lg:shadow-none lg:backdrop-blur-none"

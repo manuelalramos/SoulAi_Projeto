@@ -4,7 +4,7 @@ import { conceptPath } from "../../../data/about";
 // Seção que apresenta o objetivo e o caminho conceitual do projeto.
 export default function AboutObjectiveSection() {
     return (
-        <section className="relative overflow-hidden bg-[lineargradient(180deg,#ffffff_0%,#f7f9ff_38%,#eef8ff_72%,#ffffff_100%)] py-10 md:py-14 lg:py-20">
+        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#ffffff_0%,#f7f9ff_38%,#eef8ff_72%,#ffffff_100%)] py-10 md:py-14 lg:py-20">
             <div className="mx-auto w-[92%] max-w-[1180px]">
                 <div className="max-w-4xl">
                     <p className="font-black uppercase text-soul-blue">Visão do projeto</p>
@@ -26,10 +26,10 @@ export default function AboutObjectiveSection() {
                             <article
                                 className={`min-h-[190px] rounded-xl border p-5 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-future ${item.featured
                                         ? "border-soul-cyan/50 bg-white"
-                                        : "border-soul-blue/10 bg-white/85"
+                                        : "border-soul-blue/10 bg-white/90"
                                     }`}
                             >
-                                <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-r from-soulyellow to-[#fff5bd] font-black text-soul-ink">
+                                <span className="grid h-10 w-10 place-items-center rounded-full bg-gradient-to-r from-soul-yellow to-[#fff5bd] font-black text-soul-ink">
                                     {item.index}
                                 </span>
                                 <h3 className="mt-3 text-2xl font-black text-soul-ink">
@@ -40,15 +40,14 @@ export default function AboutObjectiveSection() {
                             {/* Liga visualmente um passo ao próximo. */}
                             {index < conceptPath.length - 1 && (
                                 <div
-                                    className="h-8 w-0.5 justify-self-center bg-gradient-to-b from-soul-purple/20 to-soul-cyan/ 70 lg:h-0.5 lg:w-full lg:bg-gradient-to-r"
-                                    aria-hidden="true"
+                                    className="h-8 w-0.5 justify-self-center bg-gradient-to-b from-soul-purple/20 to-soul-cyan/70 lg:h-0.5 lg:w-full lg:bg-gradient-to-r"
                                 />
                             )}
                         </Fragment>
                     ))}
                 </div>
                 {/* Bloco final resume a solução proposta em uma frase principal. */}
-                <article className="grid grid-cols-1 items-center gap-6 rounded-xl border border-soul-cyan/40 bgwhite/90 p-7 shadow-card backdrop-blur md:p-8 lg:grid-cols-[0.82fr_1.18fr]">
+                <article className="grid grid-cols-1 items-center gap-6 rounded-xl border border-soul-cyan/40 bg-white/90 p-7 shadow-card backdrop-blur md:p-8 lg:grid-cols-[0.82fr_1.18fr]">
                     <div>
                         <p className="font-black uppercase text-soul-blue">Solução proposta</p>
                         <h3 className="mt-1 text-3xl font-black leading-tight text-soul-ink">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FAQItem } from "../../components/FAQItem/FAQItem";
+import FAQItem from "../../components/FAQItem/FAQItem";
 import PageIntro  from "../../components/PageIntro/PageIntro";
 import { faqQuestions } from "../../data/faq";
 
