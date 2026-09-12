@@ -26,8 +26,8 @@ export default function Header() {
  }, []);
  // O mesmo comportamento visual vale para Home e páginas internas.
  const headerClass = paginaRolada
- ? "fixed left-0 top-0 z-30 w-full bg-[#262aa0]/75 text-white shadow-header backdrop-blur-2xl transitionall duration-300"
- : "fixed left-0 top-0 z-30 w-full bg-gradient-to-b from-soul-ink/30 to-transparent text-white transitionall duration-300";
+  ? "fixed left-0 top-0 z-30 w-full bg-[#262aa0]/75 text-white shadow-header backdrop-blur-2xl transition-all duration-300"
+  : "fixed left-0 top-0 z-30 w-full bg-gradient-to-b from-soul-ink/30 to-transparent text-white transition-all duration-300";
  return (
  <header className={headerClass}>
  <nav
@@ -49,8 +49,7 @@ lg:min-h-[82px]"
  </Link>
  {/* Botão exibido no mobile para abrir ou fechar a navegação. */}
  <button
- className="absolute right-0 grid h-11 w-11 place-items-center rounded-lg border border-white/25 bgwhite/15 text-white transition duration-300 hover:-translate-y-1 hover:bg-white/25 lg:hidden"
- type="button"
+ className="absolute right-0 grid h-11 w-11 place-items-center rounded-lg border border-white/25 bg-white/20 text-white transition duration-300 hover:-translate-y-1 hover:bg-white/25 lg:hidden"
  aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
  aria-expanded={menuAberto}
  onClick={() => setMenuAberto((aberto) => !aberto)}
