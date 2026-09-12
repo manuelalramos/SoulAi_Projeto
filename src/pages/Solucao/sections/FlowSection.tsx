@@ -77,7 +77,7 @@ export default function FlowSection() {
 
                   ${
                     outroCardEstaEmFoco
-                      ? "scale-95 opacity-65"
+                     ? "scale-95 opacity-70"
                       : ""
                   }
                 `}
