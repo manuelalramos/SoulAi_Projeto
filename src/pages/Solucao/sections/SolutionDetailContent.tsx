@@ -7,7 +7,7 @@ type SolutionDetailContentProps = {
 };
 
 // Renderiza descrição, resultado esperado e etapas de uma funcionalidade.
-export function SolutionDetailContent({
+export default function SolutionDetailContent({
     feature,
 }: SolutionDetailContentProps) {
     // Permite voltar para a lista principal de recursos.

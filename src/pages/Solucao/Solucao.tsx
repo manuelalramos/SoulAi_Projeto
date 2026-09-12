@@ -4,9 +4,9 @@ import PageIntro from "../../components/PageIntro/PageIntro";
 
 import { solutionFeatures } from "../../data/solution";
 
-import { FeatureShowcaseSection } from "./sections/FeatureShowcaseSection";
+import FeatureShowcaseSection from "./sections/FeatureShowcaseSection";
 
-import { FlowSection } from "./sections/FlowSection";
+import FlowSection from "./sections/FlowSection";
 
 // Página principal que apresenta o funcionamento e os recursos da solução.
 export default function Solucao() {
