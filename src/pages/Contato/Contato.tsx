@@ -57,21 +57,22 @@ export default function Contato() {
             return;
         }
 
-        // Quando chegar a zero, fecha o modal e volta para a Home.
-        if (segundos === 0) {
-            setModalAberto(false);
-            navigate("/");
-            return;
-        }
+        // Agenda o próximo passo da contagem (assíncrono, evita setState direto no efeito).
+        const temporizador = window.setTimeout(() => {
+            // Quando chegar a zero, fecha o modal e volta para a Home.
+            if (segundos === 0) {
+                setModalAberto(false);
+                navigate("/");
+                return;
+            }
 
-        // Intervalo responsável por diminuir um segundo por vez.
-        const intervalo = window.setInterval(() => {
-            setSegundos((valorAtual) => valorAtual - 1);
+            // Caso contrário, diminui um segundo.
+            setSegundos(segundos - 1);
         }, 1000);
 
-        // Limpa o intervalo para evitar contagens duplicadas.
+        // Limpa o temporizador para evitar contagens duplicadas.
         return () => {
-            window.clearInterval(intervalo);
+            window.clearTimeout(temporizador);
         };
     }, [modalAberto, navigate, segundos]);
 
