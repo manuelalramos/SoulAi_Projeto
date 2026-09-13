@@ -3,12 +3,19 @@ import { useEffect, useState } from "react";
 import { SOUL_CHAT_OPEN_EVENT, chatMessages } from "../../data/chat";
 
 // Chat flutuante que simula a conversa do usuário com o avatar SoulAI.
-export function FloatingChat() {
+export default function FloatingChat() {
     // Controla se o chat está aberto ou fechado
     const [chatAberto, setChatAberto] = useState(false);
 
     // Controla quantas mensagens já apareceram
     const [mensagensVisiveis, setMensagensVisiveis] = useState(0);
+
+    const [chatAbertoAnterior, setChatAbertoAnterior] = useState(chatAberto);
+    
+    if (chatAberto !== chatAbertoAnterior) {
+        setChatAbertoAnterior(chatAberto);
+        if (!chatAberto) setMensagensVisiveis(0);
+    }
 
     // Função usada para abrir o chat
     function abrirChat() {
@@ -26,10 +33,11 @@ export function FloatingChat() {
     }, []);
 
     // Faz as mensagens aparecerem aos poucos
+        // Faz as mensagens aparecerem aos poucos
     useEffect(() => {
-        // Se o chat estiver fechado, zera as mensagens visíveis
+        // Enquanto o chat estiver fechado, não há nada para revelar.
+        // (o reset das mensagens é feito durante a renderização, acima)
         if (!chatAberto) {
-            setMensagensVisiveis(0);
             return;
         }
 
@@ -94,8 +102,8 @@ export function FloatingChat() {
                                 <p
                                     key={`${message.author}-${index}`}
                                     className={`grid max-w-[88%] gap-1 whitespace-pre-line rounded-xl px-3 py-2 text-sm ${message.author === "Usuário"
-                                            ? "justify-self-end bg-gradient-to-r from-soul-blue to-soul-purple text-white"
-                                            : "justify-self-start bg-white text-soul-text shadow"
+                                        ? "justify-self-end bg-gradient-to-r from-soul-blue to-soul-purple text-white"
+                                        : "justify-self-start bg-white text-soul-text shadow"
                                         }`}
                                 >
                                     <span className="text-xs font-black uppercase">

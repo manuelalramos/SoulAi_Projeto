@@ -9,7 +9,7 @@ type CarrosselProps = {
 };
 
 // Componente reutilizável que mostra um card por vez com navegação.
-export function Carrosel({ label, title, items }: CarrosselProps) {
+export default function Carrosel({ label, title, items }: CarrosselProps) {
   // Guarda o índice do card que está visível no momento.
   const [indiceAtual, setIndiceAtual] = useState(0);
 

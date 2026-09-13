@@ -1,8 +1,8 @@
-import { Carrosel } from "../../../components/Carrossel/Carrossel";
+import Carrosel from "../../../components/Carrossel/Carrossel";
 import { homeCards } from "../../../data/home";
 
 // Seção que mostra os diferenciais da experiência usando o carrossel.
-export function HomeExperienceSection() {
+export default function HomeExperienceSection() {
     return (
         <Carrosel
             label="Experiência SoulAI"

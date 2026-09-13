@@ -6,7 +6,7 @@ type TeamCardProps = {
   member: TeamMember;
 };
 
-export function TeamCard({ member }: TeamCardProps) {
+export default function TeamCard({ member }: TeamCardProps) {
   return (
     // Card principal da integrante
     <article className="rounded-xl border border-soul-blue/10 bg-white p-6 text-center shadow-card transition-all duration-300 hover:-translate-y-1 hover:border-soul-cyan/50 hover:shadow-future">

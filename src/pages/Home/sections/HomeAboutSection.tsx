@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { SOUL_CHAT_OPEN_EVENT } from "../../../data/chat";
 
 // Seção de introdução que resume a proposta e oferece ações principais.
-export function HomeAboutSection() {
+export default function HomeAboutSection() {
     // Dispara um evento global para abrir a demonstração do chat.
     function abrirDemonstracaoChat() {
         window.dispatchEvent(new Event(SOUL_CHAT_OPEN_EVENT));

@@ -1,6 +1,7 @@
 import HeroSection from "./sections/HeroSection";
-import { HomeAboutSection } from "./sections/HomeAboutSection";
-import { HomeExperienceSection } from "./sections/HomeExperienceSection";
+import HomeAboutSection from "./sections/HomeAboutSection";
+import HomeExperienceSection from "./sections/HomeExperienceSection";
+
 
 // Página inicial montada a partir das três seções principais da Home.
 export default function Home() {

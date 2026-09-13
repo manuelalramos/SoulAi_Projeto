@@ -7,7 +7,7 @@ type SolutionDetailContentProps = {
 };
 
 // Renderiza descrição, resultado esperado e etapas de uma funcionalidade.
-export function SolutionDetailContent({
+export default function SolutionDetailContent({
     feature,
 }: SolutionDetailContentProps) {
     // Permite voltar para a lista principal de recursos.
@@ -72,7 +72,7 @@ export function SolutionDetailContent({
                     onClick={() => navigate("/solucao")}
                     className="mt-10 inline-flex min-h-11 items-center justify-center rounded-full border border-soul-blue/10 bg-soul-soft/80 px-5 py-3 font-black text-soul-ink transition-all duration-300 hover:-translate-y-1 hover:text-soul-blue hover:shadow-future"
                 >
-                    Voltar para recursos
+                    Voltar para solução
                 </button>
             </div>
         </section>

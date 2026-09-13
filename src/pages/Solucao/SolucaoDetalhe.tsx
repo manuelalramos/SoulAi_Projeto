@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import PageIntro from "../../components/PageIntro/PageIntro";
 import { solutionFeatures } from "../../data/solution";
-import { SolutionDetailContent } from "./sections/SolutionDetailContent";
+import SolutionDetailContent from "./sections/SolutionDetailContent";
 
 // Página dinâmica que mostra o detalhe de uma funcionalidade pelo slug da URL.
 export default function SolucaoDetalhe() {
@@ -24,7 +24,7 @@ export default function SolucaoDetalhe() {
         <PageIntro
           label="Recurso não encontrado"
           title="Essa página da solução não existe"
-          description="Volte para a lista de recursos e escolha uma das opções disponíveis."
+          description="Volte para a página de solução e escolha uma das opções disponíveis."
         />
 
         <section className="bg-white py-16">

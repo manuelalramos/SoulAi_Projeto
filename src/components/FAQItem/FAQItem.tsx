@@ -8,7 +8,7 @@ type FAQItemProps = {
 };
 
 // Componente que abre e fecha uma resposta individual do FAQ.
-export function FAQItem({ item, defaultOpen = false }: FAQItemProps) {
+export default function FAQItem({ item, defaultOpen = false }: FAQItemProps) {
     // Controla se a resposta está visível.
     const [aberto, setAberto] = useState(defaultOpen);
     return (

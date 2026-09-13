@@ -4,16 +4,16 @@ import PageIntro from "../../components/PageIntro/PageIntro";
 
 import { solutionFeatures } from "../../data/solution";
 
-import { FeatureShowcaseSection } from "./sections/FeatureShowcaseSection";
+import FeatureShowcaseSection from "./sections/FeatureShowcaseSection";
 
-import { FlowSection } from "./sections/FlowSection";
+import FlowSection from "./sections/FlowSection";
 
 // Página principal que apresenta o funcionamento e os recursos da solução.
 export default function Solucao() {
     return (
         <>
             <PageIntro
-                label="Funcionalidades"
+                label="Solução"
                 title="Como a solução funciona"
                 description="Entenda como o SoulAI utiliza avatar inteligente, missões, foguinho progressivo e recompensas para tornar a experiência na SoulUp mais interativa e motivadora."
             />

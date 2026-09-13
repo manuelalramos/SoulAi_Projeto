@@ -7,8 +7,16 @@ export const navigationItems: NavigationItem[] = [
     path: '/',
   },
   {
+    label: 'Integrantes',
+    path: '/integrantes',
+  },
+  {
     label: 'Sobre',
     path: '/sobre',
+  },
+  {
+    label: 'Solução',
+    path: '/solucao',
   },
   {
     label: 'FAQ',
@@ -17,13 +25,5 @@ export const navigationItems: NavigationItem[] = [
   {
     label: 'Contato',
     path: '/contato',
-  },
-  {
-    label: 'Integrantes',
-    path: '/integrantes',
-  },
-  {
-    label: 'Solução',
-    path: '/solucao',
   },
 ]
