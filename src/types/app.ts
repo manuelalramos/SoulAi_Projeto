@@ -29,7 +29,7 @@ export type Acessorio = {
     raridade: string;
     tipo: string;
     preco: number;
-    imageUrl: string | null;
+    imagemUrl: string | null;
 };
 
 export type ItemInventario = {
