@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { avatarBase } from "../../data/avatar";
 
+// Layout compartilhado pelas telas de login e cadastro.
 export default function AcessoLayout({ titulo, descricao, children }: {
     titulo: string;
     descricao: string;

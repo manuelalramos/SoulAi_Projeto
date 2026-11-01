@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import ImagemAcessorio from "../../components/ImagemAcessorio/ImagemAcessorio";
 import useProgresso from "../../hooks/useProgresso";
 
+// Página que mostra os acessórios e as opções de compra com moedas.
 export default function Loja() {
     const { dados, comprar, ocupado } = useProgresso();
     if (!dados) return null;
@@ -13,6 +14,7 @@ export default function Loja() {
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
                 {dados.acessorios.map((acessorio) => {
+                    // O botão muda conforme o inventário e o saldo da pessoa.
                     const adquirido = dados.inventario.some((item) => item.acessorio.id === acessorio.id);
                     const semSaldo = dados.usuario.moedas < acessorio.preco;
 

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import CardMissao from "../../components/CardMissao/CardMissao";
-import { avatarBase } from "../../data/avatar";
+import fogoAnimado from "../../assets/media/fogo.png";
 import useProgresso from "../../hooks/useProgresso";
 
+// Página inicial com o foguinho e as próximas missões do usuário.
 export default function Dashboard() {
     const { dados } = useProgresso();
     if (!dados) return null;
@@ -17,8 +18,11 @@ export default function Dashboard() {
             <h1 className="text-3xl font-extrabold text-soul-ink sm:text-4xl">Olá, {usuario.nome.split(" ")[0]}!</h1>
             <p className="mt-2">Uma pequena ação já faz diferença no seu dia.</p>
             <section aria-label="Seu foguinho" className="my-8 flex flex-col items-center gap-6 rounded-2xl border border-soul-line bg-white p-6 shadow-card sm:flex-row sm:gap-10 sm:p-8">
-                <img className="h-36 w-36 object-contain drop-shadow-xl sm:h-44 sm:w-44" src={avatarBase} alt="Seu foguinho SoulAI" />
-                <div className="w-full max-w-lg">
+                {/* Reaproveita o foguinho animado da seção de engajamento. */}
+                <div className="grid h-52 w-52 shrink-0 place-items-center rounded-full bg-gradient-to-br from-soul-yellow to-[#fff5bd] shadow-card sm:h-60 sm:w-60">
+                    <img className="h-28 w-28 object-contain [filter:brightness(0)_saturate(100%)_invert(27%)_sepia(74%)_saturate(2441%)_hue-rotate(226deg)_brightness(80%)_contrast(93%)] sm:h-32 sm:w-32" src={fogoAnimado} alt="Seu foguinho SoulAI" />
+                </div>
+                <div className="w-full min-w-0 max-w-lg">
                     <p className="text-sm font-bold text-soul-purple">Seu foguinho</p>
                     <h2 className="mt-1 text-2xl font-extrabold text-soul-ink">Nível {usuario.nivel}</h2>
                     <div className="mb-2 mt-5 flex justify-between text-sm font-bold"><span>Energia</span><span>{energia}%</span></div>

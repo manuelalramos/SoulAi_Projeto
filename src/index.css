@@ -41,3 +41,39 @@
     font: inherit;
   }
 }
+
+/* Campos e botões compartilhados pelas telas da área logada. */
+@layer components {
+  /* Deixa os campos bem definidos e destaca o foco na hora de preencher. */
+  .campo-app {
+    @apply w-full min-w-0 rounded-xl border border-soul-line bg-white px-4 py-3 text-soul-ink placeholder:text-soul-text/60 transition duration-200 focus:border-soul-purple focus:outline-none focus:ring-2 focus:ring-soul-cyan/40 disabled:cursor-not-allowed disabled:bg-soul-soft disabled:opacity-60 motion-reduce:transition-none;
+  }
+
+  /* Mantém o mesmo tamanho e foco nos botões e nos links de ação. */
+  .botao-app,
+  .botao-secundario {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-center font-bold transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul-purple focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 motion-reduce:transform-none motion-reduce:transition-none;
+  }
+
+  .botao-app {
+    @apply bg-gradient-to-r from-soul-purple via-soul-blue to-soul-cyan text-white shadow-card;
+  }
+
+  .botao-secundario {
+    @apply border border-soul-line bg-white text-soul-ink;
+  }
+
+  /* O hover só anima as ações que estão disponíveis. */
+  .botao-app:not(:disabled):not([aria-disabled="true"]):hover {
+    @apply -translate-y-0.5 brightness-110 motion-reduce:transform-none;
+  }
+
+  .botao-secundario:not(:disabled):not([aria-disabled="true"]):hover {
+    @apply -translate-y-0.5 border-soul-cyan bg-soul-soft motion-reduce:transform-none;
+  }
+
+  .botao-app[aria-disabled="true"],
+  .botao-secundario[aria-disabled="true"] {
+    @apply cursor-not-allowed opacity-50;
+  }
+}

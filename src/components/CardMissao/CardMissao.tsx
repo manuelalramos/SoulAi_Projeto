@@ -1,6 +1,7 @@
 import useProgresso from "../../hooks/useProgresso";
 import type { Missao } from "../../types/app";
 
+// Card com a recompensa e a ação para concluir uma missão.
 export default function CardMissao({ missao }: { missao: Missao }) {
     const { concluir, ocupado } = useProgresso();
     const corDaFaixa = missao.concluida ? "bg-emerald-500" : "bg-amber-400";

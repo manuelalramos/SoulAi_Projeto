@@ -7,6 +7,7 @@ import useSessao from "../../hooks/useSessao";
 import AcessoLayout from "../../layouts/AcessoLayout/AcessoLayout";
 import type { Credenciais } from "../../types/app";
 
+// Página de entrada para usuários e administradores.
 export default function Login() {
     const { sessao, entrar } = useSessao();
     const [parametros] = useSearchParams();
