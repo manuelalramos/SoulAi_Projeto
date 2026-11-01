@@ -8,6 +8,7 @@ import AcessoLayout from "../../layouts/AcessoLayout/AcessoLayout";
 import type { DadosCadastro } from "../../types/app";
 import ConsentimentoCadastro from "./sections/ConsentimentoCadastro";
 
+// Página que cria a conta depois de validar os dados e o consentimento.
 export default function Cadastro() {
     const { sessao } = useSessao();
     const navigate = useNavigate();

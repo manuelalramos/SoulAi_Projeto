@@ -2,6 +2,7 @@ import { useState } from "react";
 import { obterImagemUrl } from "../../data/imagens";
 import type { Acessorio } from "../../types/app";
 
+// Exibe a imagem do acessório ou um ícone quando ela está indisponível.
 export default function ImagemAcessorio({ acessorio }: { acessorio: Pick<Acessorio, "nome" | "imagemUrl"> }) {
     const [imagemComErro, setImagemComErro] = useState("");
     const imagem = obterImagemUrl(acessorio.imagemUrl);

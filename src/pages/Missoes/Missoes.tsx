@@ -1,6 +1,7 @@
 import CardMissao from "../../components/CardMissao/CardMissao";
 import useProgresso from "../../hooks/useProgresso";
 
+// Página que lista as missões disponíveis e as que já foram concluídas.
 export default function Missoes() {
     const { dados } = useProgresso();
     if (!dados) return null;

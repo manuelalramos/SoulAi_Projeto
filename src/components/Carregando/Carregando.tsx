@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// Aviso de carregamento com uma mensagem extra se a conexão demorar.
 export default function Carregando() {
     const [demorando, setDemorando] = useState(false);
 

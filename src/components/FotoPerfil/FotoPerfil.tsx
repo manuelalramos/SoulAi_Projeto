@@ -7,6 +7,7 @@ type Props = {
     grande?: boolean;
 };
 
+// Mostra a foto do perfil e mantém o ícone padrão se a imagem não carregar.
 export default function FotoPerfil({ fotoUrl, nome, grande = false }: Props) {
     const [imagemComErro, setImagemComErro] = useState("");
     const imagem = obterImagemUrl(fotoUrl);

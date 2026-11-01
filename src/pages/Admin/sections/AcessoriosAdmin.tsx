@@ -12,8 +12,9 @@ type Props = {
     excluir: (id: number) => Promise<boolean>;
 };
 
-const acessorioVazio: DadosAcessorio = { nome: "", tipo: "Touca", raridade: "Comum", preco: 0, imagemUrl: "" };
+const acessorioVazio: DadosAcessorio = { nome: "", tipo: "Cabeça", raridade: "Comum", preco: 0, imagemUrl: "" };
 
+// Formulário e lista para cuidar dos acessórios da loja.
 export default function AcessoriosAdmin({ acessorios, ocupado, salvar, excluir }: Props) {
     const [idEdicao, setIdEdicao] = useState<number>();
     const [idExclusao, setIdExclusao] = useState<number>();
@@ -24,10 +25,12 @@ export default function AcessoriosAdmin({ acessorios, ocupado, salvar, excluir }
 
     const nome = useWatch({ control, name: "nome" });
     const bloqueado = ocupado || isSubmitting;
-    const tipos = Array.from(new Set(["Touca", "Óculos", "Camiseta", "Mochila", "Tênis", ...acessorios.map((item) => item.tipo)]));
+    // Oferece posições do corpo e mantém os tipos que já vieram cadastrados.
+    const tipos = Array.from(new Set(["Cabeça", "Rosto", "Tronco", "Costas", "Pés", ...acessorios.map((item) => item.tipo)]));
 
     const raridades = Array.from(new Set(["Comum", "Raro", "Épico", ...acessorios.map((item) => item.raridade)]));
 
+    // Preenche os campos com o acessório escolhido para edição.
     function editar(acessorio: Acessorio) {
         setIdEdicao(acessorio.id);
         reset({ nome: acessorio.nome, tipo: acessorio.tipo, raridade: acessorio.raridade, preco: acessorio.preco, imagemUrl: acessorio.imagemUrl ?? "" });

@@ -6,6 +6,7 @@ import type { Acessorio, Missao } from "../../types/app";
 import MissoesAdmin from "./sections/MissoesAdmin";
 import AcessoriosAdmin from "./sections/AcessoriosAdmin";
 
+// Portal que reúne o gerenciamento de missões e acessórios.
 export default function Admin() {
     const { sessao } = useSessao();
     const [aba, setAba] = useState<"missao" | "acessorio">("missao");
@@ -51,6 +52,7 @@ export default function Admin() {
     if (sessao?.tipo !== "administrador") return null;
     const idAdministrador = sessao.pessoa.id;
 
+    // Evita ações ao mesmo tempo e atualiza a lista depois de salvar ou excluir.
     async function executarAcao(acao: () => Promise<unknown>, mensagem: string) {
         if (acaoEmAndamento.current) return false;
         acaoEmAndamento.current = true;

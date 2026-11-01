@@ -7,6 +7,7 @@ import useProgresso from "../../hooks/useProgresso";
 import type { DadosPerfil } from "../../types/app";
 import ConfirmarSenha from "./sections/ConfirmarSenha";
 
+// Formulário para atualizar os dados e a foto do perfil.
 export default function EditarPerfil() {
     const { dados, ocupado, erroAcao, salvarPerfil, limparAvisos } = useProgresso();
     const navigate = useNavigate();
@@ -27,6 +28,7 @@ export default function EditarPerfil() {
         }
     }
 
+    // Pede uma confirmação extra quando a pessoa também troca a senha.
     async function enviarFormulario(perfil: DadosPerfil) {
         limparAvisos();
         if (perfil.senha) {

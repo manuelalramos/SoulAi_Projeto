@@ -12,12 +12,14 @@ type Props = {
 
 const missaoVazia: DadosMissao = { titulo: "", descricao: "", recompensa: 0, ativa: true };
 
+// Formulário e lista para cadastrar, editar e excluir missões.
 export default function MissoesAdmin({ missoes, ocupado, salvar, excluir }: Props) {
     const [idEdicao, setIdEdicao] = useState<number>();
     const [idExclusao, setIdExclusao] = useState<number>();
     const { register, handleSubmit, reset, setFocus, formState: { errors, isSubmitting } } = useForm<DadosMissao>({ defaultValues: missaoVazia });
     const bloqueado = ocupado || isSubmitting;
 
+    // Traz a missão escolhida para os campos do formulário.
     function editar(missao: Missao) {
         setIdEdicao(missao.id);
         reset({ titulo: missao.titulo, descricao: missao.descricao, recompensa: missao.recompensa, ativa: missao.ativa });

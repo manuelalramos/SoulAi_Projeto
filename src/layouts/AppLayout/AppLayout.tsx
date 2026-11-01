@@ -2,6 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import Carregando from "../../components/Carregando/Carregando";
 import useProgresso from "../../hooks/useProgresso";
 
+// Atalhos para as telas da área do usuário.
 const paginas = [
     { caminho: "/app", nome: "Início" },
     { caminho: "/app/missoes", nome: "Missões" },
@@ -10,6 +11,7 @@ const paginas = [
     { caminho: "/app/perfil", nome: "Perfil" },
 ];
 
+// Layout que reúne saldo, navegação e avisos da área logada.
 export default function AppLayout() {
     const { dados, carregando, ocupado, erro, erroAcao, aviso, atualizar, limparAvisos } = useProgresso();
 
@@ -18,13 +20,14 @@ export default function AppLayout() {
             <div className="mx-auto w-[92%] max-w-[1080px]">
                 <div className="flex flex-wrap items-center justify-between gap-4 border-b border-soul-line pb-5">
                     <p className="text-lg font-extrabold text-soul-ink">Meu SoulAI</p>
-                    {dados && !erro && <p className="rounded-full bg-soul-yellow/40 px-4 py-2 text-sm font-extrabold text-soul-ink" aria-label={`Saldo: ${dados.usuario.moedas} moedas`}>{dados.usuario.moedas} moedas</p>}
+                    {dados && !erro && <p className="inline-flex items-center gap-2 rounded-full bg-soul-yellow/40 px-4 py-2 text-sm font-extrabold text-soul-ink" aria-label={`Saldo: ${dados.usuario.moedas} moedas`}><span aria-hidden="true">🪙</span>{dados.usuario.moedas} moedas</p>}
                 </div>
 
-                <nav aria-label="Área do usuário" className="my-6 flex gap-1 overflow-x-auto pb-2">
+                {/* Destaca a página atual e anima os atalhos ao passar o mouse. */}
+                <nav aria-label="Área do usuário" className="my-6 flex gap-1 overflow-x-auto py-2">
                     {paginas.map((pagina) => (
                         <NavLink key={pagina.caminho} to={pagina.caminho} end={pagina.caminho === "/app"} onClick={limparAvisos}
-                            className={({ isActive }) => `shrink-0 rounded-full px-4 py-2 text-sm font-bold transition sm:px-5 ${isActive ? "bg-soul-blue text-white" : "text-soul-text hover:bg-white"}`}>
+                            className={({ isActive }) => `shrink-0 rounded-full border px-4 py-2 text-sm font-bold transition duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul-purple focus-visible:ring-offset-2 motion-reduce:transform-none motion-reduce:transition-none sm:px-5 ${isActive ? "border-soul-blue bg-soul-blue text-white shadow-card hover:bg-soul-purple" : "border-transparent text-soul-text hover:border-soul-cyan/40 hover:bg-white hover:text-soul-blue"}`}>
                             {pagina.nome}
                         </NavLink>
                     ))}
