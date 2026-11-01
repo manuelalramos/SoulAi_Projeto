@@ -8,6 +8,7 @@ type Props = {
     cancelar: () => void;
 };
 
+// Modal que confirma a troca de senha antes de salvar o perfil.
 export default function ConfirmarSenha({ ocupado, erro, confirmar, cancelar }: Props) {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const [tentouSalvar, setTentouSalvar] = useState(false);

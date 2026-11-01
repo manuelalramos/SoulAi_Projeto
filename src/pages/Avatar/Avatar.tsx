@@ -4,10 +4,12 @@ import { avatarBase } from "../../data/avatar";
 import useProgresso from "../../hooks/useProgresso";
 import type { ItemInventario } from "../../types/app";
 
+// Página que mostra o avatar e permite escolher os acessórios equipados.
 export default function Avatar() {
     const { dados, ocupado, trocarEquipamento } = useProgresso();
     if (!dados) return null;
     const equipados = dados.inventario.filter((item) => item.equipado);
+    // Divide os acessórios entre os dois lados do foguinho.
     const esquerda = equipados.filter((_, indice) => indice % 2 === 0);
     const direita = equipados.filter((_, indice) => indice % 2 !== 0);
 

@@ -5,6 +5,7 @@ type Props = {
     alterarConsentimento: (aceito: boolean) => void;
 };
 
+// Opções de consentimento apresentadas durante o cadastro.
 export default function ConsentimentoCadastro({ consentimentoObrigatorio, alterarConsentimento }: Props) {
     const [notificacoes, setNotificacoes] = useState(false);
     const [melhoriaServico, setMelhoriaServico] = useState(false);

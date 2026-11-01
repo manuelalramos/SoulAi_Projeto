@@ -7,6 +7,7 @@ import type { Acessorio, DadosPerfil, ItemInventario, Missao } from "../types/ap
 import { ProgressoContext } from "./ProgressoContext";
 import type { DadosProgresso } from "./ProgressoContext";
 
+// Compartilha missões, moedas e inventário entre as telas do app.
 export default function ProgressoProvider({ children }: { children: ReactNode }) {
     const { sessao, atualizarUsuario } = useSessao();
     const idUsuario = sessao?.pessoa.id;
@@ -47,6 +48,7 @@ export default function ProgressoProvider({ children }: { children: ReactNode })
         }
     }
 
+    // Faz uma ação por vez e busca o progresso atualizado ao terminar.
     async function executarAcao(acao: () => Promise<unknown>, mensagem: string) {
         if (acaoEmAndamento.current) return;
         acaoEmAndamento.current = true;

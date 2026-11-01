@@ -3,6 +3,7 @@ import useSessao from "../../hooks/useSessao";
 import { Link } from "react-router-dom";
 import FotoPerfil from "../../components/FotoPerfil/FotoPerfil";
 
+// Página com os dados da conta e um resumo das conquistas.
 export default function Perfil() {
     const { dados, limparAvisos } = useProgresso();
     const { sair } = useSessao();
@@ -23,6 +24,7 @@ export default function Perfil() {
                     <dd className="mt-1 break-all font-bold text-soul-ink">{dados.usuario.email}</dd>
                 </dl>
 
+                {/* Resumo do progresso que a pessoa já fez no app. */}
                 <dl className="my-8 grid grid-cols-1 gap-5 border-y border-soul-line py-6 sm:grid-cols-3">
                     <div><dt className="text-sm">Moedas</dt><dd className="mt-1 text-2xl font-extrabold text-soul-blue">{dados.usuario.moedas}</dd></div>
                     <div><dt className="text-sm">Nível</dt><dd className="mt-1 text-2xl font-extrabold text-soul-blue">{dados.usuario.nivel}</dd></div>
