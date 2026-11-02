@@ -25,21 +25,22 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/React_Router-DOM-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white" alt="React Router DOM" />
   <img src="https://img.shields.io/badge/React_Hook_Form-7-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white" alt="React Hook Form" />
-  <img src="https://img.shields.io/badge/Oxlint-Qualidade-0B1220?style=for-the-badge" alt="Oxlint" />
+  <img src="https://img.shields.io/badge/API-Java%20(Render)-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="API Java" />
+  <img src="https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
 </p>
 
 <p align="center">
-  <a href="https://manuelalramos.github.io/SoulAi_Projeto/">
+  <a href="https://soul-ai-projeto.vercel.app/">
     <img
-      src="https://img.shields.io/badge/Acessar%20Projeto-3438c8?style=for-the-badge&logo=github&logoColor=white"
+      src="https://img.shields.io/badge/Acessar%20Projeto-3438c8?style=for-the-badge&logo=vercel&logoColor=white"
       alt="Acessar projeto"
     />
   </a>
@@ -59,6 +60,7 @@
 - [Problema identificado](#problema-identificado)
 - [Proposta do SoulAI](#proposta-do-soulai)
 - [Objetivos](#objetivos)
+- [Novidades da Sprint 4](#novidades-da-sprint-4)
 - [Evolução do projeto](#evolução-do-projeto)
 - [Por que migramos para React](#por-que-migramos-para-react)
 - [Tecnologias utilizadas](#tecnologias-utilizadas)
@@ -68,11 +70,12 @@
 - [Responsabilidade das pastas](#responsabilidade-das-pastas)
 - [Sistema de rotas](#sistema-de-rotas)
 - [Páginas da aplicação](#páginas-da-aplicação)
+- [Login, cadastro e área logada](#login-cadastro-e-área-logada)
+- [Portal do administrador](#portal-do-administrador)
+- [Integração com a API (Java)](#integração-com-a-api-java)
 - [Componentes reutilizáveis](#componentes-reutilizáveis)
 - [Dados e tipos](#dados-e-tipos)
 - [Hooks](#hooks)
-- [Layout global](#layout-global)
-- [Formulário de contato](#formulário-de-contato)
 - [Gerenciamento de estado](#gerenciamento-de-estado)
 - [Responsividade](#responsividade)
 - [Acessibilidade](#acessibilidade)
@@ -82,11 +85,9 @@
 - [Qualidade e validações](#qualidade-e-validações)
 - [Git Flow e histórico](#git-flow-e-histórico)
 - [Padrão de commits](#padrão-de-commits)
-- [Limpeza do código Vanilla](#limpeza-do-código-vanilla)
 - [Como instalar](#como-instalar)
-- [Como executar](#como-executar)
+- [Como usar](#como-usar)
 - [Scripts disponíveis](#scripts-disponíveis)
-- [Como testar](#como-testar)
 - [Deploy](#deploy)
 - [Limitações atuais](#limitações-atuais)
 - [Possíveis evoluções futuras](#possíveis-evoluções-futuras)
@@ -118,7 +119,7 @@ O projeto combina:
 - experiência do usuário;
 - incentivo ao retorno frequente à plataforma.
 
-O site desenvolvido apresenta essa proposta de forma visual, navegável, responsiva e organizada.
+Na Sprint 4, além da proposta institucional, o site passou a ter uma **área logada funcional** que consome uma **API REST real** (desenvolvida na disciplina de Java), permitindo login, cadastro, missões, loja, avatar e um portal administrativo.
 
 ---
 
@@ -200,11 +201,27 @@ Também fazem parte dos objetivos:
 
 ---
 
+## Novidades da Sprint 4
+
+A Sprint 4 é a etapa final do projeto e tem como foco a **integração real com o back-end** e a consolidação da aplicação em nível profissional. As principais novidades em relação à Sprint 3 são:
+
+- **Área logada funcional:** além do site institucional, a aplicação agora possui login, cadastro e uma área do usuário com dashboard, missões, loja, avatar e perfil.
+- **Integração com a API em Java:** o front-end consome a API REST do grupo (publicada na nuvem) por meio de requisições HTTP, com operações de leitura e de escrita.
+- **Portal do administrador:** uma área separada, acessível por login de administrador, com CRUD de missões e acessórios consumindo a API.
+- **Consentimento LGPD no cadastro:** tela de consentimento com opções obrigatórias e opcionais.
+- **Camada de integração organizada:** todas as chamadas à API ficam centralizadas em `src/data/api.ts`, com as respostas tipadas em TypeScript e tratamento de carregamento e erro.
+- **Deploy na Vercel:** a aplicação foi publicada e já consome a API remotamente.
+- **Gerenciamento de estado com Context API:** contextos de sessão e de progresso para a área logada.
+
+Essas adições foram feitas **sobre** a base da Sprint 3, preservando a arquitetura modular, a identidade visual e o padrão SPA.
+
+---
+
 ## Evolução do projeto
 
-Um dos pontos importantes desta Sprint foi a migração da aplicação, que anteriormente utilizava **HTML, CSS e JavaScript Vanilla**, para uma arquitetura baseada em **React, TypeScript, Vite e Tailwind CSS**.
+Um dos pontos importantes do projeto foi a migração da aplicação, que anteriormente utilizava **HTML, CSS e JavaScript Vanilla**, para uma arquitetura baseada em **React, TypeScript, Vite e Tailwind CSS** (Sprint 3). Na Sprint 4, essa base evoluiu para uma aplicação integrada a um back-end real.
 
-A versão anterior possuía uma estrutura parecida com:
+A versão Vanilla anterior possuía uma estrutura parecida com:
 
 ```text
 SoulAi_Projeto/
@@ -224,9 +241,7 @@ SoulAi_Projeto/
 
 Cada página possuía seu próprio HTML, os estilos estavam distribuídos em arquivos CSS e os comportamentos eram controlados por JavaScript.
 
-Durante a Sprint, essa estrutura foi usada como referência de conteúdo e identidade visual, mas a implementação foi reconstruída gradualmente em React.
-
-A migração aconteceu por etapas:
+A migração para React aconteceu por etapas (Sprint 3):
 
 1. criação do projeto com Vite;
 2. configuração do React;
@@ -241,6 +256,8 @@ A migração aconteceu por etapas:
 11. ajustes de responsividade;
 12. melhorias de acessibilidade;
 13. remoção dos arquivos legados não utilizados.
+
+E, na Sprint 4, foram acrescentadas a área logada, o portal do administrador, a integração com a API em Java e o deploy na Vercel.
 
 O histórico de commits do repositório mostra essa evolução por branches e Pull Requests.
 
@@ -301,7 +318,8 @@ Foi utilizado para criar:
 - carrossel;
 - FAQ;
 - chat;
-- navegação.
+- navegação;
+- área logada e portal administrativo.
 
 ### TypeScript
 
@@ -317,7 +335,8 @@ Exemplos:
 - `FaqQuestion`;
 - `CardContent`;
 - `NavigationItem`;
-- `ChatMessage`.
+- `ChatMessage`;
+- `Usuario`, `Administrador`, `Missao`, `Acessorio` (tipos usados na integração com a API).
 
 Isso ajuda a evitar erros e deixa explícito quais dados cada componente espera receber.
 
@@ -337,7 +356,7 @@ Ele é responsável por:
 
 O Tailwind CSS é responsável pela maior parte da estilização da interface.
 
-A decisão da Sprint foi evitar recriar vários arquivos CSS externos por página. Por isso, os estilos específicos dos componentes são aplicados principalmente por classes utilitárias.
+A decisão foi evitar recriar vários arquivos CSS externos por página. Por isso, os estilos específicos dos componentes são aplicados principalmente por classes utilitárias.
 
 Exemplo:
 
@@ -353,6 +372,7 @@ Responsável pela navegação da SPA.
 
 - páginas estáticas;
 - rota dinâmica;
+- rotas aninhadas da área logada;
 - navegação sem recarregar toda a aplicação;
 - parâmetros de URL;
 - navegação programática;
@@ -360,7 +380,7 @@ Responsável pela navegação da SPA.
 
 ### React Hook Form
 
-Utilizado no formulário de contato.
+Utilizado no formulário de contato e nos formulários de login, cadastro e edição de perfil.
 
 Responsável por:
 
@@ -369,6 +389,10 @@ Responsável por:
 - validações;
 - mensagens de erro;
 - reset do formulário.
+
+### Fetch API
+
+Utilizada para o consumo da API em Java, sem bibliotecas externas de requisição (Axios não é utilizado). As chamadas ficam centralizadas na camada de integração.
 
 ### Oxlint
 
@@ -384,14 +408,7 @@ Fazem parte da configuração do Tailwind CSS e do processamento do CSS.
 
 ### Font Awesome
 
-Utilizado para ícones presentes na aplicação, como:
-
-- menu;
-- e-mail;
-- localização;
-- redes sociais;
-- setas;
-- botão flutuante do chat.
+Utilizado para ícones presentes na aplicação, como menu, e-mail, localização, redes sociais, setas e botão flutuante do chat.
 
 ### Google Fonts
 
@@ -412,18 +429,7 @@ O projeto utiliza atualmente as seguintes dependências principais:
 }
 ```
 
-Entre as principais dependências de desenvolvimento estão:
-
-- TypeScript;
-- Vite;
-- Tailwind CSS;
-- PostCSS;
-- Autoprefixer;
-- Oxlint;
-- `@vitejs/plugin-react`;
-- `@types/react`;
-- `@types/react-dom`;
-- `@types/node`.
+Entre as principais dependências de desenvolvimento estão TypeScript, Vite, Tailwind CSS, PostCSS, Autoprefixer, Oxlint, `@vitejs/plugin-react`, `@types/react`, `@types/react-dom` e `@types/node`.
 
 ---
 
@@ -436,16 +442,17 @@ A aplicação segue este fluxo:
 ```text
 index.html
   -> src/main.tsx
+  -> SessaoProvider
   -> RouterProvider
   -> App.tsx
   -> MainLayout
   -> Outlet
-  -> Page
+  -> Page (site institucional, área logada ou admin)
   -> Sections / Components
-  -> Data + Types
+  -> Data + Types + API
 ```
 
-Essa divisão evita concentrar toda a aplicação em um único arquivo e ajuda a separar o que é estrutura, página, componente, conteúdo e tipo.
+Essa divisão evita concentrar toda a aplicação em um único arquivo e ajuda a separar o que é estrutura, página, componente, conteúdo, tipo e integração.
 
 ---
 
@@ -461,81 +468,33 @@ Ele possui:
 <div id="root"></div>
 ```
 
-Essa `div` funciona como ponto de entrada da aplicação React.
-
-Também são carregados nesse arquivo:
-
-- metadados básicos;
-- favicon;
-- fonte Inter;
-- Font Awesome;
-- script principal do Vite.
+Essa `div` funciona como ponto de entrada da aplicação React. Também são carregados metadados básicos, favicon, fonte Inter, Font Awesome e o script principal do Vite.
 
 ### 2. `src/main.tsx`
 
-O `main.tsx` inicializa a aplicação.
-
-Nele são configurados:
-
-- `StrictMode`;
-- `createRoot`;
-- `createBrowserRouter`;
-- `RouterProvider`;
-- importação do CSS global.
-
-O router define as rotas principais da aplicação e renderiza cada página dentro do layout global.
+O `main.tsx` inicializa a aplicação. Nele são configurados `StrictMode`, `createRoot`, `createBrowserRouter`, `RouterProvider`, os provedores de contexto (sessão) e a importação do CSS global. O router define as rotas principais e renderiza cada página dentro do layout global.
 
 ### 3. `src/App.tsx`
 
-O `App` representa a estrutura principal da aplicação.
-
-Ele utiliza:
-
-```tsx
-<Outlet />
-```
-
-O `Outlet` representa o local onde o React Router renderiza a página correspondente à URL atual.
-
-De forma simplificada:
-
-```text
-App
-└── MainLayout
-    ├── Header
-    ├── main
-    │   └── Outlet
-    ├── FloatingChat
-    └── Footer
-```
+O `App` representa a estrutura principal da aplicação e usa `<Outlet />`, que representa o local onde o React Router renderiza a página correspondente à URL atual.
 
 ### 4. `MainLayout`
 
-O `MainLayout` evita repetição entre as páginas.
-
-Ele centraliza:
-
-- Header;
-- elemento `main`;
-- chat flutuante;
-- Footer.
+O `MainLayout` evita repetição entre as páginas, centralizando Header, elemento `main`, chat flutuante e Footer.
 
 ---
 
 ## Estrutura de pastas
 
-A estrutura atual segue aproximadamente a organização abaixo:
-
 ```text
 SoulAi_Projeto/
 ├── .github/
-├── dist/
-├── node_modules/
 ├── public/
 │   └── icone.png
 ├── src/
 │   ├── assets/
 │   │   └── media/
+│   │       ├── avatar-base.png
 │   │       ├── avatar_hero.mp4
 │   │       ├── fogo.png
 │   │       ├── icone.png
@@ -552,44 +511,39 @@ SoulAi_Projeto/
 │   │   ├── Header/
 │   │   ├── NavMenu/
 │   │   ├── PageIntro/
-│   │   └── TeamCard/
+│   │   ├── TeamCard/
+│   │   └── ... (componentes da área logada)
+│   ├── contexts/        # contextos de sessão e progresso (Sprint 4)
 │   ├── data/
 │   │   ├── about.ts
+│   │   ├── api.ts       # camada de integração com a API Java (Sprint 4)
 │   │   ├── chat.ts
 │   │   ├── faq.ts
 │   │   ├── home.ts
 │   │   ├── navigation.ts
 │   │   ├── solution.ts
 │   │   └── team.ts
-│   ├── hooks/
-│   │   └── useScrollToTop.ts
-│   ├── layouts/
-│   │   └── MainLayout/
+│   ├── hooks/           # useScrollToTop, useSessao, useProgresso
+│   ├── layouts/         # MainLayout e layouts da área logada
 │   ├── pages/
-│   │   ├── Contato/
-│   │   ├── FAQ/
 │   │   ├── Home/
-│   │   ├── Integrantes/
-│   │   ├── NotFound/
 │   │   ├── Sobre/
-│   │   └── Solucao/
-│   ├── routes/
-│   │   ├── Contato/
+│   │   ├── Integrantes/
 │   │   ├── FAQ/
-│   │   ├── Home/
-│   │   ├── Integrantes/
-│   │   ├── NotFound/
-│   │   ├── Sobre/
+│   │   ├── Contato/
 │   │   ├── Solucao/
-│   │   └── SolucaoDetalhe/
+│   │   ├── Login/       # Sprint 4
+│   │   ├── Cadastro/    # Sprint 4
+│   │   ├── Dashboard/   # Sprint 4
+│   │   ├── Missoes/     # Sprint 4
+│   │   ├── Loja/        # Sprint 4
+│   │   ├── Avatar/      # Sprint 4
+│   │   ├── Perfil/      # Sprint 4
+│   │   ├── EditarPerfil/# Sprint 4
+│   │   ├── Admin/       # Sprint 4
+│   │   └── NotFound/
+│   ├── routes/
 │   ├── types/
-│   │   ├── card.ts
-│   │   ├── chat.ts
-│   │   ├── faq.ts
-│   │   ├── form.ts
-│   │   ├── navigation.ts
-│   │   ├── solution.ts
-│   │   └── team.ts
 │   ├── App.tsx
 │   ├── index.css
 │   └── main.tsx
@@ -614,89 +568,34 @@ Observação: `node_modules/` e `dist/` são pastas geradas localmente e não pr
 ## Responsabilidade das pastas
 
 ### `public`
-
-Guarda arquivos estáticos servidos diretamente pelo Vite.
-
-Atualmente contém o ícone usado como favicon:
-
-```text
-public/icone.png
-```
+Guarda arquivos estáticos servidos diretamente pelo Vite (como o favicon).
 
 ### `src/assets/media`
-
-Guarda imagens e vídeos usados pela interface.
-
-Exemplos:
-
-- logo da SoulUp;
-- ícone do projeto;
-- vídeo do avatar na hero;
-- vídeo do mockup do chat;
-- imagem do foguinho;
-- fotos das integrantes.
+Guarda imagens e vídeos usados pela interface: logo da SoulUp, ícone, vídeo do avatar na hero, imagem do foguinho, avatar base e fotos das integrantes.
 
 ### `src/components`
+Guarda componentes reutilizáveis. Não representam páginas completas; são blocos menores usados em várias partes da aplicação.
 
-Guarda componentes reutilizáveis.
-
-Esses componentes não representam páginas completas. Eles são blocos menores usados em várias partes da aplicação.
+### `src/contexts`
+Guarda os contextos da área logada (Sprint 4): a **sessão** (usuário ou administrador logado) e o **progresso** (dados do usuário vindos da API).
 
 ### `src/data`
-
-Centraliza conteúdos estáticos da aplicação.
-
-Exemplos:
-
-- perguntas do FAQ;
-- integrantes;
-- itens de navegação;
-- mensagens do chat;
-- funcionalidades da solução;
-- textos da página Sobre;
-- cards da Home.
-
-Separar os dados dos componentes facilita manutenção e evita que textos longos fiquem espalhados pela interface.
+Centraliza conteúdos estáticos (FAQ, integrantes, navegação, mensagens do chat, funcionalidades da solução, textos e cards) e a **camada de integração com a API** (`api.ts`).
 
 ### `src/hooks`
-
-Guarda hooks próprios.
-
-Atualmente possui:
-
-```text
-useScrollToTop.ts
-```
-
-Esse hook leva o usuário ao topo da tela quando a rota muda.
+Guarda hooks próprios: `useScrollToTop`, além de `useSessao` e `useProgresso` (Sprint 4).
 
 ### `src/layouts`
-
-Guarda estruturas compartilhadas entre páginas.
-
-Atualmente existe:
-
-```text
-MainLayout
-```
+Guarda estruturas compartilhadas entre páginas (o `MainLayout` e os layouts da área logada e de acesso).
 
 ### `src/pages`
-
-Guarda a implementação visual de cada página.
-
-Algumas páginas possuem uma pasta `sections` para separar blocos internos e deixar a leitura mais organizada.
+Guarda a implementação visual de cada página. Algumas páginas possuem uma pasta `sections` para separar blocos internos.
 
 ### `src/routes`
-
-Guarda arquivos de entrada para as rotas.
-
-Essa camada separa o roteamento da implementação real das páginas.
+Guarda arquivos de entrada para as rotas, separando o roteamento da implementação das páginas.
 
 ### `src/types`
-
-Guarda tipos TypeScript compartilhados.
-
-Essa pasta define os formatos esperados para dados usados no projeto.
+Guarda tipos TypeScript compartilhados, definindo os formatos esperados para os dados usados no projeto, incluindo os dados recebidos da API.
 
 ---
 
@@ -712,240 +611,139 @@ As rotas são configuradas em `src/main.tsx` com `createBrowserRouter`.
 | `/faq` | FAQ | Perguntas frequentes |
 | `/contato` | Contato | Formulário validado |
 | `/solucao` | Solução | Fluxo e funcionalidades |
-| `/solucao/:slug` | Solução Detalhe | Rota dinâmica |
+| `/solucao/:slug` | Solução Detalhe | **Rota dinâmica** (parâmetro na URL) |
+| `/login` | Login | Acesso de usuário e de administrador |
+| `/cadastro` | Cadastro | Cria conta + consentimento LGPD |
+| `/app` | Dashboard | Área logada (protegida) |
+| `/app/missoes` | Missões | Área logada |
+| `/app/loja` | Loja | Área logada |
+| `/app/avatar` | Avatar | Área logada |
+| `/app/perfil` | Perfil | Área logada |
+| `/app/perfil/editar` | Editar Perfil | Área logada |
+| `/admin` | Portal do Administrador | CRUD via API |
 | `*` | NotFound | Página para rota inexistente |
 
 ### Rota dinâmica da solução
 
-A rota:
-
-```text
-/solucao/:slug
-```
-
-permite abrir detalhes de uma funcionalidade sem criar uma página manual para cada item.
-
-Os slugs vêm de `src/data/solution.ts`:
-
-- `missoes`;
-- `foguinho`;
-- `pontos`;
-- `avatar`.
-
-Se o usuário acessar um slug inexistente, a aplicação mostra uma mensagem de recurso não encontrado e oferece botão de retorno para a página de solução.
+A rota `/solucao/:slug` permite abrir detalhes de uma funcionalidade sem criar uma página manual para cada item. Os slugs vêm de `src/data/solution.ts` (`missoes`, `foguinho`, `pontos`, `avatar`). Se o usuário acessar um slug inexistente, a aplicação mostra uma mensagem de recurso não encontrado e oferece botão de retorno.
 
 ---
 
 ## Páginas da aplicação
 
+### Site institucional
+Home, Sobre, Solução (com rota dinâmica), FAQ, Integrantes, Contato e NotFound — como descrito nas seções seguintes.
+
 ### Home
-
-Arquivo principal:
-
-```text
-src/pages/Home/Home.tsx
-```
-
-Seções:
-
-- `HeroSection`;
-- `HomeAboutSection`;
-- `HomeExperienceSection`.
-
-A Home apresenta o SoulAI com um hero em vídeo, uma explicação inicial do projeto e um carrossel com pontos da experiência.
+Seções: `HeroSection`, `HomeAboutSection`, `HomeExperienceSection`. Apresenta o SoulAI com um hero em vídeo, uma explicação inicial e um carrossel com pontos da experiência.
 
 ### Sobre
-
-Arquivo principal:
-
-```text
-src/pages/Sobre/Sobre.tsx
-```
-
-Seções:
-
-- `AboutObjectiveSection`;
-- `AboutHighlightsSection`;
-- `FireProgressSection`;
-- `RoadmapSection`.
-
-A página Sobre explica a relação entre SoulUp e SoulAI, apresenta objetivos, diferenciais e caminhos futuros.
+Seções: `AboutObjectiveSection`, `AboutHighlightsSection`, `FireProgressSection`, `RoadmapSection`. Explica a relação entre SoulUp e SoulAI, objetivos, diferenciais e caminhos futuros.
 
 ### Solução
-
-Arquivos principais:
-
-```text
-src/pages/Solucao/Solucao.tsx
-src/pages/Solucao/SolucaoDetalhe.tsx
-```
-
-Seções:
-
-- `FlowSection`;
-- `FeatureShowcaseSection`;
-- `SolutionDetailContent`.
-
-A página mostra como o SoulAI funciona, quais etapas fazem parte da experiência e quais funcionalidades podem ser exploradas.
+`Solucao.tsx` e `SolucaoDetalhe.tsx`, com `FlowSection`, `FeatureShowcaseSection` e `SolutionDetailContent`. Mostra como o SoulAI funciona e as funcionalidades.
 
 ### FAQ
-
-Arquivo principal:
-
-```text
-src/pages/FAQ/Faq.tsx
-```
-
-Usa o componente `FAQItem` para exibir perguntas e respostas de forma interativa.
+Usa o componente `FAQItem` para exibir perguntas e respostas interativas.
 
 ### Integrantes
-
-Arquivo principal:
-
-```text
-src/pages/Integrantes/Integrantes.tsx
-```
-
-Usa `TeamCard` para exibir:
-
-- nome;
-- RM;
-- turma;
-- foto;
-- GitHub;
-- LinkedIn.
+Usa `TeamCard` para exibir nome, RM, turma, foto, GitHub e LinkedIn.
 
 ### Contato
-
-Arquivo principal:
-
-```text
-src/pages/Contato/Contato.tsx
-```
-
-Possui formulário com validações usando React Hook Form, modal de sucesso e redirecionamento automático para a Home.
+Formulário com validações usando React Hook Form, modal de sucesso e redirecionamento automático para a Home.
 
 ### NotFound
+Renderiza uma página de erro quando o usuário acessa uma rota inexistente.
 
-Arquivo principal:
+---
 
-```text
-src/pages/NotFound/NotFound.tsx
+## Login, cadastro e área logada
+
+Na Sprint 4, a aplicação ganhou uma área funcional, acessível após autenticação:
+
+### Login
+A tela de login (`/login`) permite entrar como **usuário** ou como **administrador**, com uma opção discreta de acesso restrito. As credenciais são validadas pela API em Java; em caso de erro, é exibida uma mensagem amigável.
+
+### Cadastro
+A tela de cadastro (`/cadastro`) cria uma conta nova (que nasce zerada) e inclui um bloco de **consentimento LGPD**, com uma opção obrigatória e opções opcionais.
+
+### Área logada (`/app`)
+Depois do login, o usuário acessa:
+
+- **Dashboard:** saudação, foguinho/ofensiva, saldo de moedas e missões do dia;
+- **Missões:** lista de missões, com conclusão e recompensa;
+- **Loja:** acessórios com preço, para comprar com moedas;
+- **Avatar:** avatar com os itens equipados;
+- **Perfil / Editar Perfil:** dados do usuário, com edição de nome, e-mail, senha e foto.
+
+A sessão é mantida em memória por meio de Context API, e há um botão para voltar ao site institucional sem perder o login.
+
+---
+
+## Portal do administrador
+
+O portal do administrador (`/admin`) é acessível por um login específico de administrador e é separado da área do usuário comum.
+
+Nele é possível:
+
+- gerenciar **missões** (listar, criar, editar e excluir);
+- gerenciar **acessórios** (listar, criar, editar e excluir);
+- visualizar o status de cada item (ativo/inativo).
+
+Todas essas operações consomem a API em Java, demonstrando as operações de escrita (POST, PUT e DELETE) exigidas na integração.
+
+---
+
+## Integração com a API (Java)
+
+A integração com o back-end é o foco técnico da Sprint 4.
+
+### Camada de integração
+
+Todas as chamadas HTTP ficam centralizadas em **`src/data/api.ts`**, evitando requisições espalhadas pelos componentes. A URL base da API fica em uma constante:
+
+```ts
+export const API_BASE = "https://soulai-api.onrender.com";
 ```
 
-Renderiza uma página de erro quando o usuário acessa uma rota inexistente.
+### Operações consumidas
+
+- **Leitura (GET):** login, listagem de missões, loja/acessórios, inventário e avatar;
+- **Escrita (POST / PUT / DELETE):** cadastro de usuário, conclusão de missão, compra e troca de acessório, edição de perfil, e o CRUD de missões e acessórios no portal do administrador.
+
+### Tipagem, carregamento e erro
+
+As respostas da API são **tipadas com TypeScript**, e a aplicação trata estados de **carregamento**, **erro** e **resposta vazia**, exibindo mensagens adequadas ao usuário. Por estar hospedada em um serviço gratuito, a primeira requisição à API pode levar alguns segundos enquanto o serviço é reativado.
 
 ---
 
 ## Componentes reutilizáveis
 
 ### Header
-
-Arquivo:
-
-```text
-src/components/Header/Header.tsx
-```
-
-Responsável pelo topo do site.
-
-Funcionalidades:
-
-- exibe a logo da SoulUp;
-- abre e fecha o menu mobile;
-- muda o visual após o scroll;
-- fecha o menu ao trocar de rota;
-- usa `useLocation` para reagir à navegação.
+Exibe a logo, abre/fecha o menu mobile, muda o visual após o scroll e fecha o menu ao trocar de rota. Na área logada, também mostra o acesso ao perfil.
 
 ### NavMenu
-
-Arquivo:
-
-```text
-src/components/NavMenu/NavMenu.tsx
-```
-
-Renderiza os links definidos em `src/data/navigation.ts`.
-
-Usa `NavLink` para destacar a página ativa.
+Renderiza os links definidos em `src/data/navigation.ts`, usando `NavLink` para destacar a página ativa.
 
 ### Footer
-
-Arquivo:
-
-```text
-src/components/Footer/Footer.tsx
-```
-
 Exibe informações do projeto, links de navegação e dados de contato.
 
 ### FloatingChat
-
-Arquivo:
-
-```text
-src/components/FloatingChat/FloatingChat.tsx
-```
-
-Representa uma demonstração visual da interação com o SoulAI.
-
-Funcionalidades:
-
-- botão flutuante;
-- abertura e fechamento do chat;
-- mensagens aparecendo aos poucos;
-- evento customizado para abrir o chat a partir da Home;
-- indicador de digitação.
-
-O chat é demonstrativo e usa dados locais de `src/data/chat.ts`.
+Representa uma demonstração visual da interação com o SoulAI, com botão flutuante, abertura/fechamento, mensagens aparecendo aos poucos e indicador de digitação. O chat é demonstrativo e usa dados locais de `src/data/chat.ts`.
 
 ### Carrossel
-
-Arquivo:
-
-```text
-src/components/Carrossel/Carrossel.tsx
-```
-
-Componente reutilizável para apresentar cards em sequência.
-
-Funcionalidades:
-
-- botão anterior;
-- botão próximo;
-- indicadores;
-- loop entre primeiro e último item;
-- adaptação para mobile, tablet e desktop.
+Componente reutilizável para apresentar cards em sequência, com botões, indicadores, loop e adaptação para diferentes telas.
 
 ### PageIntro
-
-Arquivo:
-
-```text
-src/components/PageIntro/PageIntro.tsx
-```
-
-Componente usado no topo de páginas internas para manter padrão visual.
+Usado no topo de páginas internas para manter o padrão visual.
 
 ### FAQItem
-
-Arquivo:
-
-```text
-src/components/FAQItem/FAQItem.tsx
-```
-
 Renderiza uma pergunta do FAQ com controle de abertura e fechamento.
 
 ### TeamCard
-
-Arquivo:
-
-```text
-src/components/TeamCard/TeamCard.tsx
-```
-
 Renderiza os dados de cada integrante.
+
+> Além desses, a Sprint 4 acrescentou componentes da área logada (cards de missão, imagem de acessório, foto de perfil, componente de carregamento, entre outros).
 
 ---
 
@@ -953,11 +751,10 @@ Renderiza os dados de cada integrante.
 
 ### Pasta `data`
 
-A pasta `src/data` centraliza conteúdos estáticos.
-
 | Arquivo | Responsabilidade |
 |---|---|
 | `about.ts` | conteúdo da página Sobre |
+| `api.ts` | camada de integração com a API Java |
 | `chat.ts` | mensagens da demonstração do chat |
 | `faq.ts` | perguntas e respostas do FAQ |
 | `home.ts` | cards da Home |
@@ -966,8 +763,6 @@ A pasta `src/data` centraliza conteúdos estáticos.
 | `team.ts` | dados das integrantes |
 
 ### Pasta `types`
-
-A pasta `src/types` centraliza tipos TypeScript.
 
 | Arquivo | Tipo principal |
 |---|---|
@@ -979,128 +774,31 @@ A pasta `src/types` centraliza tipos TypeScript.
 | `solution.ts` | `SolutionFeature` |
 | `team.ts` | `TeamMember` |
 
-Essa separação ajuda a manter os componentes mais previsíveis e facilita a evolução dos dados.
+> Os tipos usados na integração com a API (usuário, administrador, missão, acessório) também são definidos em TypeScript, garantindo segurança no consumo dos dados.
 
 ---
 
 ## Hooks
 
 ### `useScrollToTop`
+Observa a mudança de rota com `useLocation` e leva o usuário ao topo quando a rota muda.
 
-Arquivo:
-
-```text
-src/hooks/useScrollToTop.ts
-```
-
-Esse hook observa a mudança de rota com `useLocation` e executa:
-
-```tsx
-window.scrollTo(0, 0);
-```
-
-Assim, quando o usuário navega entre páginas, a nova rota começa no topo.
-
----
-
-## Layout global
-
-O layout global fica em:
-
-```text
-src/layouts/MainLayout/MainLayout.tsx
-```
-
-Ele organiza a estrutura compartilhada por todas as páginas:
-
-```tsx
-<>
-  <Header />
-  <main>{children}</main>
-  <FloatingChat />
-  <Footer />
-</>
-```
-
-O `App.tsx` envolve o `Outlet` com esse layout, permitindo que todas as rotas compartilhem a mesma estrutura.
-
----
-
-## Formulário de contato
-
-O formulário de contato utiliza **React Hook Form**.
-
-Campos:
-
-- nome;
-- e-mail;
-- assunto;
-- mensagem.
-
-Validações:
-
-- nome obrigatório;
-- nome com pelo menos 3 caracteres;
-- e-mail obrigatório;
-- e-mail em formato válido;
-- assunto obrigatório;
-- mensagem obrigatória;
-- mensagem com pelo menos 10 caracteres.
-
-Quando o formulário é enviado corretamente:
-
-1. a mensagem de sucesso é montada usando o primeiro nome do usuário;
-2. o modal de sucesso é aberto;
-3. o formulário é limpo;
-4. uma contagem regressiva começa;
-5. ao final da contagem, o usuário é redirecionado para a Home.
-
-O formulário não envia dados para um backend. A validação e o fluxo de sucesso acontecem no front-end.
+### `useSessao` e `useProgresso` (Sprint 4)
+Fornecem acesso ao contexto de sessão (quem está logado) e ao progresso do usuário (dados vindos da API), usados pelas páginas da área logada.
 
 ---
 
 ## Gerenciamento de estado
 
-O projeto utiliza estados locais com hooks do React.
+O projeto utiliza estados locais com hooks do React (`useState`, `useEffect`, `useRef`) para o menu mobile, o carrossel, o chat flutuante e o formulário de contato.
 
-Exemplos:
-
-- `useState` para abrir e fechar o menu mobile;
-- `useState` para controlar o índice atual do carrossel;
-- `useState` para abrir e fechar o chat flutuante;
-- `useState` para controlar a quantidade de mensagens visíveis no chat;
-- `useState` para controlar o modal de sucesso do contato;
-- `useState` para controlar a contagem regressiva do formulário;
-- `useEffect` para reagir ao scroll;
-- `useEffect` para fechar menu ao mudar de rota;
-- `useEffect` para exibir mensagens do chat aos poucos;
-- `useRef` para controlar o elemento `<dialog>`.
-
-Como a aplicação é institucional e demonstrativa, não foi necessário usar Context API, Redux ou banco de dados.
+Na Sprint 4, para a área logada, foi adicionada a **Context API**, com contextos de **sessão** e de **progresso**, mantendo em memória os dados do usuário autenticado e evitando repassar propriedades por muitos níveis.
 
 ---
 
 ## Responsividade
 
-O projeto foi estruturado para funcionar em diferentes tamanhos de tela.
-
-Foram considerados:
-
-- desktop;
-- notebook;
-- tablet;
-- celular.
-
-Recursos usados:
-
-- classes responsivas do Tailwind;
-- grids que mudam de coluna conforme o viewport;
-- menu mobile;
-- botões com largura adaptável;
-- carrossel reorganizado para telas menores;
-- cards com espaçamento flexível;
-- `max-width` para limitar o conteúdo em telas grandes;
-- prevenção de scroll horizontal.
+O projeto foi estruturado para funcionar em diferentes tamanhos de tela (desktop, notebook, tablet e celular), usando classes responsivas do Tailwind, grids adaptáveis, menu mobile, carrossel reorganizado, `max-width` para telas grandes e prevenção de scroll horizontal.
 
 Checklist recomendado:
 
@@ -1112,45 +810,17 @@ Checklist recomendado:
 1440px
 ```
 
-Conferir nessas larguras:
-
-- Header;
-- menu mobile;
-- hero;
-- vídeo;
-- botões;
-- cards;
-- carrossel;
-- FAQ;
-- formulário;
-- integrantes;
-- solução;
-- footer.
+Conferir nessas larguras: Header, menu mobile, hero, botões, cards, carrossel, FAQ, formulário, integrantes, solução, área logada e footer.
 
 ---
 
 ## Acessibilidade
 
-O projeto utiliza recursos de acessibilidade em diferentes pontos da interface.
-
-Exemplos:
-
-- `aria-label` em botões de menu, chat, setas e links;
-- `aria-expanded` no menu mobile e no chat;
-- `aria-hidden` em ícones decorativos;
-- `alt` em imagens relevantes;
-- uso de `button` para ações de clique;
-- uso de `label` associado aos campos do formulário;
-- mensagens de erro próximas aos campos;
-- HTML semântico com `header`, `main`, `section`, `article`, `aside`, `footer` e `nav`.
-
-A acessibilidade foi tratada como parte da experiência de uso, especialmente na navegação, formulário, FAQ e chat.
+O projeto utiliza recursos de acessibilidade em diferentes pontos: `aria-label` em botões e links, `aria-expanded` no menu e no chat, `aria-hidden` em ícones decorativos, `alt` em imagens relevantes, `label` associado aos campos do formulário, mensagens de erro próximas aos campos e HTML semântico (`header`, `main`, `section`, `article`, `aside`, `footer`, `nav`).
 
 ---
 
 ## Identidade visual
-
-O projeto segue uma identidade visual conectada com a SoulUp, usando uma base moderna, digital e limpa.
 
 Cores principais configuradas no Tailwind:
 
@@ -1165,280 +835,165 @@ Cores principais configuradas no Tailwind:
 | `soul.soft` | `#f5f6ff` |
 | `soul.line` | `#e5e7f5` |
 
-Foco visual:
-
-- leitura clara;
-- visual jovem;
-- sensação tecnológica;
-- contraste em botões e áreas importantes;
-- uso de vídeos e imagens locais;
-- consistência entre páginas;
-- experiência adequada para diferentes telas.
+Foco visual: leitura clara, visual jovem, sensação tecnológica, contraste em botões e áreas importantes, uso de vídeos e imagens locais e consistência entre páginas.
 
 ---
 
 ## Prints do projeto
+
+> Coloque os prints na pasta `docs/prints/` do repositório com os nomes abaixo.
 
 <p align="center">
   <img src="./docs/prints/home.png" alt="Print da página inicial do SoulAI" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/chat.png" alt="Print do chat flutuante do SoulAI aberto" width="700" />
+  <img src="./docs/prints/login.png" alt="Print da tela de login" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/sobre.png" alt="Print da página Sobre do SoulAI" width="700" />
+  <img src="./docs/prints/dashboard.png" alt="Print do dashboard da área logada" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/solucao.png" alt="Print da página de solução do SoulAI" width="700" />
+  <img src="./docs/prints/dashboard2.png" alt="Print do dashboard da área logada" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/solucao-detalhe.png" alt="Print da página de detalhe da solução do SoulAI" width="700" />
+  <img src="./docs/prints/missoes.png" alt="Print da página de missões" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/faq.png" alt="Print da página FAQ do SoulAI" width="700" />
+  <img src="./docs/prints/loja.png" alt="Print da loja de acessórios" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/contato.png" alt="Print da página de contato do SoulAI" width="700" />
+  <img src="./docs/prints/avatar.png" alt="Print da página do avatar" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/integrantes.png" alt="Print da página de integrantes do SoulAI" width="700" />
+  <img src="./docs/prints/perfil.png" alt="Print da página do avatar" width="700" />
 </p>
 
 <p align="center">
-  <img src="./docs/prints/mobile.png" alt="Print da versão mobile do SoulAI" width="320" />
+  <img src="./docs/prints/admin.png" alt="Print do portal do administrador" width="700" />
 </p>
 
-Os prints foram colocados dentro da pasta `docs/prints/` para documentar a interface final sem confundir essas imagens com os arquivos usados pela aplicação.
+<p align="center">
+  <img src="./docs/prints/admin2.png" alt="Print do portal do administrador" width="700" />
+</p>
+
+<p align="center">
+  <img src="./docs/prints/chat.png" alt="Print do portal do administrador" width="700" />
+</p>
+
+<p align="center">
+  <img src="./docs/prints/integrantes.png" alt="Print da página de integrantes" width="700" />
+</p>
+
+<p align="center">
+  <img src="./docs/prints/mobile.png" alt="Print da versão mobile" width="320" />
+</p>
 
 ---
 
 ## Tailwind CSS
 
-O Tailwind está configurado em:
-
-```text
-tailwind.config.cjs
-```
-
-Esse arquivo centraliza:
-
-- cores personalizadas;
-- gradiente principal;
-- sombras;
-- animações;
-- keyframes.
-
-O CSS global fica em:
-
-```text
-src/index.css
-```
-
-Ele contém:
-
-- diretivas do Tailwind;
-- comportamento de scroll suave;
-- base do `body`;
-- fonte padrão;
-- ajustes globais para imagens, vídeos, links, botões e campos.
+O Tailwind está configurado em `tailwind.config.cjs`, que centraliza cores personalizadas, gradiente principal, sombras, animações e keyframes. O CSS global fica em `src/index.css`, com as diretivas do Tailwind, scroll suave, base do `body`, fonte padrão e ajustes globais para imagens, vídeos, links, botões e campos.
 
 ---
 
 ## Qualidade e validações
 
-O projeto possui scripts para validação técnica.
-
 ### Lint
-
 ```bash
 npm run lint
 ```
-
 Executa o Oxlint para análise estática.
 
-Regras configuradas em `.oxlintrc.json`:
-
-- `react/rules-of-hooks`;
-- `react/only-export-components`.
-
 ### Build
-
 ```bash
 npm run build
 ```
-
-Executa:
-
-```text
-tsc -b
-vite build
-```
-
-Esse comando verifica TypeScript e gera a versão de produção na pasta `dist`.
+Executa `tsc -b` e `vite build`, verificando TypeScript e gerando a versão de produção em `dist`.
 
 ### Preview
-
 ```bash
 npm run preview
 ```
-
 Permite visualizar localmente a versão gerada pelo build.
 
 ---
 
 ## Git Flow e histórico
 
-O desenvolvimento foi organizado com branches de feature e Pull Requests.
-
-O uso do **Git Flow** foi escolhido para deixar o processo de desenvolvimento mais organizado e fácil de acompanhar. Como o projeto passou por várias etapas, cada parte importante foi separada em uma branch própria, permitindo trabalhar em funcionalidades específicas sem misturar alterações diferentes no mesmo momento.
-
-Esse fluxo ajudou a documentar a evolução do projeto desde a configuração inicial em React até a criação das páginas, componentes, rotas, formulário, responsividade, acessibilidade e limpeza dos arquivos antigos.
-
-As branches utilizadas foram mantidas no histórico do GitHub para registrar o caminho de desenvolvimento da equipe. Dessa forma, o professor consegue avaliar não apenas o resultado final, mas também como o projeto foi construído, revisado e integrado por etapas.
-
-Branch atual observada no repositório:
-
-```text
-feature/final-docs
-```
-
-Exemplos de branches presentes no histórico:
-
-- `feature/react-setup`;
-- `feature/project-structure`;
-- `feature/shared-layout`;
-- `feature/router`;
-- `feature/home-page`;
-- `feature/about-page`;
-- `feature/team-page`;
-- `feature/faq-page`;
-- `feature/solution-page`;
-- `feature/dynamic-route`;
-- `feature/contact-form`;
-- `feature/not-found`;
-- `feature/remove-legacy`;
-- `feature/responsive-a11y`.
-
-Essa organização mostra a evolução gradual do projeto, separando configuração, páginas, componentes, rotas, formulário, responsividade e limpeza dos arquivos antigos.
+O desenvolvimento foi organizado com branches de feature e Pull Requests, seguindo o **Git Flow**. Cada parte importante foi separada em uma branch própria, permitindo trabalhar em funcionalidades específicas sem misturar alterações. O histórico de branches e PRs no GitHub registra a evolução do projeto desde a configuração inicial em React até a integração com a API e o deploy.
 
 ---
 
 ## Padrão de commits
 
-O histórico utiliza mensagens curtas indicando o tipo da mudança.
-
-Exemplos observados:
+O histórico utiliza mensagens curtas indicando o tipo da mudança:
 
 ```text
-feat : cria pagina not found
-feat : adiciona validacoes ao formulario de contato
-feat : adiciona as rotas dinamicas na pagina de solucao
-refactor : remove arquivos legados não utilizados
-style : add animacoes no hover
-fix : corrige classe da fonte
-chore : configura path base vite
+feat : cria tela de login de usuario e admin
+feat : adiciona integracao com a api de missoes
+feat : cria portal do administrador
+fix  : corrige mensagem de erro do login
+style: ajusta responsividade do dashboard
+chore: configura deploy na vercel
 ```
 
-Tipos comuns:
-
-- `feat`: nova funcionalidade;
-- `fix`: correção;
-- `refactor`: reorganização sem mudar a proposta;
-- `style`: ajustes visuais;
-- `chore`: configuração ou manutenção.
-
----
-
-## Limpeza do código Vanilla
-
-Depois da migração para React, os arquivos antigos da versão Vanilla deixaram de ser necessários na versão final.
-
-A aplicação atual não depende mais de:
-
-```text
-pages/*.html
-assets/css/*
-assets/js/script.js
-src/App.css
-```
-
-A lógica e a interface foram migradas para:
-
-- React;
-- TypeScript;
-- Tailwind CSS;
-- React Router.
-
-O histórico do Git preserva as versões anteriores, incluindo a tag:
-
-```text
-sprint02-vanilla-final
-```
-
-Assim, o código antigo pode ser consultado no histórico sem permanecer misturado à estrutura final.
+Tipos comuns: `feat` (nova funcionalidade), `fix` (correção), `refactor` (reorganização), `style` (ajustes visuais) e `chore` (configuração ou manutenção).
 
 ---
 
 ## Como instalar
 
 ### Pré-requisitos
-
-É necessário possuir:
-
-- Node.js;
-- npm;
-- Git.
+Node.js, npm e Git.
 
 ### 1. Clonar o repositório
-
 ```bash
 git clone https://github.com/manuelalramos/SoulAi_Projeto.git
 ```
 
 ### 2. Entrar na pasta
-
 ```bash
 cd SoulAi_Projeto
 ```
 
 ### 3. Instalar dependências
-
 ```bash
 npm install
 ```
 
-O comando usa `package.json` e `package-lock.json` para instalar as dependências necessárias.
-
 ---
 
-## Como executar
+## Como usar
 
-Para iniciar o servidor de desenvolvimento:
+### Links do projeto
+
+| Recurso | Link |
+|---------|------|
+| Repositório (GitHub) | https://github.com/manuelalramos/SoulAi_Projeto |
+| Deploy (Vercel) | https://soul-ai-projeto.vercel.app/ |
+| API (Java) | https://soulai-api.onrender.com |
+| Vídeo (YouTube) | _preencher antes da entrega_ |
+
+A aplicação publicada na Vercel já consome remotamente a API em Java, permitindo os testes online.
+
+### Executar localmente
 
 ```bash
 npm run dev
 ```
 
-O Vite mostrará um endereço semelhante a:
-
-```text
-http://localhost:5173/
-```
-
-Abra esse endereço no navegador.
+O Vite mostrará um endereço como `http://localhost:5173/`. A URL da API já vem configurada em `src/data/api.ts`.
 
 ---
 
 ## Scripts disponíveis
-
-Os scripts estão configurados no `package.json`.
 
 | Script | Comando | Descrição |
 |---|---|---|
@@ -1449,322 +1004,78 @@ Os scripts estão configurados no `package.json`.
 
 ---
 
-## Como testar
-
-### Navegação
-
-Testar:
-
-```text
-/
-/sobre
-/integrantes
-/faq
-/contato
-/solucao
-```
-
-### Rota dinâmica
-
-Testar:
-
-```text
-/solucao/missoes
-/solucao/foguinho
-/solucao/pontos
-/solucao/avatar
-```
-
-### Slug inexistente
-
-Testar:
-
-```text
-/solucao/recurso-inexistente
-```
-
-Resultado esperado: página de recurso não encontrado com botão para voltar para a solução.
-
-### Página 404
-
-Testar:
-
-```text
-/essa-rota-nao-existe
-```
-
-Resultado esperado: página NotFound dentro do layout principal.
-
-### Header
-
-Validar:
-
-- comportamento no topo;
-- comportamento após scroll;
-- menu mobile;
-- fechamento ao navegar;
-- item ativo no menu.
-
-### Carrossel
-
-Validar:
-
-- botão próximo;
-- botão anterior;
-- indicadores;
-- passagem do primeiro para o último;
-- passagem do último para o primeiro;
-- layout mobile;
-- layout tablet;
-- layout desktop.
-
-### FAQ
-
-Validar:
-
-- abertura de item;
-- fechamento de item;
-- `aria-expanded`;
-- leitura das perguntas e respostas.
-
-### Solução
-
-Validar:
-
-- cards;
-- efeitos de hover;
-- links para detalhes;
-- rota dinâmica;
-- retorno para a página principal de solução.
-
-### Contato
-
-Testar formulário vazio:
-
-- deve exibir erros.
-
-Testar nome pequeno:
-
-- deve exibir validação.
-
-Testar e-mail inválido:
-
-- deve exibir validação.
-
-Testar assunto não escolhido:
-
-- deve exibir validação.
-
-Testar mensagem curta:
-
-- deve exibir validação.
-
-Testar formulário válido:
-
-```text
-enviar
--> abrir modal
--> mostrar mensagem personalizada
--> realizar contagem regressiva
--> redirecionar para Home
-```
-
-### Checklist técnico
-
-Antes de finalizar uma alteração importante:
-
-```bash
-npm run lint
-```
-
-```bash
-npm run build
-```
-
-```bash
-git status
-```
-
----
-
 ## Deploy
 
-Repositório:
+A aplicação está publicada na **Vercel**:
 
 ```text
-https://github.com/manuelalramos/SoulAi_Projeto
+https://soul-ai-projeto.vercel.app/
 ```
 
-Projeto publicado:
-
-```text
-https://manuelalramos.github.io/SoulAi_Projeto/
-```
-
-O Vite está configurado com:
-
-```ts
-base: "./"
-```
-
-Isso ajuda os assets a funcionarem corretamente em deploys servidos em subpastas, como GitHub Pages.
-
-### Observação sobre SPA e GitHub Pages
-
-O projeto atual usa `createBrowserRouter`.
-
-Em servidores estáticos, acessar a aplicação pela Home e navegar pelos links internos funciona normalmente pelo React Router. Porém, dependendo da configuração do GitHub Pages, atualizar diretamente uma URL interna como:
-
-```text
-/solucao/foguinho
-```
-
-pode exigir uma configuração de fallback para SPA.
-
-Esse comportamento está ligado ao servidor estático, não à lógica das rotas no React.
-
----
-
-## Arquivos ignorados pelo Git
-
-O `.gitignore` evita versionar arquivos que não devem fazer parte do repositório.
-
-Itens ignorados:
-
-```text
-node_modules/
-dist/
-.vite/
-.env
-.env.*
-.DS_Store
-Thumbs.db
-*.log
-.vscode/
-.idea/
-```
-
-### Por que `node_modules` não é enviado
-
-A pasta `node_modules` pode possuir milhares de arquivos e pode ser recriada com:
-
-```bash
-npm install
-```
-
-Por isso ela não precisa fazer parte do GitHub ou do ZIP acadêmico.
-
-### Por que `dist` não precisa ser versionado
-
-A pasta `dist` é gerada automaticamente com:
-
-```bash
-npm run build
-```
-
-Ela representa o resultado compilado da aplicação. O código-fonte verdadeiro continua dentro de `src/`.
+A Vercel está conectada ao repositório do GitHub, então cada atualização na branch de produção gera um novo deploy automaticamente. A aplicação publicada consome a API em Java hospedada na nuvem.
 
 ---
 
 ## Limitações atuais
 
-O projeto representa uma solução acadêmica e possui algumas limitações planejadas.
-
 ### Chat
+O `FloatingChat` representa uma demonstração da experiência do SoulAI e não está conectado a um modelo de IA (está previsto como evolução futura).
 
-O `FloatingChat` representa uma demonstração da experiência do SoulAI.
+### Portal do administrador
+Nesta versão, o acesso de administrador é diferenciado pelo login; o controle de permissões é simplificado para o escopo acadêmico.
 
-Ele não está conectado atualmente a:
+### Benefício na conta de luz
+O cálculo de desconto é uma simulação, sem aplicação em uma conta real.
 
-- modelo de IA;
-- API;
-- servidor;
-- banco de dados.
-
-### Formulário
-
-O formulário possui validação real no front-end, mas não envia a mensagem para um servidor.
-
-### Dados
-
-Os dados são armazenados localmente em arquivos TypeScript.
-
-Exemplos:
-
-- `src/data/team.ts`;
-- `src/data/faq.ts`;
-- `src/data/solution.ts`;
-- `src/data/chat.ts`.
-
-Não existe atualmente uma API externa responsável por esses conteúdos.
-
-### Autenticação
-
-O site institucional desta Sprint não possui autenticação de usuários.
-
-### Persistência
-
-O estado atual da aplicação não utiliza banco de dados ou armazenamento permanente.
+### Persistência local
+Alguns dados de apoio continuam locais; a persistência principal é feita pela API e pelo banco de dados do projeto.
 
 ---
 
 ## Possíveis evoluções futuras
 
-O projeto pode evoluir posteriormente com:
-
-- integração real com inteligência artificial;
-- autenticação;
-- banco de dados;
-- API;
+- integração real com inteligência artificial no chat;
+- controle de permissões mais completo no portal admin;
 - histórico do usuário;
-- sistema real de missões;
-- sistema real de pontos;
-- personalização de avatar;
-- progresso persistente;
 - notificações;
-- integração com dados da SoulUp;
-- painel do usuário;
-- melhorias adicionais de acessibilidade;
 - testes automatizados;
-- fallback específico para deploy SPA.
+- melhorias adicionais de acessibilidade.
 
 ---
 
 ## Integrantes
 
-As fotos abaixo são carregadas diretamente pelo avatar público de cada perfil no GitHub. Os nomes, RMs, turma e links seguem os dados usados na página `Integrantes` da aplicação.
-
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/Lenahalawi07.png?size=120" width="100px" alt="Foto de perfil GitHub de Lena Haidar Halawi" /><br />
+      <img src="./src/assets/media/foto_lena.jpeg" width="100" height="100" alt="Foto de Lena Haidar Halawi" /><br />
       <strong>Lena Haidar Halawi</strong><br />
       RM 572258<br />
-      1TDSPG<br /><br />
+      1TDSPF<br /><br />
       <a href="https://github.com/Lenahalawi07">GitHub</a><br />
       <a href="https://www.linkedin.com/in/lena-haidar-halawi-09134a3b8">LinkedIn</a>
     </td>
     <td align="center">
-      <img src="https://github.com/lyviaamorim.png?size=120" width="100px" alt="Foto de perfil GitHub de Lyvia Correa Amorim" /><br />
-      <strong>Lyvia Correa Amorim</strong><br />
+      <img src="./src/assets/media/foto_lyvia.jpeg" width="100" height="100" alt="Foto de Lyvia Correa de Amorim" /><br />
+      <strong>Lyvia Correa de Amorim</strong><br />
       RM 569851<br />
-      1TDSPG<br /><br />
+      1TDSPF<br /><br />
       <a href="https://github.com/lyviaamorim">GitHub</a><br />
       <a href="https://www.linkedin.com/in/lyvia-correa-de-amorim-0203493b8/">LinkedIn</a>
     </td>
     <td align="center">
-      <img src="https://github.com/manuelalramos.png?size=120" width="100px" alt="Foto de perfil GitHub de Manuela de Lima Ramos" /><br />
+      <img src="./src/assets/media/foto_manuela.jpg" width="100" height="100" alt="Foto de Manuela de Lima Ramos" /><br />
       <strong>Manuela de Lima Ramos</strong><br />
       RM 572956<br />
-      1TDSPG<br /><br />
+      1TDSPF<br /><br />
       <a href="https://github.com/manuelalramos">GitHub</a><br />
       <a href="https://www.linkedin.com/in/manuelalramos">LinkedIn</a>
     </td>
     <td align="center">
-      <img src="https://github.com/yasminmartins18.png?size=120" width="100px" alt="Foto de perfil GitHub de Yasmin Souza Silva Martins" /><br />
+      <img src="./src/assets/media/foto_yasmin.jpeg" width="100" height="100" alt="Foto de Yasmin Souza Silva Martins" /><br />
       <strong>Yasmin Souza Silva Martins</strong><br />
       RM 572102<br />
-      1TDSPG<br /><br />
+      1TDSPF<br /><br />
       <a href="https://github.com/yasminmartins18">GitHub</a><br />
       <a href="https://www.linkedin.com/in/yasmin-souza-silva-martins-32085b376">LinkedIn</a>
     </td>
@@ -1776,19 +1087,23 @@ As fotos abaixo são carregadas diretamente pelo avatar público de cada perfil 
 ## Links
 
 ### Repositório
-
-[GitHub - SoulAi_Projeto](https://github.com/manuelalramos/SoulAi_Projeto)
-
 ```text
 https://github.com/manuelalramos/SoulAi_Projeto
 ```
 
-### Aplicação
-
-[Visualizar SoulAI](https://manuelalramos.github.io/SoulAi_Projeto/)
-
+### Aplicação (Vercel)
 ```text
-https://manuelalramos.github.io/SoulAi_Projeto/
+https://soul-ai-projeto.vercel.app/
+```
+
+### API (Java)
+```text
+https://soulai-api.onrender.com
+```
+
+### Vídeo (YouTube)
+```text
+preencher antes da entrega
 ```
 
 ---
@@ -1801,7 +1116,7 @@ Na interface do projeto é utilizado o endereço demonstrativo:
 contato@soulai.com
 ```
 
-Para informações relacionadas ao desenvolvimento acadêmico, também podem ser utilizados os perfis GitHub e LinkedIn das integrantes.
+Para informações relacionadas ao desenvolvimento acadêmico, também podem ser utilizados os perfis GitHub e LinkedIn das integrantes, listados na seção Integrantes, ou a página de Contato da aplicação.
 
 ---
 
@@ -1810,82 +1125,41 @@ Para informações relacionadas ao desenvolvimento acadêmico, também podem ser
 | Decisão | Motivo |
 |---|---|
 | Migrar de Vanilla para React | Melhorar componentização e organização |
-| Utilizar TypeScript | Criar tipos para dados, props e formulários |
+| Utilizar TypeScript | Criar tipos para dados, props, formulários e respostas da API |
 | Utilizar Tailwind CSS | Centralizar grande parte da interface nos componentes |
-| Manter `index.css` como base global | Evitar retorno ao CSS externo por página |
-| Criar `data` | Separar conteúdo da interface |
-| Criar `types` | Definir contratos dos dados |
-| Criar `pages` | Organizar implementação por tela |
-| Criar `routes` | Separar entradas do router das páginas |
-| Usar `createBrowserRouter` | Configurar rotas da SPA |
-| Usar `Outlet` no App | Renderizar rotas filhas dentro do layout |
+| Criar `data` e `types` | Separar conteúdo e definir contratos de dados |
+| Criar `pages` e `routes` | Organizar implementação por tela e separar o roteamento |
+| Usar `createBrowserRouter` e `Outlet` | Configurar a SPA com layout compartilhado |
 | Criar `MainLayout` | Compartilhar Header, main, chat e Footer |
-| Criar componentes reutilizáveis | Evitar duplicação |
-| Usar React Hook Form | Controlar e validar formulário |
 | Criar rota dinâmica | Evitar uma página manual por funcionalidade |
-| Usar Git Flow | Organizar desenvolvimento por features |
-| Remover código Vanilla legado | Manter a estrutura final limpa |
-| Preservar histórico no Git | Registrar a evolução do projeto |
+| Centralizar a API em `data/api.ts` | Organizar o consumo e evitar chamadas espalhadas |
+| Usar Context API (Sprint 4) | Gerenciar sessão e progresso da área logada |
+| Fazer deploy na Vercel | Disponibilizar a aplicação online consumindo a API |
+| Usar Git Flow | Organizar o desenvolvimento por features |
 
 ---
 
 ## O que esta Sprint demonstra
 
-Além do resultado visual, a Sprint demonstra conhecimentos relacionados a:
-
-- React;
-- componentização;
-- props;
-- `useState`;
-- `useEffect`;
-- `useRef`;
-- `useParams`;
-- `useNavigate`;
-- React Router;
-- rotas estáticas;
-- rotas dinâmicas;
-- SPA;
+- React, componentização, props, `useState`, `useEffect`, `useRef`, `useContext`, `useParams`, `useNavigate`;
+- React Router, rotas estáticas, rotas dinâmicas, rotas aninhadas e SPA;
 - React Hook Form;
-- TypeScript;
-- interfaces e types;
-- `Array.map()`;
-- `Array.find()`;
-- renderização condicional;
-- Tailwind CSS;
-- responsividade;
-- acessibilidade;
-- HTML semântico;
-- Git;
-- GitHub;
-- Git Flow;
-- Pull Requests;
-- refatoração;
-- migração de projeto;
-- organização de arquitetura.
+- TypeScript, interfaces e types, incluindo a tipagem das respostas da API;
+- consumo de API REST com GET, POST, PUT e DELETE;
+- camada de integração organizada e tratamento de loading/erro;
+- Tailwind CSS, responsividade e acessibilidade;
+- Git, GitHub, Git Flow e Pull Requests;
+- deploy na Vercel.
 
 ---
 
 ## Conclusão
 
-O SoulAI deixou de ser apenas um conjunto de páginas HTML independentes e passou a funcionar como uma **Single Page Application estruturada em React**.
+O SoulAI evoluiu de um conjunto de páginas HTML independentes para uma **Single Page Application estruturada em React** e, nesta Sprint 4, para uma **aplicação integrada a um back-end real**.
 
-A migração preservou a proposta visual e o conteúdo desenvolvido anteriormente, mas reorganizou o código para uma arquitetura mais adequada ao crescimento do projeto.
+A versão atual possui componentes reutilizáveis, páginas organizadas, dados e tipos separados, rotas estáticas e dinâmica, área logada, portal administrativo, integração com a API em Java, responsividade, acessibilidade, deploy na Vercel e histórico de desenvolvimento por features.
 
-A versão atual possui:
-
-- componentes reutilizáveis;
-- páginas organizadas;
-- dados separados;
-- tipos específicos;
-- rotas estáticas;
-- rota dinâmica;
-- formulário validado;
-- interações com hooks;
-- responsividade;
-- acessibilidade;
-- histórico de desenvolvimento por features.
-
-Além de apresentar a proposta do SoulAI, o projeto registra a evolução técnica da equipe durante a Sprint, desde a implementação Vanilla até a arquitetura atual em React, TypeScript e Tailwind CSS.
+Além de apresentar a proposta do SoulAI, o projeto registra a evolução técnica da equipe ao longo das Sprints, culminando em uma solução web completa, integrada e publicada.
 
 ---
 
