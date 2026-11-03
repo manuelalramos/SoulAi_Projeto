@@ -10,7 +10,7 @@ type Props = {
     excluir: (id: number) => Promise<boolean>;
 };
 
-const missaoVazia: DadosMissao = { titulo: "", descricao: "", recompensa: 0, ativa: true };
+const missaoVazia: DadosMissao = { titulo: "", descricao: "", recompensa: 0, energia: 20, ativa: true };
 
 // Formulário e lista para cadastrar, editar e excluir missões.
 export default function MissoesAdmin({ missoes, ocupado, salvar, excluir }: Props) {
@@ -22,7 +22,7 @@ export default function MissoesAdmin({ missoes, ocupado, salvar, excluir }: Prop
     // Traz a missão escolhida para os campos do formulário.
     function editar(missao: Missao) {
         setIdEdicao(missao.id);
-        reset({ titulo: missao.titulo, descricao: missao.descricao, recompensa: missao.recompensa, ativa: missao.ativa });
+        reset({ titulo: missao.titulo, descricao: missao.descricao, recompensa: missao.recompensa, energia: missao.energia ?? 20, ativa: missao.ativa });
         setFocus("titulo");
     }
 
@@ -60,6 +60,14 @@ export default function MissoesAdmin({ missoes, ocupado, salvar, excluir }: Prop
                         <input id="recompensa" type="number" min={0} step={1} className="campo-app" aria-invalid={!!errors.recompensa} aria-describedby="erro-recompensa"
                             {...register("recompensa", { valueAsNumber: true, required: "Informe a recompensa.", validate: (valor) => Number.isSafeInteger(valor) && valor >= 0 && valor <= 2147483647 || "Use um número inteiro entre 0 e 2147483647." })} />
                         <small id="erro-recompensa" className="font-bold text-red-600">{errors.recompensa?.message}</small>
+                    </div>
+
+                    {/* Energia que essa missão acrescenta ao foguinho. */}
+                    <div className="grid gap-2">
+                        <label className="font-bold" htmlFor="energia">Energia</label>
+                        <input id="energia" type="number" min={0} step="any" className="campo-app" aria-invalid={!!errors.energia} aria-describedby="erro-energia"
+                            {...register("energia", { valueAsNumber: true, required: "Informe a energia.", validate: (valor) => typeof valor === "number" && Number.isFinite(valor) && valor >= 0 || "Use um número maior ou igual a 0." })} />
+                        <small id="erro-energia" className="font-bold text-red-600">{errors.energia?.message}</small>
                     </div>
 
                     <label className="flex items-center gap-3 text-sm font-bold"><input type="checkbox" className="h-4 w-4 accent-soul-purple" {...register("ativa")} />Missão ativa</label>
