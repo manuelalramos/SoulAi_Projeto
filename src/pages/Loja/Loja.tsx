@@ -36,7 +36,7 @@ export default function Loja() {
                 })}
             </div>
             
-            {dados.acessorios.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">A loja ainda não tem acessórios. Volte em breve!</p>}
+            {dados.acessorios.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">A loja está sendo preparada. Em breve novos acessórios para o seu foguinho!</p>}
         </>
     );
 }
