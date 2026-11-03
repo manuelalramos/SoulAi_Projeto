@@ -10,7 +10,7 @@ export default function Loja() {
     return (
         <>
             <h1 className="text-3xl font-extrabold text-soul-ink">Loja do SoulAI</h1>
-            <p className="mb-8 mt-2">Troque suas moedas por acessórios para deixar o foguinho com a sua cara.</p>
+            <p className="mb-8 mt-2">Use as moedas que você conquistou para personalizar o seu foguinho.</p>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
                 {dados.acessorios.map((acessorio) => {
@@ -36,7 +36,7 @@ export default function Loja() {
                 })}
             </div>
             
-            {dados.acessorios.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">A loja ainda não tem acessórios. Volte em breve!</p>}
+            {dados.acessorios.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">A loja está sendo preparada. Em breve novos acessórios para o seu foguinho!</p>}
         </>
     );
 }
