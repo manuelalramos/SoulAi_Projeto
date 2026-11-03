@@ -9,10 +9,10 @@ export default function Missoes() {
     return (
         <>
             <h1 className="text-3xl font-extrabold text-soul-ink">Suas missões</h1>
-            <p className="mb-8 mt-2">Escolha uma ação sustentável. Ao concluir a missão, você ganha moedas e sobe de nível.</p>
+            <p className="mb-8 mt-2">Escolha uma ação. Quando terminar, conclua a missão para receber suas moedas.</p>
             <div className="grid gap-4">
                 {dados.missoes.map((missao) => <CardMissao key={missao.id} missao={missao} />)}
-                {dados.missoes.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">Ainda não há missões disponíveis. Volte em breve!</p>}
+                {dados.missoes.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">Nenhuma missão por aqui ainda. Volte em breve para novas ações sustentáveis!</p>}
             </div>
         </>
     );
