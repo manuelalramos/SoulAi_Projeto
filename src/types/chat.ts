@@ -1,4 +1,4 @@
-// Modelo de cada mensagem exibida na demonstração do chat flutuante.
+// Modelo de cada mensagem da conversa no chat flutuante.
 export type ChatMessage = {
     author: "SoulAI" | "Usuário"
     text: string;

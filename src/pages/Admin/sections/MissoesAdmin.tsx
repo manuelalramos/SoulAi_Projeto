@@ -32,7 +32,8 @@ export default function MissoesAdmin({ missoes, ocupado, salvar, excluir }: Prop
     }
 
     async function enviarFormulario(dados: DadosMissao) {
-        if (await salvar(dados, idEdicao)) limparFormulario();
+        // A energia fica fixa em 20 nos cadastros e edições do admin.
+        if (await salvar({ ...dados, energia: 20 }, idEdicao)) limparFormulario();
     }
 
     return (
