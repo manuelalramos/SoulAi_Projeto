@@ -11,7 +11,7 @@ export default function FloatingChat() {
     const [mensagensVisiveis, setMensagensVisiveis] = useState(0);
 
     const [chatAbertoAnterior, setChatAbertoAnterior] = useState(chatAberto);
-    
+
     if (chatAberto !== chatAbertoAnterior) {
         setChatAbertoAnterior(chatAberto);
         if (!chatAberto) setMensagensVisiveis(0);

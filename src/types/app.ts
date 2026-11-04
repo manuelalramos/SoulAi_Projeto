@@ -18,6 +18,7 @@ export interface Missao {
     titulo: string;
     descricao: string;
     recompensa: number;
+    energia?: number;
     ativa: boolean;
     concluida: boolean;
     atribuida: boolean;

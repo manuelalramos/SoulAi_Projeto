@@ -78,6 +78,7 @@ export default function Admin() {
 
             <div className="mx-auto w-[92%] max-w-[1080px]">
                 <p className="text-sm font-extrabold uppercase tracking-wide text-soul-purple">ADMIN</p>
+                <p className="mt-3 break-words text-xl font-bold text-soul-blue">Olá, {sessao.pessoa.nome.split(" ")[0]}!</p>
                 <h1 className="mt-2 text-3xl font-extrabold text-soul-ink">Portal do administrador</h1>
                 <p className="mt-2">Gerencie as missões e os acessórios do SoulAI.</p>
 

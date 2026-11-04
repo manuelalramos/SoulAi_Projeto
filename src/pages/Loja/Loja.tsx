@@ -24,8 +24,8 @@ export default function Loja() {
 
                     return (
                         <article key={acessorio.id} className="flex flex-col rounded-2xl border border-soul-line bg-white p-5">
-                            <div className="mb-5 grid h-40 place-items-center rounded-xl bg-soul-soft p-4"><ImagemAcessorio acessorio={acessorio} /></div>
-                            <p className="text-xs font-bold text-soul-purple">{acessorio.tipo} · {acessorio.raridade}</p>
+                            <div className="mb-5 grid h-40 place-items-center rounded-xl bg-soul-soft p-4" aria-label="Lista de acessórios da loja"><ImagemAcessorio acessorio={acessorio} /></div>
+                            <p className="inline-block rounded-full bg-soul-soft px-3 py-1 text-xs font-bold text-soul-purple">{acessorio.tipo} · {acessorio.raridade}</p>
                             <h2 className="mt-2 break-words text-lg font-extrabold text-soul-ink">{acessorio.nome}</h2>
                             <p className="mb-5 mt-2 text-sm font-bold">{acessorio.preco} moedas</p>
                             <Link className="mb-4 self-start rounded text-sm font-bold text-soul-blue underline underline-offset-4 hover:text-soul-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul-purple" to={`/app/loja/${acessorio.id}`} aria-label={`Ver detalhes de ${acessorio.nome}`}>Ver detalhes</Link>
@@ -41,7 +41,7 @@ export default function Loja() {
                 })}
             </div>
             
-            {dados.acessorios.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">A loja ainda não tem acessórios. Volte em breve!</p>}
+            {dados.acessorios.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">A loja está sendo preparada. Em breve novos acessórios para o seu foguinho!</p>}
         </>
     );
 }

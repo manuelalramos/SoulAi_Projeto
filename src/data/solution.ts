@@ -73,13 +73,13 @@ export const solutionFeatures: SolutionFeature[] = [
     summary:
       "As ações geram pontos que podem virar personalização, benefícios e recompensas.",
     description:
-      "O sistema de pontos torna o engajamento mais concreto. Com isso, cada avanço dentro da SoulUp pode ser percebido como parte de uma conquista acumulada.",
+      "A proposta é integrar o SoulAI à SoulUp para que as moedas conquistadas em missões possam ser usadas na loja de acessórios ou convertidas em créditos para reduzir a conta de luz. O card do Dashboard demonstra como essa conversão poderia funcionar: nesta versão, a taxa é ilustrativa, nenhum crédito real é gerado e o saldo permanece igual após a simulação.",
     result:
       "A experiência fica mais motivadora e cria um motivo claro para o usuário continuar participando.",
     actions: [
       "Acumular pontos a partir das missões.",
       "Trocar pontos por itens do avatar.",
-      "Conectar pontos a benefícios ligados à conta de luz.",
+      "Simular a conversão das moedas em créditos na conta de luz, como uma possibilidade de integração com a SoulUp.",
     ],
   },
   {

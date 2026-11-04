@@ -17,7 +17,7 @@ export default function Missoes() {
             {aviso && <p role="status" className="mb-5 rounded-xl border border-soul-cyan/30 bg-white p-4 text-sm text-soul-blue">{aviso}</p>}
             <div className="grid gap-4">
                 {dados.missoes.map((missao) => <CardMissao key={missao.id} missao={missao} />)}
-                {dados.missoes.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">Ainda não há missões disponíveis. Volte em breve!</p>}
+                {dados.missoes.length === 0 && <p className="rounded-2xl border border-soul-line bg-white p-6">Nenhuma missão por aqui ainda. Volte em breve para novas ações sustentáveis!</p>}
             </div>
         </>
     );
