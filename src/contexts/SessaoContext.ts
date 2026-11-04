@@ -1,9 +1,5 @@
-import type { Administrador, Credenciais, Usuario } from "../types/app";
+import type { Credenciais, Sessao, Usuario } from "../types/app";
 import { createContext } from "react";
-
-export type Sessao = 
-    |{tipo: "usuario"; pessoa: Usuario}
-    |{tipo: "administrador"; pessoa: Administrador}
 
 type DadosSessao = {
     sessao: Sessao | null;
