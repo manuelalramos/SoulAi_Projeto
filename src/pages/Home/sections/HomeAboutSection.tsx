@@ -3,8 +3,8 @@ import { SOUL_CHAT_OPEN_EVENT } from "../../../data/chat";
 
 // Seção de introdução que resume a proposta e oferece ações principais.
 export default function HomeAboutSection() {
-    // Dispara um evento global para abrir a demonstração do chat.
-    function abrirDemonstracaoChat() {
+    // Dispara um evento global para abrir a conversa com a IA.
+    function abrirChat() {
         window.dispatchEvent(new Event(SOUL_CHAT_OPEN_EVENT));
 
     }
@@ -36,9 +36,9 @@ export default function HomeAboutSection() {
                         <button
                             className="relative z-0 inline-flex min-h-12 w-full items-center justify-center overflow-hidden rounded-full border border-soul-blue/10 bg-soul-soft/80 px-5 py-3 text-center font-black text-soul-ink transition duration-300 before:absolute before:inset-0 before:-z-10 before:w-0 before:bg-gradient-to-r before:from-soul-yellow before:to-soul-cyan before:transition-all before:duration-500 before:content-[''] hover:-translate-y-1 hover:border-transparent hover:text-soul-ink hover:shadow-future hover:before:w-full sm:w-auto sm:min-w-[200px] sm:px-6"
                             type="button"
-                            onClick={abrirDemonstracaoChat}
+                            onClick={abrirChat}
                         >
-                            Ver demonstração do chat
+                            Conversar com o SoulAI
                         </button>
                     </div>
                 </article>
