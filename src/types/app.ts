@@ -1,19 +1,19 @@
-export type Usuario = {
+// Dados que usuário e administrador têm em comum.
+export interface Pessoa {
     id: number;
     nome: string;
     email: string;
+}
+
+export interface Usuario extends Pessoa {
     moedas: number;
     nivel: number;
     fotoUrl: string | null;
-};
+}
 
-export type Administrador = {
-    id: number;
-    nome: string;
-    email: string;
-};
+export interface Administrador extends Pessoa {}
 
-export type Missao = {
+export interface Missao {
     id: number;
     titulo: string;
     descricao: string;
@@ -22,36 +22,53 @@ export type Missao = {
     ativa: boolean;
     concluida: boolean;
     atribuida: boolean;
-};
+}
 
-export type Acessorio = {
+export interface Acessorio {
     id: number;
     nome: string;
     raridade: string;
     tipo: string;
     preco: number;
     imagemUrl: string | null;
-};
+}
 
-export type ItemInventario = {
+export interface ItemInventario {
     acessorio: Acessorio;
     equipado: boolean;
-};
+}
 
-export type Avatar = {
+export interface Avatar {
     id: number;
-    nome: string
-};
+    nome: string;
+}
 
-export type Credenciais = { 
+export interface Credenciais {
     email: string; 
-    senha: string 
-};
+    senha: string;
+}
 
+// A interseção reaproveita os campos de login no cadastro e no perfil.
 export type DadosCadastro = Credenciais & { 
-    nome: string 
+    nome: string;
 };
 
 export type DadosPerfil = DadosCadastro & { 
-    fotoUrl: string 
+    fotoUrl: string;
 };
+
+export type TipoSessao = "usuario" | "administrador";
+// A API Java usa S e N nos campos de sim/não.
+export type FlagApi = "S" | "N";
+
+// O tipo da sessão indica quais dados a pessoa conectada possui.
+export type Sessao =
+    | { tipo: "usuario"; pessoa: Usuario }
+    | { tipo: "administrador"; pessoa: Administrador };
+
+// O mesmo estado serve para buscar missões, acessórios e outros detalhes.
+export type EstadoRequisicao<T> =
+    | { status: "carregando" }
+    | { status: "erro"; mensagem: string }
+    | { status: "vazio" }
+    | { status: "sucesso"; dados: T };

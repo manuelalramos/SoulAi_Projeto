@@ -1,9 +1,8 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { loginAdministrador, loginUsuario } from "../data/api";
-import type { Credenciais, Usuario } from "../types/app";
+import type { Credenciais, Sessao, Usuario } from "../types/app";
 import { SessaoContext } from "./SessaoContext";
-import type { Sessao } from "./SessaoContext";
 
 // Compartilha a conta conectada e as ações de entrada e saída.
 export default function SessaoProvider({ children }: { children: ReactNode }) {
