@@ -17,12 +17,12 @@ export default function Dashboard() {
 
     return (
         <>
-            <h1 className="text-3xl font-extrabold text-soul-ink sm:text-4xl">Olá, {usuario.nome.split(" ")[0]}!</h1>
+            <h1 className="break-words text-2xl font-extrabold text-soul-ink sm:text-3xl md:text-4xl">Olá, {usuario.nome.split(" ")[0]}!</h1>
             <p className="mt-2">Uma pequena ação já faz diferença no seu dia.</p>
             <section aria-label="Seu foguinho" className="my-8 flex flex-col items-center gap-6 rounded-2xl border border-soul-line bg-white p-6 shadow-card sm:flex-row sm:gap-10 sm:p-8">
                 {/* Reaproveita o foguinho animado da seção de engajamento. */}
                 <div className="grid h-52 w-52 shrink-0 place-items-center rounded-full bg-gradient-to-br from-soul-yellow to-[#fff5bd] shadow-card sm:h-60 sm:w-60">
-                    <img className="h-28 w-28 object-contain [filter:brightness(0)_saturate(100%)_invert(27%)_sepia(74%)_saturate(2441%)_hue-rotate(226deg)_brightness(80%)_contrast(93%)] sm:h-32 sm:w-32" src={fogoAnimado} alt="Seu foguinho SoulAI" />
+                    <img className="h-28 w-28 object-contain [filter:brightness(0)_saturate(100%)_invert(27%)_sepia(74%)_saturate(2441%)_hue-rotate(226deg)_brightness(80%)_contrast(93%)] sm:h-32 sm:w-32" src={fogoAnimado} alt="Foguinho do SoulAI, que representa a sua ofensiva" />
                 </div>
                 <div className="w-full min-w-0 max-w-lg">
                     <p className="text-sm font-bold text-soul-purple">Seu foguinho</p>
@@ -31,7 +31,7 @@ export default function Dashboard() {
                     <div role="progressbar" aria-label="Energia das missões" aria-valuemin={0} aria-valuemax={100} aria-valuenow={ofensiva.energia} className="h-3 overflow-hidden rounded-full bg-soul-soft">
                         <div className="h-full rounded-full bg-soul-gradient transition-all duration-500" style={{ width: `${ofensiva.energia}%` }} />
                     </div>
-                    <p className="mt-3 text-xs">{concluidas} de {missoes.length} missões ativas concluídas.</p>
+                    <p className="mt-3 text-xs">{concluidas.length} de {missoes.length} missões ativas concluídas.</p>
                 </div>
             </section>
             {/* Simulação de desconto usando o saldo real da pessoa. */}

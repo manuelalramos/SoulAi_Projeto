@@ -43,7 +43,9 @@ export default function Login() {
             <form onSubmit={handleSubmit(enviarFormulario)} noValidate>
                 <fieldset disabled={isSubmitting} className="grid gap-4 disabled:opacity-70">
                     <div className="grid gap-2">
-                        <label className="font-bold text-soul-ink" htmlFor="email">E-mail</label>
+                        <label className="font-bold text-soul-ink" htmlFor="senha">Senha <span 
+                        className="sr-only">(obrigatória)</span></label>
+
                         <input id="email" type="email" autoComplete="username" className="campo-app" aria-invalid={!!errors.email} aria-describedby="erro-email"
                             {...register("email", { required: "Informe seu e-mail.", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Digite um e-mail válido." } })} />
                         <small id="erro-email" className="font-bold text-red-600">{errors.email?.message}</small>
