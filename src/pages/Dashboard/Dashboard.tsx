@@ -21,7 +21,7 @@ export default function Dashboard() {
 
     return (
         <>
-            <h1 className="text-3xl font-extrabold text-soul-ink sm:text-4xl">Olá, {usuario.nome.split(" ")[0]}!</h1>
+            <h1 className="break-words text-2xl font-extrabold text-soul-ink sm:text-3xl md:text-4xl">Olá, {usuario.nome.split(" ")[0]}!</h1>
             <p className="mt-2">Uma pequena ação já faz diferença no seu dia.</p>
             <section aria-label="Seu foguinho" className="my-8 flex flex-col items-center gap-6 rounded-2xl border border-soul-line bg-white p-6 shadow-card sm:flex-row sm:gap-10 sm:p-8">
                 {/* Reaproveita o foguinho animado da seção de engajamento. */}
