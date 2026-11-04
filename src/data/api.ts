@@ -18,6 +18,7 @@ type MissaoApi = {
     descricaoMissao: string;
     ativo: string;
     valorMoedasMissao: number;
+    energiaMissao?: number;
 };
 
 type AcessorioApi = Omit<Acessorio, "id" | "imagemUrl"> & {
@@ -164,6 +165,8 @@ function missaoDaApi(dados: MissaoApi): Missao {
         titulo: dados.tituloMissao,
         descricao: dados.descricaoMissao ?? "",
         recompensa: dados.valorMoedasMissao,
+        // A API pode ainda não enviar energia; nesse caso usamos 20 como padrão.
+        energia: typeof dados.energiaMissao === "number" ? dados.energiaMissao : 20,
         ativa: dados.ativo === "S",
         concluida: false,
         atribuida: false,
@@ -315,6 +318,11 @@ export async function carregarProgresso(idUsuario: number) {
         }
     }
 
+    // Usa todo o histórico: cadastrar ou desativar uma missão não reduz a energia.
+    const totalConcluidas = registros.filter((registro) => registro.missaoConcluida === "S").length;
+    const energiaTotal = totalConcluidas * 20;
+    const ofensiva = { energiaTotal, nivel: Math.floor(energiaTotal / 100), energia: energiaTotal % 100 };
+
     return {
         usuario: usuarioDaApi(pessoa),
         missoes: missoes.map((missao) => {
@@ -331,9 +339,8 @@ export async function carregarProgresso(idUsuario: number) {
         acessorios,
         inventario,
         avatar,
-        totalConcluidas: registros.filter(
-            (registro) => registro.missaoConcluida === "S"
-        ).length,
+        totalConcluidas,
+        ofensiva,
     };
 }
 
@@ -391,6 +398,7 @@ export function salvarMissao(
                 descricaoMissao: missao.descricao.trim(),
                 ativo: missao.ativa ? "S" : "N",
                 valorMoedasMissao: missao.recompensa,
+                energiaMissao: missao.energia ?? 20,
                 idAdministrador,
             }),
         },

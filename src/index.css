@@ -76,4 +76,11 @@
   .botao-secundario[aria-disabled="true"] {
     @apply cursor-not-allowed opacity-50;
   }
+
+  /* Deixa o foco por teclado bem visivel. */
+  :focus-visible {
+    outline: 2px solid #6e4bff;
+    outline-offset: 2px;
+  }
+
 }
