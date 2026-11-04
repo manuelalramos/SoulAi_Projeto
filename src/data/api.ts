@@ -24,6 +24,7 @@ interface MissaoApi {
     descricaoMissao: string;
     ativo: FlagApi;
     valorMoedasMissao: number;
+    energiaMissao?: number;
 }
 
 interface AcessorioApi extends Omit<Acessorio, "id" | "imagemUrl"> {
