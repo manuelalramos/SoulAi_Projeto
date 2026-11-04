@@ -318,6 +318,11 @@ export async function carregarProgresso(idUsuario: number) {
         }
     }
 
+    // Usa todo o histórico: cadastrar ou desativar uma missão não reduz a energia.
+    const totalConcluidas = registros.filter((registro) => registro.missaoConcluida === "S").length;
+    const energiaTotal = totalConcluidas * 20;
+    const ofensiva = { energiaTotal, nivel: Math.floor(energiaTotal / 100), energia: energiaTotal % 100 };
+
     return {
         usuario: usuarioDaApi(pessoa),
         missoes: missoes.map((missao) => {
@@ -334,9 +339,8 @@ export async function carregarProgresso(idUsuario: number) {
         acessorios,
         inventario,
         avatar,
-        totalConcluidas: registros.filter(
-            (registro) => registro.missaoConcluida === "S"
-        ).length,
+        totalConcluidas,
+        ofensiva,
     };
 }
 

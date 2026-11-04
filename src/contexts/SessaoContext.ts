@@ -2,7 +2,7 @@ import type { Administrador, Credenciais, Usuario } from "../types/app";
 import { createContext } from "react";
 
 export type Sessao = 
-    |{tipo: "usuario"; pessoa: Usuario}
+    |{tipo: "usuario"; pessoa: Usuario; tokenIA: string}
     |{tipo: "administrador"; pessoa: Administrador}
 
 type DadosSessao = {

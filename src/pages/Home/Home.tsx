@@ -9,7 +9,7 @@ export default function Home() {
         <>
             {/* Hero apresenta o SoulAI logo no primeiro contato. */}
             <HeroSection />
-            {/* Sobre resume a proposta e abre a demonstração do chat. */}
+            {/* Sobre resume a proposta e oferece acesso ao chat. */}
             <HomeAboutSection />
             {/* Carrossel destaca pontos da experiência SoulAI. */}
             <HomeExperienceSection />

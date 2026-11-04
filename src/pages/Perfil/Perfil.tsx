@@ -27,7 +27,7 @@ export default function Perfil() {
                 {/* Resumo do progresso que a pessoa já fez no app. */}
                 <dl className="my-8 grid grid-cols-1 gap-5 border-y border-soul-line py-6 sm:grid-cols-3">
                     <div><dt className="text-sm">Moedas</dt><dd className="mt-1 text-2xl font-extrabold text-soul-blue">{dados.usuario.moedas}</dd></div>
-                    <div><dt className="text-sm">Nível</dt><dd className="mt-1 text-2xl font-extrabold text-soul-blue">{dados.usuario.nivel}</dd></div>
+                    <div><dt className="text-sm">Nível</dt><dd className="mt-1 text-2xl font-extrabold text-soul-blue">{dados.ofensiva.nivel}</dd></div>
                     <div><dt className="text-sm">Missões concluídas</dt><dd className="mt-1 text-2xl font-extrabold text-soul-blue">{dados.totalConcluidas}</dd></div>
                 </dl>
 
