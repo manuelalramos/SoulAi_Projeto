@@ -10,7 +10,7 @@ export const homeCards: CardContent[] = [
 
     {
         title: "Gamificação",
-        description: "Missões, pontos, sequência de uso e recompensass tornam a experiência mais diverida e recorrente"
+        description: "Missões, pontos, sequência de uso e recompensas tornam a experiência mais divertida e recorrente."
     },
 
     {
