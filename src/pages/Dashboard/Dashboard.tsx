@@ -12,9 +12,11 @@ export default function Dashboard() {
     if (!dados) return null;
     const { usuario, missoes } = dados;
     const desconto = usuario.moedas * 0.10;
-    const concluidas = missoes.filter((missao) => missao.concluida).length;
-    // A energia representa a proporção de missões ativas já concluídas.
-    const energia = missoes.length ? Math.round(concluidas / missoes.length * 100) : 0;
+    const concluidas = missoes.filter((missao) => missao.concluida);
+    // Soma o que já foi conquistado, sem diminuir ao cadastrar novas missões.
+    const energiaTotal = concluidas.reduce((soma, missao) => soma + (missao.energia ?? 20), 0);
+    const nivel = Math.floor(energiaTotal / 100);
+    const energia = energiaTotal % 100;
     const missoesDoDia = missoes.filter((missao) => !missao.concluida).slice(0, 3);
 
     return (
@@ -28,12 +30,12 @@ export default function Dashboard() {
                 </div>
                 <div className="w-full min-w-0 max-w-lg">
                     <p className="text-sm font-bold text-soul-purple">Seu foguinho</p>
-                    <h2 className="mt-1 text-2xl font-extrabold text-soul-ink">Nível {usuario.nivel}</h2>
+                    <h2 className="mt-1 text-2xl font-extrabold text-soul-ink">Nível {nivel}</h2>
                     <div className="mb-2 mt-5 flex justify-between text-sm font-bold"><span>Energia</span><span>{energia}%</span></div>
                     <div role="progressbar" aria-label="Energia das missões" aria-valuemin={0} aria-valuemax={100} aria-valuenow={energia} className="h-3 overflow-hidden rounded-full bg-soul-soft">
                         <div className="h-full rounded-full bg-soul-gradient transition-all duration-500" style={{ width: `${energia}%` }} />
                     </div>
-                    <p className="mt-3 text-xs">{concluidas} de {missoes.length} missões ativas concluídas.</p>
+                    <p className="mt-3 text-xs">{concluidas.length} de {missoes.length} missões ativas concluídas.</p>
                 </div>
             </section>
             {/* Simulação de desconto usando o saldo real da pessoa. */}
