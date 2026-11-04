@@ -979,7 +979,7 @@ npm install
 | Repositório (GitHub) | https://github.com/manuelalramos/SoulAi_Projeto |
 | Deploy (Vercel) | https://soul-ai-projeto.vercel.app/ |
 | API (Java) | https://soulai-api.onrender.com |
-| Vídeo (YouTube) | https://youtu.be/I9rRHKgwEt8 |
+| Vídeo (YouTube) | https://youtu.be/ZZCQs90v0tY |
 
 A aplicação publicada na Vercel já consome remotamente a API em Java, permitindo os testes online.
 
@@ -1103,7 +1103,7 @@ https://soulai-api.onrender.com
 
 ### Vídeo (YouTube)
 ```text
-preencher antes da entrega
+https://youtu.be/ZZCQs90v0tY
 ```
 
 ---
