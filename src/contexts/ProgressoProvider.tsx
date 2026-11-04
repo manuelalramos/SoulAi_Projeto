@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { alterarEquipamento, carregarProgresso, comprarAcessorio, concluirMissao, mensagemErro, salvarPerfilUsuario } from "../data/api";
+import { SOUL_PROGRESS_REFRESH_EVENT } from "../data/chat";
 
 import useSessao from "../hooks/useSessao";
 import type { Acessorio, DadosPerfil, ItemInventario, Missao } from "../types/app";
@@ -32,7 +33,7 @@ export default function ProgressoProvider({ children }: { children: ReactNode })
 
     }, [idUsuario]);
 
-    async function atualizar() {
+    const atualizar = useCallback(async () => {
         setCarregando(true);
         setErro("");
 
@@ -46,7 +47,14 @@ export default function ProgressoProvider({ children }: { children: ReactNode })
         } finally {
             setCarregando(false);
         }
-    }
+    }, [idUsuario]);
+
+    // O chat fica no layout global e pede a atualização pelo evento compartilhado.
+    useEffect(() => {
+        const sincronizar = () => { void atualizar(); };
+        window.addEventListener(SOUL_PROGRESS_REFRESH_EVENT, sincronizar);
+        return () => window.removeEventListener(SOUL_PROGRESS_REFRESH_EVENT, sincronizar);
+    }, [atualizar]);
 
     // Faz uma ação por vez e busca o progresso atualizado ao terminar.
     async function executarAcao(acao: () => Promise<unknown>, mensagem: string) {
