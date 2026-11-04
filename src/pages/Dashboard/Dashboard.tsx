@@ -31,7 +31,7 @@ export default function Dashboard() {
                     <div role="progressbar" aria-label="Energia das missões" aria-valuemin={0} aria-valuemax={100} aria-valuenow={ofensiva.energia} className="h-3 overflow-hidden rounded-full bg-soul-soft">
                         <div className="h-full rounded-full bg-soul-gradient transition-all duration-500" style={{ width: `${ofensiva.energia}%` }} />
                     </div>
-                    <p className="mt-3 text-xs">{concluidas.length} de {missoes.length} missões ativas concluídas.</p>
+                    <p className="mt-3 text-xs">{concluidas} de {missoes.length} missões ativas concluídas.</p>
                 </div>
             </section>
             {/* Simulação de desconto usando o saldo real da pessoa. */}
