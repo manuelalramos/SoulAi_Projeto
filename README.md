@@ -25,8 +25,8 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/TypeScript-6.0.2-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-8.2.2-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
 </p>
 
@@ -523,7 +523,7 @@ SoulAi_Projeto/
 │   │   ├── navigation.ts
 │   │   ├── solution.ts
 │   │   └── team.ts
-│   ├── hooks/           # useScrollToTop, useSessao, useProgresso
+│   ├── hooks/           # useScrollToTop, useSessao, useProgresso, useDetalhe
 │   ├── layouts/         # MainLayout e layouts da área logada
 │   ├── pages/
 │   │   ├── Home/
@@ -536,7 +536,9 @@ SoulAi_Projeto/
 │   │   ├── Cadastro/    # Sprint 4
 │   │   ├── Dashboard/   # Sprint 4
 │   │   ├── Missoes/     # Sprint 4
+│   │   ├── MissaoDetalhe/
 │   │   ├── Loja/        # Sprint 4
+│   │   ├── AcessorioDetalhe/
 │   │   ├── Avatar/      # Sprint 4
 │   │   ├── Perfil/      # Sprint 4
 │   │   ├── EditarPerfil/# Sprint 4
@@ -558,6 +560,7 @@ SoulAi_Projeto/
 ├── tsconfig.app.json
 ├── tsconfig.json
 ├── tsconfig.node.json
+├── vercel.json          # fallback das rotas da SPA
 └── vite.config.ts
 ```
 
@@ -583,7 +586,7 @@ Guarda os contextos da área logada (Sprint 4): a **sessão** (usuário ou admin
 Centraliza conteúdos estáticos (FAQ, integrantes, navegação, mensagens do chat, funcionalidades da solução, textos e cards) e a **camada de integração com a API** (`api.ts`).
 
 ### `src/hooks`
-Guarda hooks próprios: `useScrollToTop`, além de `useSessao` e `useProgresso` (Sprint 4).
+Guarda hooks próprios: `useScrollToTop`, `useSessao`, `useProgresso` e `useDetalhe` (consulta dos detalhes pela API).
 
 ### `src/layouts`
 Guarda estruturas compartilhadas entre páginas (o `MainLayout` e os layouts da área logada e de acesso).
@@ -606,6 +609,9 @@ As rotas são configuradas em `src/main.tsx` com `createBrowserRouter`.
 | Rota | Página renderizada | Observação |
 |---|---|---|
 | `/` | Home | Página inicial |
+| `/home` | Redirecionamento | Leva para `/` com `Navigate` |
+| `/about` | Redirecionamento | Leva para `/sobre` com `Navigate` |
+| `/equipe` | Redirecionamento | Leva para `/integrantes` com `Navigate` |
 | `/sobre` | Sobre | Explica a proposta e os objetivos |
 | `/integrantes` | Integrantes | Mostra a equipe |
 | `/faq` | FAQ | Perguntas frequentes |
@@ -616,7 +622,9 @@ As rotas são configuradas em `src/main.tsx` com `createBrowserRouter`.
 | `/cadastro` | Cadastro | Cria conta + consentimento LGPD |
 | `/app` | Dashboard | Área logada (protegida) |
 | `/app/missoes` | Missões | Área logada |
+| `/app/missoes/:id` | Detalhe da missão | Protegida; consome `GET /missao/{id}` |
 | `/app/loja` | Loja | Área logada |
+| `/app/loja/:id` | Detalhe do acessório | Protegida; consome `GET /acessorio/{id}` |
 | `/app/avatar` | Avatar | Área logada |
 | `/app/perfil` | Perfil | Área logada |
 | `/app/perfil/editar` | Editar Perfil | Área logada |
@@ -626,6 +634,10 @@ As rotas são configuradas em `src/main.tsx` com `createBrowserRouter`.
 ### Rota dinâmica da solução
 
 A rota `/solucao/:slug` permite abrir detalhes de uma funcionalidade sem criar uma página manual para cada item. Os slugs vêm de `src/data/solution.ts` (`missoes`, `foguinho`, `pontos`, `avatar`). Se o usuário acessar um slug inexistente, a aplicação mostra uma mensagem de recurso não encontrado e oferece botão de retorno.
+
+### Rotas dinâmicas com API
+
+Os links **Ver detalhes** dos cards abrem `/app/missoes/:id` e `/app/loja/:id`. As páginas usam `useParams` e o hook `useDetalhe`, que chama `buscarMissao` ou `buscarAcessorio` em `src/data/api.ts`. O carregamento avisa quando a primeira conexão demora. Se a API responder 404 ou o id for inválido, a pessoa volta para a lista com um aviso personalizado. Outros erros mostram uma mensagem e um botão de retorno. As duas rotas ficam dentro da área protegida de usuário.
 
 ---
 
@@ -708,7 +720,7 @@ export const API_BASE = "https://soulai-api.onrender.com";
 
 ### Operações consumidas
 
-- **Leitura (GET):** login, listagem de missões, loja/acessórios, inventário e avatar;
+- **Leitura (GET):** listagem de missões, loja/acessórios, inventário, avatar e detalhes por `GET /missao/{id}` e `GET /acessorio/{id}`;
 - **Escrita (POST / PUT / DELETE):** cadastro de usuário, conclusão de missão, compra e troca de acessório, edição de perfil, e o CRUD de missões e acessórios no portal do administrador.
 
 ### Tipagem, carregamento e erro
@@ -766,6 +778,7 @@ Renderiza os dados de cada integrante.
 
 | Arquivo | Tipo principal |
 |---|---|
+| `app.ts` | interfaces dos modelos, sessão, flags, cadastro e estado genérico de requisição |
 | `card.ts` | `CardContent` |
 | `chat.ts` | `ChatMessage` |
 | `faq.ts` | `FaqQuestion` |
@@ -774,7 +787,14 @@ Renderiza os dados de cada integrante.
 | `solution.ts` | `SolutionFeature` |
 | `team.ts` | `TeamMember` |
 
-> Os tipos usados na integração com a API (usuário, administrador, missão, acessório) também são definidos em TypeScript, garantindo segurança no consumo dos dados.
+Em `src/types/app.ts`, a tipagem usa:
+
+- **Interfaces e herança:** `Pessoa` reúne id, nome e e-mail; `Usuario` e `Administrador` usam `extends Pessoa`. Missões, acessórios, inventário, avatar e credenciais também são interfaces.
+- **Union types:** `TipoSessao` aceita `"usuario" | "administrador"` e `FlagApi` aceita `"S" | "N"`, como a API Java. A união discriminada `Sessao` relaciona o campo `tipo` aos dados de `pessoa`, mantendo o formato usado pelo login.
+- **Intersection types:** `DadosCadastro = Credenciais & { nome: string }` e `DadosPerfil = DadosCadastro & { fotoUrl: string }` reaproveitam os campos existentes.
+- **Genérico:** `EstadoRequisicao<T>` separa `carregando`, `erro` (com mensagem), `vazio` e `sucesso` (com dados de tipo `T`). O hook `useDetalhe` usa esse tipo tanto para missão quanto para acessório.
+
+As respostas da API também têm interfaces em `src/data/api.ts`: `UsuarioApi`, `AdministradorApi`, `MissaoApi`, `AcessorioApi`, `AvatarApi`, `RegistroMissao` e `RegistroInventario`.
 
 ---
 
@@ -785,6 +805,10 @@ Observa a mudança de rota com `useLocation` e leva o usuário ao topo quando a 
 
 ### `useSessao` e `useProgresso` (Sprint 4)
 Fornecem acesso ao contexto de sessão (quem está logado) e ao progresso do usuário (dados vindos da API), usados pelas páginas da área logada.
+
+### `useDetalhe`
+
+Recebe o id da URL e a função de busca, valida o id e controla `EstadoRequisicao<T>`. Respostas antigas são ignoradas ao sair da tela ou mudar de id, evitando mostrar o detalhe errado.
 
 ---
 
@@ -905,6 +929,14 @@ O Tailwind está configurado em `tailwind.config.cjs`, que centraliza cores pers
 
 ## Qualidade e validações
 
+### Type-check
+
+```bash
+npx tsc -b
+```
+
+Verifica os tipos da aplicação e da configuração do Vite sem gerar o bundle.
+
 ### Lint
 ```bash
 npm run lint
@@ -1013,6 +1045,10 @@ https://soul-ai-projeto.vercel.app/
 ```
 
 A Vercel está conectada ao repositório do GitHub, então cada atualização na branch de produção gera um novo deploy automaticamente. A aplicação publicada consome a API em Java hospedada na nuvem.
+
+O arquivo `vercel.json`, na raiz do projeto, reescreve as rotas para `/index.html`, permitindo abrir ou recarregar diretamente `/sobre`, `/solucao/:slug` e as rotas da área logada. Essa é a configuração de SPA indicada na [documentação da Vercel para Vite](https://vercel.com/docs/frameworks/frontend/vite).
+
+No `vite.config.ts`, `base: "/"` mantém os caminhos de CSS e JavaScript a partir da raiz, inclusive nas rotas aninhadas. No deploy, use o preset **Vite**, o comando `npm run build` e a pasta de saída `dist`. A sessão continua em memória: após recarregar uma rota protegida, pode ser necessário entrar novamente.
 
 ---
 
