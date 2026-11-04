@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import useSessao from "../../hooks/useSessao";
+import type { TipoSessao } from "../../types/app";
 
 
 // Confere a sessão antes de mostrar uma página de usuário ou administrador.
 export default function RotaProtegida({ tipo, children }: {
-    tipo: "usuario" | "administrador";
+    tipo: TipoSessao;
     children: ReactNode;
 }) {
     const { sessao } = useSessao();

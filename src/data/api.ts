@@ -1,41 +1,52 @@
-import type { Acessorio, Administrador, Avatar, Credenciais, DadosCadastro, DadosPerfil, ItemInventario, Missao, Usuario} from "../types/app";
+import type { Acessorio, Administrador, Avatar, Credenciais, DadosCadastro, DadosPerfil, FlagApi, ItemInventario, Missao, Usuario } from "../types/app";
 
 export const API_BASE = "https://soulai-api.onrender.com";
 const TEMPO_LIMITE = 90000;
 
-type UsuarioApi = {
+interface UsuarioApi {
     idUsuario: number;
     nome: string;
     email: string;
     saldoMoedas: number;
     nivelOfensiva: number;
     fotoUrl?: string | null;
-};
+}
 
-type MissaoApi = {
+interface AdministradorApi {
+    idAdministrador: number;
+    nome: string;
+    email: string;
+}
+
+interface MissaoApi {
     idMissao: number;
     tituloMissao: string;
     descricaoMissao: string;
-    ativo: string;
+    ativo: FlagApi;
     valorMoedasMissao: number;
     energiaMissao?: number;
-};
+}
 
-type AcessorioApi = Omit<Acessorio, "id" | "imagemUrl"> & {
+interface AcessorioApi extends Omit<Acessorio, "id" | "imagemUrl"> {
     idAcessorio: number;
     imagemUrl?: string | null;
-};
+}
 
-type RegistroMissao = {
+interface AvatarApi {
+    idAvatar: number;
+    nome: string;
+}
+
+interface RegistroMissao {
     idMissao: number;
-    missaoConcluida: string;
+    missaoConcluida: FlagApi;
     missaoConcluidaEm: string | null;
-};
+}
 
-type RegistroInventario = {
+interface RegistroInventario {
     idAcessorio: number;
-    equipado: string;
-};
+    equipado: FlagApi;
+}
 
 // Erros e mensagens exibidos nas telas.
 class ErroApi extends Error {
@@ -55,6 +66,10 @@ export function mensagemErro(erro: unknown) {
 
 export function credenciaisInvalidas(erro: unknown) {
     return erro instanceof ErroApi && erro.status === 401;
+}
+
+export function registroNaoEncontrado(erro: unknown) {
+    return erro instanceof ErroApi && erro.status === 404;
 }
 
 // Todas as chamadas passam aqui, inclusive o timeout do primeiro acesso.
@@ -200,11 +215,7 @@ export async function loginUsuario(dados: Credenciais) {
 export async function loginAdministrador(
     dados: Credenciais
 ): Promise<Administrador> {
-    const pessoa = await requisicao<{
-        idAdministrador: number;
-        nome: string;
-        email: string;
-    }>(
+    const pessoa = await requisicao<AdministradorApi>(
         "/administrador/login",
         {
             method: "POST",
@@ -261,16 +272,30 @@ export async function listarMissoes(todas = false) {
     return dados.map(missaoDaApi);
 }
 
+// O detalhe vem direto da API, mesmo quando a pessoa abre o link pela URL.
+export async function buscarMissao(id: number): Promise<Missao> {
+    return missaoDaApi(await requisicao<MissaoApi>(
+        `/missao/${id}`,
+        {},
+        "Não foi possível carregar essa missão. Tente novamente em instantes."
+    ));
+}
+
 export async function listarAcessorios() {
     return (await requisicao<AcessorioApi[]>("/acessorio")).map(acessorioDaApi);
 }
 
+export async function buscarAcessorio(id: number): Promise<Acessorio> {
+    return acessorioDaApi(await requisicao<AcessorioApi>(
+        `/acessorio/${id}`,
+        {},
+        "Não foi possível carregar esse acessório. Tente novamente em instantes."
+    ));
+}
+
 export async function buscarAvatar(idUsuario: number): Promise<Avatar | null> {
     try {
-        const dados = await requisicao<{
-            idAvatar: number;
-            nome: string;
-        }>(`/avatar/usuario/${idUsuario}`);
+        const dados = await requisicao<AvatarApi>(`/avatar/usuario/${idUsuario}`);
 
         return {
             id: dados.idAvatar,

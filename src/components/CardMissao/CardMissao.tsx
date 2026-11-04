@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useProgresso from "../../hooks/useProgresso";
 import type { Missao } from "../../types/app";
 
@@ -14,6 +15,7 @@ export default function CardMissao({ missao }: { missao: Missao }) {
                 <h3 className="break-words text-lg font-extrabold text-soul-ink">{missao.titulo}</h3>
                 {missao.descricao && <p className="mt-2 max-w-xl break-words text-sm">{missao.descricao}</p>}
                 <p className="mt-3 text-sm font-bold text-soul-purple">+{missao.recompensa} moedas</p>
+                <Link className="mt-3 inline-block rounded text-sm font-bold text-soul-blue underline underline-offset-4 hover:text-soul-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul-purple" to={`/app/missoes/${missao.id}`} aria-label={`Ver detalhes de ${missao.titulo}`}>Ver detalhes</Link>
             </div>
             {missao.concluida ? (
                 <p className="shrink-0 rounded-full bg-emerald-500/10 px-5 py-2 text-sm font-bold text-emerald-600">✓ Concluída</p>
