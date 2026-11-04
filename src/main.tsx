@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ContatoRoute from "./routes/Contato";
 import NotFound from "./routes/NotFound";
@@ -15,7 +15,9 @@ import CadastroRoute from "./routes/Cadastro";
 import AreaAppRoute from "./routes/AreaApp";
 import DashboardRoute from "./routes/Dashboard";
 import MissoesRoute from "./routes/Missoes";
+import MissaoDetalheRoute from "./routes/MissaoDetalhe";
 import LojaRoute from "./routes/Loja";
+import AcessorioDetalheRoute from "./routes/AcessorioDetalhe";
 import AvatarRoute from "./routes/Avatar";
 import PerfilRoute from "./routes/Perfil";
 import EditarPerfilRoute from "./routes/EditarPerfil";
@@ -33,6 +35,10 @@ const router = createBrowserRouter([
     children: [
       // index: true representa a Home da rota pai "/".
       { index: true, element: <HomeRoute /> },
+      // Atalhos antigos levam para os caminhos oficiais, sem repetir páginas.
+      { path: "home", element: <Navigate to="/" replace /> },
+      { path: "about", element: <Navigate to="/sobre" replace /> },
+      { path: "equipe", element: <Navigate to="/integrantes" replace /> },
       { path: "sobre", element: <SobreRoute /> },
       { path: "integrantes", element: <IntegrantesRoute /> },
       { path: "faq", element: <FAQRoute /> },
@@ -49,7 +55,9 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <DashboardRoute /> },
           { path: "missoes", element: <MissoesRoute /> },
+          { path: "missoes/:id", element: <MissaoDetalheRoute /> },
           { path: "loja", element: <LojaRoute /> },
+          { path: "loja/:id", element: <AcessorioDetalheRoute /> },
           { path: "avatar", element: <AvatarRoute /> },
           { path: "perfil", element: <PerfilRoute /> },
           { path: "perfil/editar", element: <EditarPerfilRoute /> },

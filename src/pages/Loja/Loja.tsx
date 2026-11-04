@@ -1,16 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ImagemAcessorio from "../../components/ImagemAcessorio/ImagemAcessorio";
 import useProgresso from "../../hooks/useProgresso";
 
 // Página que mostra os acessórios e as opções de compra com moedas.
 export default function Loja() {
     const { dados, comprar, ocupado } = useProgresso();
+    const { state } = useLocation();
+    // O detalhe avisa quando o acessório já não está disponível.
+    const aviso = typeof state?.avisoDetalhe === "string" ? state.avisoDetalhe : "";
     if (!dados) return null;
 
     return (
         <>
             <h1 className="text-3xl font-extrabold text-soul-ink">Loja do SoulAI</h1>
             <p className="mb-8 mt-2">Troque suas moedas por acessórios para deixar o foguinho com a sua cara.</p>
+            {aviso && <p role="status" className="mb-5 rounded-xl border border-soul-cyan/30 bg-white p-4 text-sm text-soul-blue">{aviso}</p>}
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
                 {dados.acessorios.map((acessorio) => {
@@ -24,6 +28,7 @@ export default function Loja() {
                             <p className="text-xs font-bold text-soul-purple">{acessorio.tipo} · {acessorio.raridade}</p>
                             <h2 className="mt-2 break-words text-lg font-extrabold text-soul-ink">{acessorio.nome}</h2>
                             <p className="mb-5 mt-2 text-sm font-bold">{acessorio.preco} moedas</p>
+                            <Link className="mb-4 self-start rounded text-sm font-bold text-soul-blue underline underline-offset-4 hover:text-soul-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-soul-purple" to={`/app/loja/${acessorio.id}`} aria-label={`Ver detalhes de ${acessorio.nome}`}>Ver detalhes</Link>
                             {adquirido ? <Link className="botao-secundario mt-auto" to="/app/avatar">Adquirido · ver no avatar</Link> : (
 
                                 <button className="botao-app mt-auto" type="button" disabled={ocupado || semSaldo} onClick={() => void comprar(acessorio)}>
