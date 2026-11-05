@@ -63,14 +63,14 @@ export default function FloatingChat() {
 
     return (
         <div className="fixed bottom-4 right-4 z-40 md:bottom-6 md:right-6">
-            {/* Janela do chat */}
+            {/* Limita a janela à tela para o botão de fechar não sumir no celular deitado. */}
             {chatAberto && (
                 <aside
-                    className="absolute bottom-20 right-0 w-[min(350px,calc(100vw-32px))] overflow-hidden rounded-xl bg-white/95 shadow-future backdrop-blur-2xl"
+                    className="absolute bottom-20 right-0 flex max-h-[calc(100dvh-7rem)] w-[min(350px,calc(100vw-32px))] flex-col overflow-hidden rounded-xl bg-white/95 shadow-future backdrop-blur-2xl"
                     aria-label="Mensagens do SoulAI"
                 >
                     {/* Cabeçalho do chat */}
-                    <div className="flex items-start justify-between gap-3 border-b border-soul-soft/80 bg-gradient-to-r from-soul-purple to-soul-blue p-5 text-white">
+                    <div className="flex shrink-0 items-start justify-between gap-3 border-b border-soul-soft/80 bg-gradient-to-r from-soul-purple to-soul-blue p-5 text-white">
                         <div>
                             <h2 className="text-2xl font-black text-white">
                                 SoulAI
@@ -95,7 +95,7 @@ export default function FloatingChat() {
                     </div>
 
                     {/* Área das mensagens */}
-                    <div className="grid max-h-[380px] gap-3 overflow-y-auto bg-soul-soft/50 p-5">
+                    <div className="grid min-h-0 max-h-[380px] gap-3 overflow-y-auto bg-soul-soft/50 p-5">
                         {chatMessages
                             .slice(0, mensagensVisiveis)
                             .map((message, index) => (
