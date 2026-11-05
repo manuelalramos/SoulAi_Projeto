@@ -865,7 +865,7 @@ Foco visual: leitura clara, visual jovem, sensação tecnológica, contraste em 
 
 ## Prints do projeto
 
-> Coloque os prints na pasta `docs/prints/` do repositório com os nomes abaixo.
+Os prints abaixo estão na pasta `docs/prints/` do repositório e mostram as telas da aplicação.
 
 <p align="center">
   <img src="./docs/prints/home.png" alt="Print da página inicial do SoulAI" width="700" />
@@ -896,7 +896,7 @@ Foco visual: leitura clara, visual jovem, sensação tecnológica, contraste em 
 </p>
 
 <p align="center">
-  <img src="./docs/prints/perfil.png" alt="Print da página do avatar" width="700" />
+  <img src="./docs/prints/perfil.png" alt="Print da página de perfil" width="700" />
 </p>
 
 <p align="center">
@@ -908,7 +908,7 @@ Foco visual: leitura clara, visual jovem, sensação tecnológica, contraste em 
 </p>
 
 <p align="center">
-  <img src="./docs/prints/chat.png" alt="Print do portal do administrador" width="700" />
+  <img src="./docs/prints/chat.png" alt="Print da demonstração do chat SoulAI" width="700" />
 </p>
 
 <p align="center">
@@ -983,7 +983,8 @@ Tipos comuns: `feat` (nova funcionalidade), `fix` (correção), `refactor` (reor
 ## Como instalar
 
 ### Pré-requisitos
-Node.js, npm e Git.
+
+Node.js **24**, npm e Git.
 
 ### 1. Clonar o repositório
 ```bash
